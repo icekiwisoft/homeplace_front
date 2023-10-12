@@ -6,7 +6,6 @@ export default function header() {
   return (
     <header className='h-fit'>
       <Nav/>
-      <Hero/>
     </header>
   )
 }
