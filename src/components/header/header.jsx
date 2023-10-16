@@ -1,4 +1,4 @@
-import Nav from '../elements/Nav/NAv'
+import Nav from '../elements/Nav/Nav'
 import Hero from '../elements/Hero/Hero'
 import './header.css'
 
