@@ -5,7 +5,7 @@ import './footer.scss'
 
 export default function Footer():React.ReactElement {
   return (
-    <footer className="bg-black w-full text-white lg:px-48 pt-7 pr-10 pb-1 pl-14 fixed bottom-0">
+    <footer className="bg-black w-full text-white lg:px-48 pt-7 pr-10 pb-1 pl-14 ">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="mb-4 md:mb-0">
           <h2 className="text-2xl font-semibold flex py-2">D <HiHomeModern className="h-auto"/> milis</h2>

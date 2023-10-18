@@ -5,8 +5,9 @@ import React from 'react'
 
 export default function Header():React.ReactElement {
   return (
-    <header className='h-fit'>
+    <header>
       <Nav />
+      <Hero />
     </header>
   )
 }

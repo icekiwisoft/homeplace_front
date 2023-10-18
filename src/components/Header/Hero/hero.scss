@@ -1,0 +1,33 @@
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
+  background-color: #00000044;
+  font-size: 1.2rem !important;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 20px;
+
+  &::after {
+    font-size: 1.2rem !important;
+    font-weight: 600;
+  }
+}
+
+.slide1 {
+  overflow: hidden;
+}
+
+img {
+  filter: brightness(40%);
+  object-fit: cover;
+}
+
+.swiper-pagination-bullet {
+  background-color: white !important;
+  opacity: 0.5;
+  .swiper-pagination-bullet-active {
+    background-color: white !important;
+    opacity: 1;
+  }
+}
