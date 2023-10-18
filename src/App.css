@@ -7,5 +7,7 @@
   text-decoration: none;
   font-family: 'Inter';
   box-sizing: border-box;
-  /* box-shadow: 0 0 0 1px inset red; */
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 0 0 1px inset blue;
+
 }
