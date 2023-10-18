@@ -1,9 +1,9 @@
 import './news_later.css'
 
-export default function news_later() {
+export default function News_later() {
   return (
     <div>
-      <input type="email" name="news_later"/>
+      <input type="email" name="news_later" />
     </div>
   )
 }
