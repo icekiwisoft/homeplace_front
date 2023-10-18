@@ -1,7 +1,9 @@
+import React from "react";
 import {FaGithub, FaInstagram, FaLinkedinIn, FaTwitter} from "react-icons/fa";
 import { HiHomeModern } from "react-icons/hi2";
+import './footer.scss'
 
-export default function footer() {
+export default function Footer():React.ReactElement {
   return (
     <footer className="bg-black w-full text-white lg:px-48 pt-7 pr-10 pb-1 pl-14 relative">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
