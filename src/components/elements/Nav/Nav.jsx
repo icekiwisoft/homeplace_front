@@ -30,7 +30,7 @@ export default function Nav() {
     </>
 
     return (
-        <nav className="relative top-0 w-[100%] ">
+        <nav className="relative top-0 w-full ">
             <div className="h-[80px] flex justify-between first-letter:  items-center text-white lg:py-3 px-6 py-2 border-b">
                 <div className="flex items-center flex-1">
                     <span className="text-2xl font-bold flex">D<HiHomeModern className="h-auto" />milis</span>

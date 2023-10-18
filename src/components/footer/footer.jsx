@@ -21,7 +21,7 @@ export default function footer() {
           </ul>
         </div>
         <div className="pl-8">
-          <h2 className="text-[22px] font-semibold text-white py-2">Suivez-nous</h2>
+          <h2 className="text-[22px] font-semibold text-white py-2 w-fit">Suivez-nous</h2>
           <div className="flex space-x-4">
             <a className="text-neutral-800 bg-white border rounded-full h-8 w-8 text-xl flex justify-center items-center hover:text-fuchsia-800  transition-all duration-150 ease-in-out" href="">
                 <FaGithub/>
