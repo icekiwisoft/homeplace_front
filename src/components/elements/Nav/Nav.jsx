@@ -11,8 +11,8 @@ export default function Nav() {
     const handleClick = () => setClick(!click);
 
     const content = <>
-        <div className="md:hidden text-black absolute z-1000 block top-12 w-full left-0 right-0 transition">
-            <ul className="text-center  text-xs mt-16 transition-all ">
+        <div className="md:hidden text-black absolute z-10 block top-12 w-full left-0 right-0 transition">
+            <ul className="text-center  text-xs mt-16 transition-all z-50 ">
                 <Link spy={true} smooth={true} to="Home">
                     <li className="my-2 py-2 hover:bg-white hover:rounded">Accueil</li>
                 </Link >
@@ -30,7 +30,7 @@ export default function Nav() {
     </>
 
     return (
-        <nav className="fixed top-0 relative w-[100%] ">
+        <nav className=" top-0 relative w-[100%] ">
             <div className="h-[80px] flex justify-between first-letter:  items-center text-white lg:py-3 px-6 py-2 border-b">
                 <div className="flex items-center flex-1">
                     <span className="text-2xl font-bold flex">D<HiHomeModern className="h-auto" />milis</span>
