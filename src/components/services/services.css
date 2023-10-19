@@ -1,0 +1,21 @@
+h1{
+    font-size: 50px !important; 
+    font-weight: bold !important;
+}
+h2{
+    font-size: 24px !important;
+    color: #888888;
+}
+.bouton{
+    border-radius: 8px;
+    background-color: #222222;
+    color: white;
+    padding: 15px;
+    width: fit-content;
+}
+/* .bouton:hover{
+    border: 1.5px solid;
+    border-color: #222222;
+    background-color: white;
+    color: #222222;
+} */
