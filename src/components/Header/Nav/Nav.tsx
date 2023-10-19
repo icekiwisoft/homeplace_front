@@ -3,10 +3,11 @@ import { HiBars3 } from "react-icons/hi2";
 import { useState } from "react";
 import { Link } from "react-scroll";
 import { FaTimes } from "react-icons/fa";
-import "./Nav.css"
+import "./Nav.scss"
+import React from "react";
 
 
-export default function Nav() {
+export default function Nav(): React.ReactElement {
     const [click, setClick] = useState(false);
     const handleClick = () => setClick(!click);
 
