@@ -13,17 +13,18 @@
     font-weight: 600;
   }
 }
+.swiper {
+  img {
+    filter: brightness(40%);
+    object-fit: cover;
+  }
 
-img {
-  filter: brightness(40%);
-  object-fit: cover;
-}
-
-.swiper-pagination-bullet {
-  background-color: white !important;
-  opacity: 0.5;
-  .swiper-pagination-bullet-active {
-    background-color: white !important;
-    opacity: 1;
+  .swiper-pagination-bullet {
+    background-color: white;
+    opacity: 0.5;
+    &.swiper-pagination-bullet-active {
+      background-color: white !important;
+      opacity: 1;
+    }
   }
 }
