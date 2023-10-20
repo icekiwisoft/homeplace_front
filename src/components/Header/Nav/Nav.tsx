@@ -12,7 +12,7 @@ export default function Nav(): React.ReactElement {
     const handleClick = () => setClick(!click);
 
     const content = <>
-        <div className="md:hidden text-black absolute z-1000 block top-12 w-full left-0 right-0 transition">
+        <div className="md:hidden text-black absolute z-1000 block top-12 w-screen bg-white left-0 right-0 transition">
             <ul className="text-center  text-xs mt-16 transition-all ">
                 <Link spy={true} smooth={true} to="Home">
                     <li className="my-2 py-2 hover:bg-white hover:rounded">Accueil</li>
