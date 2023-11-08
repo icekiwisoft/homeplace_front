@@ -14,6 +14,7 @@ export default function Nav(): React.ReactElement {
     const content = <>
         <div className="md:hidden text-black bg-[#fff] h-screen absolute z-[3] block top-[80px] w-full left-0 right-0 transition">
             <ul className="text-center  text-xs mt-16 z-[50000] transition-all ">
+
                 <Link spy={true} smooth={true} to="Home">
                     <li className="my-2 py-2 hover:bg-white hover:rounded">Accueil</li>
                 </Link >
