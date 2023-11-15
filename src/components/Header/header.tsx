@@ -1,5 +1,5 @@
-import Nav from './Nav/Nav'
 import Hero from './Hero/Hero'
+import Nav from './Nav/Nav'
 import './header.scss'
 import React from 'react'
 
