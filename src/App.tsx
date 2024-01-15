@@ -8,7 +8,6 @@ function App(): React.ReactElement {
 
   return (
     <BrowserRouter>
-    
     <Routes>
       <Route path='/' index Component={Home}/>
 <Route  path='announces' Component={Products} />
