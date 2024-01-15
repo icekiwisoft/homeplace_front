@@ -9,7 +9,7 @@ const Dashboard = () => {
     <div className=' flex h-screen'>
       {/* <Nav/> */}
       <Sidebar/>
-      <div className='flex-1 overflow-auto'>
+      <div className='flex-1 px-4 overflow-auto'>
       <Outlet/>
       </div>
 
