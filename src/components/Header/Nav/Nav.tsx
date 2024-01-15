@@ -18,9 +18,6 @@ export default function Nav(): React.ReactElement {
                 <Link spy={true} smooth={true} to="Home">
                     <li className="my-2 py-2 hover:bg-white hover:rounded">Accueil</li>
                 </Link >
-                <Link spy={true} smooth={true} to="About">
-                    <li className="my-2 py-2  hover:bg-white hover:rounded">Service</li>
-                </Link>
                 <Link spy={true} smooth={true} to="Services">
                     <li className="my-2 py-2 hover:bg-white hover:rounded">Contact us</li>
                 </Link>
@@ -43,9 +40,6 @@ export default function Nav(): React.ReactElement {
                         <ul className="flex gap-8 text-[16px] font-medium items-center">
                             <Link spy={true} smooth={true} to="Home">
                                 <li className=" hover:scale-110 transition-colors border-b-white hover:font-semibold cursor-pointer">Accueil</li>
-                            </Link>
-                            <Link spy={true} smooth={true} to="About">
-                                <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">Service</li>
                             </Link>
                             <Link spy={true} smooth={true} to="Services">
                                 <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">Contact us</li>
