@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom'
-import Hero from './Hero/Hero'
 import './Nav2.scss'
 import React from 'react'
 import { HiHomeModern } from 'react-icons/hi2'
