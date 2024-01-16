@@ -10,7 +10,15 @@ export default function Announcers() {
    <input type="text" placeholder="search ...." className="border-0 border-b border-solid  border-gray-500  outline-none max-w-md  w-full py-2 px-2 text-[1rem]  text-gray-600  font-normal"  />
             
         </div>
-            <div className="p-4">
+            <div className="py-4 gap-5 grid mt-5 grid-cols-4">
+            <UserCard/>
+            <UserCard/>
+            <UserCard/>
+            <UserCard/>
+            <UserCard/>
+            <UserCard/>
+            <UserCard/>
+            <UserCard/>
             <UserCard/>
             </div>
         </>
