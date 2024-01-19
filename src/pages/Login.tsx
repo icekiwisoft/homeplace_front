@@ -9,10 +9,10 @@ export default function Login (){
         <span className='text-[0.9rem] text-gray-500' >please sign in and start to search your dream </span>
         <form action="" className=' w-full'>
             <div className='mt-5'>
-            <input className='p-2  rounded-md bg-slate-200  outline-none  w-full' placeholder='email'/>
+            <input className='p-2  rounded-md bg-gray-100 outline-none  w-full' placeholder='email'/>
             </div>
             <div className='mt-5'>
-            <input className='p-2 rounded-md bg-slate-200 outline-none  w-full' type='password' placeholder='password'/>
+            <input className='p-2 rounded-md bg-gray-100 outline-none  w-full' type='password' placeholder='password'/>
             </div>
 
 
@@ -37,7 +37,7 @@ export default function Login (){
            <div className='text-center mt-5'>
            <span className='text-[0.9rem]'>
            new on our platform ,
-           <a>
+           <a className='text-orange-700'>
             create an account 
            </a>
             </span>

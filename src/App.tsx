@@ -8,6 +8,7 @@ import Announcer from './pages/Dashboard/Announcer/Announcer.tsx'
 import Announcers from './pages/Dashboard/Announcers/Announcers.tsx'
 import Fourniture from './components/Dashboardcontent/Fourniture.tsx'
 import Login from './pages/Login.tsx'
+import Logout from './pages/Logout.tsx'
 
 function App(): React.ReactElement {
 
@@ -16,6 +17,7 @@ function App(): React.ReactElement {
     <Routes>
       <Route path='/' index Component={Home}/>
       <Route path='/login' Component={Login}/>
+      <Route path='/logout' Component={Logout}/>
 <Route  path='announces' Component={Products} />
           <Route path="/dashboard" Component={Dashboard}>
             <Route  index  element={<Navigate to="announcers" replace/>} />
