@@ -51,9 +51,13 @@ export default function Nav(): React.ReactElement {
                             <Link to="dashboard">
                     <li className="hover:scale-110 transition-colors hover:font-semibold cursor-pointer">dashboard</li>
                 </Link >
-                            <Link   to="">
-                                <li className="transition cursor-pointer bg-white hover:bg-[#D88A3B] hover:text-white text-black font-bold py-2 px-4 rounded "> Sign up</li>
-                            </Link>
+                         
+                                <li className="transition cursor-pointer bg-white hover:bg-[#D88A3B] hover:text-white text-black font-bold py-2 px-4 rounded "> 
+                                <Link   to="/login">
+                                Sign in
+                                </Link>
+                                </li>
+
                         </ul>
                     </div>
                 </div>

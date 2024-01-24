@@ -7,8 +7,12 @@ import Header from "../components/Header/header";
 export default function Home():React.ReactElement {
   return (
     <>
-      <Header />
+
+    
+    <Header />
       <Services/>
+   
+
       <News_later />
       <Footer />
     </>

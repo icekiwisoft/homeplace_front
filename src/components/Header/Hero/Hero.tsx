@@ -67,7 +67,7 @@ export default function Hero(): React.ReactElement {
             disableOnInteraction: false,
         }}
 
-            className='sm:h-[500px]  h-[600px]    '
+            className='sm:h-[550px]  h-[600px]    '
             modules={[Navigation, Pagination, A11y, Autoplay]}
             spaceBetween={0}
             slidesPerView={1}
@@ -82,7 +82,7 @@ export default function Hero(): React.ReactElement {
 
                 CarouselItems.map((item) => {
                     return (
-                        <SwiperSlide className='  lg:px-[75px] xl:px-[120px]' >
+                        <SwiperSlide className='  ' >
                             <div className='relative w-full h-full items-center flex justify-center'>
                                 <img alt='' src={item.image} className=' min-w-full min-h-full ' />
                                 <div className=' absolute top-0 text-left sm:w-[90%] lg:w-[70%] w-full flex items-center justify-center h-full' >

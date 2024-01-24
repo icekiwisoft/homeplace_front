@@ -9,6 +9,7 @@ import Announcers from './pages/Dashboard/Announcers/Announcers.tsx'
 import Fourniture from './components/Dashboardcontent/Fourniture.tsx'
 import Login from './pages/Login.tsx'
 import Logout from './pages/Logout.tsx'
+import Signup from './pages/Signup.tsx'
 
 function App(): React.ReactElement {
 
@@ -17,6 +18,7 @@ function App(): React.ReactElement {
     <Routes>
       <Route path='/' index Component={Home}/>
       <Route path='/login' Component={Login}/>
+      <Route path='/signup' Component={Signup}/>
       <Route path='/logout' Component={Logout}/>
 <Route  path='announces' Component={Products} />
           <Route path="/dashboard" Component={Dashboard}>
