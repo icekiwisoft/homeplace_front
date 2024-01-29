@@ -19,7 +19,6 @@ export default function ProductCard(props:Product | undefined): React.ReactEleme
         </p>
         <span className="">5000 frcfa</span>
       </div>
-    </div>
 </Link>
 
   )
