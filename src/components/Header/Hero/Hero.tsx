@@ -67,7 +67,7 @@ export default function Hero(): React.ReactElement {
             disableOnInteraction: false,
         }}
 
-            className='sm:h-[500px]  h-[600px]    '
+            className='sm:h-[550px]  h-[600px]    '
             modules={[Navigation, Pagination, A11y, Autoplay]}
             spaceBetween={0}
             slidesPerView={1}
@@ -82,13 +82,13 @@ export default function Hero(): React.ReactElement {
 
                 CarouselItems.map((item) => {
                     return (
-                        <SwiperSlide className='  lg:px-[75px] xl:px-[120px]' >
+                        <SwiperSlide className='  ' >
                             <div className='relative w-full h-full items-center flex justify-center'>
                                 <img alt='' src={item.image} className=' min-w-full min-h-full ' />
                                 <div className=' absolute top-0 text-left sm:w-[90%] lg:w-[70%] w-full flex items-center justify-center h-full' >
                                     <div className=' pl-[25px] sm:pl-[10px]  md:pl-[75px] '>
                                         <h2 className='text-slidetitle sm:text-[4rem]  text-white my-5 '>{item.title}</h2>
-                                        <p className='text-slideparagraph my-7 sm:my-10 text-white'>
+                                        <p className='text-slideparagraph my-7 sm:my-10 text-gray-200'>
                                             {item.text}
                                         </p>
                                         <button className='transition cursor-pointer bg-[#fff] text-black font-bold px-5 py-2 my-2  rounded'>

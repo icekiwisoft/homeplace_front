@@ -7,7 +7,11 @@ export default function Header(): React.ReactElement {
   return (
     <header>
       <Nav />
+  
+      <div className="lg:px-[75px] xl:px-[120px] ">
       <Hero />
+
+      </div>
     </header>
 
   )
