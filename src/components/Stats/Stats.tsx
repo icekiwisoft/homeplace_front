@@ -33,7 +33,7 @@ export default function Stats(): React.ReactElement {
     stats.map(s =>
         {
             return (
-              <div className='px-8 py-4 flex flex-1 justify-between items-center shadow-lg'>
+              <div className='px-8 py-4 pb-2 flex flex-1 rounded-lg justify-between items-center shadow-stat'>
                 <div className=' text-center'>
 
                 <span className='text-[2rem] font-semibold'>

@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@material-tailwind/react": "^2.1.8",
     "@types/jest": "^29.5.6",
     "@types/node": "^20.8.7",
     "aos": "^3.0.0-beta.6",
@@ -22,10 +23,10 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",
     "react-router-dom": "^6.21.2",
-    "react-scroll": "^1.9.0",
-    "sass": "^1.69.5",
     "swiper": "^10.3.1",
-    "typescript": "^5.2.2"
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.2.2",
+    "use-react-countries": "^2.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.29",
@@ -38,7 +39,6 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "postcss": "^8.4.31",
     "sass": "^1.69.4",
-    "tailwindcss": "^3.3.3",
     "vite": "^4.4.5"
   }
 }

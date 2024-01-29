@@ -3,19 +3,13 @@ import './ProductCard.scss'
 import React from 'react'
 import defaultFurnitureImg from '../../assets/default-img/furnitures.jpg'
 import defaultHouseImg from '../../assets/default-img/houses.jpg'
-interface Product
-{
-    name:string,
-    price:number,
-    description:string,
-    media
+import { Link } from 'react-router-dom'
 
-}
 export default function ProductCard(props:Product | undefined): React.ReactElement {
   return (
-<div className="shadow-md rounded-lg overflow-hidden ">
-    <div className="h-48 ">
-<img className='object-fill max-w-full max-h-full  w-full' src={defaultHouseImg}/>
+<Link to={"#"} className="shadow-md rounded-lg overflow-hidden cursor-pointer ">
+    <div className="h-48 overflow-hidden">
+              <img className='object-cover min-h-full min-w-full  w-full' src={defaultHouseImg}/>
     </div>
 
     <div className="py-3 px-5">
@@ -30,7 +24,7 @@ export default function ProductCard(props:Product | undefined): React.ReactEleme
     </span>
     </div>
 
-</div>
+</Link>
 
   )
 }
