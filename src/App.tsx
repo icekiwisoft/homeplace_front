@@ -1,3 +1,4 @@
+
 import React from 'react'
 import './App.scss'
 import Home from './pages/Home.tsx'
@@ -13,6 +14,7 @@ import Signup from './pages/Signup.tsx'
 import Error404 from './pages/errors/404.tsx'
 import Error403 from './pages/errors/403.tsx'
 import Error500 from './pages/errors/500.tsx'
+
 
 function App(): React.ReactElement {
   return (
@@ -34,10 +36,9 @@ function App(): React.ReactElement {
         <Route path="/403" Component={Error403} />
         <Route path="/500" Component={Error500} />
         <Route path="/404" Component={Error403} />
-
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
