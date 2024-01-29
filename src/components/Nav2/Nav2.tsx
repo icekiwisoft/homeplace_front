@@ -22,7 +22,7 @@ export default function Nav2(): React.ReactElement {
                                 <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">Contact us</li>
                             </NavLink>
                             <NavLink  to="Services">
-                                <li className="transition cursor-pointer bg-white hover:bg-orange-500 text-black font-bold py-2 px-4 rounded "> Sign up</li>
+                                <li className="transition-all duration-700  cursor-pointer bg-gray-900 hover:bg-gray-800 hover:rounded-3xl text-white font-bold py-2 px-4 rounded-lg "> Sign up</li>
                             </NavLink>
                         </ul>
                     </div>

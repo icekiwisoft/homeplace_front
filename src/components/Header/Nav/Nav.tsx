@@ -1,10 +1,10 @@
 import { HiHomeModern } from "react-icons/hi2";
 import { HiBars3 } from "react-icons/hi2";
 import { useState } from "react";
-import { Link } from "react-scroll";
 import { FaTimes } from "react-icons/fa";
 import "./Nav.scss"
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 export default function Nav(): React.ReactElement {
@@ -17,6 +17,10 @@ export default function Nav(): React.ReactElement {
 
                 <Link spy={true} smooth={true} to="Home">
                     <li className="my-2 py-2 hover:bg-white hover:rounded">Accueil</li>
+                </Link >
+                
+                <Link spy={true} smooth={true} to="Home">
+                    <li className="my-2 py-2 hover:bg-white hover:rounded">dashboard</li>
                 </Link >
                 <Link spy={true} smooth={true} to="Services">
                     <li className="my-2 py-2 hover:bg-white hover:rounded">Contact us</li>
@@ -38,15 +42,22 @@ export default function Nav(): React.ReactElement {
                 <div className="lg:flex md:flex lg: flex-1 items center justify-end font-normal hidden">
                     <div className="flex-10 ">
                         <ul className="flex gap-8 text-[16px] font-medium items-center">
-                            <Link spy={true} smooth={true} to="Home">
+                            <Link  to="">
                                 <li className=" hover:scale-110 transition-colors border-b-white hover:font-semibold cursor-pointer">Accueil</li>
                             </Link>
-                            <Link spy={true} smooth={true} to="Services">
+                            <Link  to="">
                                 <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">Contact us</li>
                             </Link>
-                            <Link spy={true} smooth={true} to="Services">
-                                <li className="transition cursor-pointer bg-white hover:bg-[#D88A3B] hover:text-white text-black font-bold py-2 px-4 rounded "> Sign up</li>
-                            </Link>
+                            <Link to="/dashboard">
+                    <li className="hover:scale-110 transition-colors hover:font-semibold cursor-pointer">dashboard</li>
+                </Link >
+                         
+                                <li > 
+                                <Link to="/login" className=" transition-border duration-300 cursor-pointer bg-white hover:rounded-full  text-black font-bold py-2 px-4 rounded ">
+                                Sign in
+                                </Link>
+                                </li>
+
                         </ul>
                     </div>
                 </div>
