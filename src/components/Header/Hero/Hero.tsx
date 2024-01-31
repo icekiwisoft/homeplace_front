@@ -9,6 +9,7 @@ import 'swiper/css';
 import React from 'react';
 import { StringMappingType } from 'typescript';
 import { Url } from 'url';
+import { Link } from 'react-router-dom';
 
 interface CarouselItemInterface {
     title: string
@@ -91,9 +92,11 @@ export default function Hero(): React.ReactElement {
                                         <p className='text-slideparagraph my-7 sm:my-10 text-gray-200'>
                                             {item.text}
                                         </p>
+                                        <Link spy={true} smooth={true} to="/login">
                                         <button className='transition cursor-pointer bg-[#fff] text-black font-bold px-5 py-2 my-2  rounded'>
                                             Obtain your house
                                         </button>
+                                        </Link>
                                     </div>
 
                                 </div>

@@ -15,11 +15,11 @@ export default function Nav(): React.ReactElement {
         <div className="md:hidden text-black bg-[#fff] h-screen absolute z-[3] block top-[80px] w-full left-0 right-0 transition">
             <ul className="text-center  text-xs mt-16 z-[50000] transition-all ">
 
-                <Link spy={true} smooth={true} to="Home">
+                <Link spy={true} smooth={true} to="/">
                     <li className="my-2 py-2 hover:bg-white hover:rounded">Accueil</li>
                 </Link >
                 
-                <Link spy={true} smooth={true} to="Home">
+                <Link spy={true} smooth={true} to="Dashboard">
                     <li className="my-2 py-2 hover:bg-white hover:rounded">dashboard</li>
                 </Link >
                 <Link spy={true} smooth={true} to="Services">
@@ -42,10 +42,10 @@ export default function Nav(): React.ReactElement {
                 <div className="lg:flex md:flex lg: flex-1 items center justify-end font-normal hidden">
                     <div className="flex-10 ">
                         <ul className="flex gap-8 text-[16px] font-medium items-center">
-                            <Link  to="">
+                            <Link  to="/">
                                 <li className=" hover:scale-110 transition-colors border-b-white hover:font-semibold cursor-pointer">Accueil</li>
                             </Link>
-                            <Link  to="">
+                            <Link  to="Services">
                                 <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">Contact us</li>
                             </Link>
                             <Link to="/dashboard">
