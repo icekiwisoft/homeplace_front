@@ -14,6 +14,7 @@ import Signup from './pages/Signup.tsx'
 import Error404 from './pages/errors/404.tsx'
 import Error403 from './pages/errors/403.tsx'
 import Error500 from './pages/errors/500.tsx'
+import Services from './components/services/Services.tsx'
 
 
 function App(): React.ReactElement {
@@ -25,7 +26,9 @@ function App(): React.ReactElement {
         <Route path='/signup' Component={Signup} />
         <Route path='/logout' Component={Logout} />
         <Route path='announces' Component={Products} />
+        <Route path="/services" Component={Services}/>
         <Route path="/dashboard" Component={Dashboard}>
+        
           <Route index element={<Navigate to="announcers" replace />} />
           <Route path="announcers" element={<Announcers />} />
           <Route path="furnitures" element={<Fourniture />} />
