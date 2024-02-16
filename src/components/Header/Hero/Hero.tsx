@@ -7,8 +7,7 @@ import "./hero.scss"
 import 'swiper/css/bundle';
 import 'swiper/css';
 import React from 'react';
-import { StringMappingType } from 'typescript';
-import { Url } from 'url';
+
 import { Link } from 'react-router-dom';
 
 interface CarouselItemInterface {
@@ -16,42 +15,27 @@ interface CarouselItemInterface {
     text?: string
     button?: string
     image?: string
+    id:number
 }
 
 const CarouselItems: CarouselItemInterface[] = [
     {
         image: img1,
         title: "more than thousand house",
-        text: ' lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
+        text: " No need to wade through endless listings. Here, you'll discover a vast ocean of potential homes, each with its own unique story waiting to unfold",
+        button:"Obtain your house",
+        id:0
     }
     ,
     {
         image: img2,
-        title: "more than thousand house",
-        text: ' lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
-    }
-
-    ,
-    {
-        image: img2,
-        title: "more than thousand house",
-        text: ' lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
-    }
-
-    ,
-    {
-        image: img2,
-        title: "more than thousand house",
-        text: ' lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
+        title: "find your furnitures",
+        text: ' No more furniture fatigue. Dive into a world where thousands of options await, ready to transform your space and reflect your individuality',
+        button:"decour your home",
+        id:1
     }
 
 
-    ,
-    {
-        image: img2,
-        title: "more than thousand house",
-        text: ' lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud'
-    }
 ]
 
 
@@ -68,24 +52,22 @@ export default function Hero(): React.ReactElement {
             disableOnInteraction: false,
         }}
 
-            className='sm:h-[550px]  h-[600px]    '
+            className='sm:h-[550px] *:!border-none  h-[600px]    '
             modules={[Navigation, Pagination, A11y, Autoplay]}
             spaceBetween={0}
             slidesPerView={1}
             navigation
             pagination={{ clickable: true }}
             scrollbar={{ draggable: false }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
         >
 
             {
 
                 CarouselItems.map((item) => {
                     return (
-                        <SwiperSlide className='  ' >
+                        <SwiperSlide className='  '  key={item.id}>
                             <div className='relative w-full h-full items-center flex justify-center'>
-                                <img alt='' src={item.image} className=' min-w-full min-h-full ' />
+                                <img alt='' src={item.image} className=' min-w-full border-0 min-h-full object-cover brightness-50 ' />
                                 <div className=' absolute top-0 text-left sm:w-[90%] lg:w-[70%] w-full flex items-center justify-center h-full' >
                                     <div className=' pl-[25px] sm:pl-[10px]  md:pl-[75px] '>
                                         <h2 className='text-slidetitle sm:text-[4rem]  text-white my-5 '>{item.title}</h2>
@@ -94,7 +76,7 @@ export default function Hero(): React.ReactElement {
                                         </p>
                                         <Link spy={true} smooth={true} to="/login">
                                         <button className='transition cursor-pointer bg-[#fff] text-black font-bold px-5 py-2 my-2  rounded'>
-                                            Obtain your house
+                                            {item.button}
                                         </button>
                                         </Link>
                                     </div>

@@ -4,12 +4,12 @@ import Sidebar from '../components/SideBar/Sidebar'
 import Fourniture from '../components/Dashboardcontent/Fourniture'
 import { Outlet } from 'react-router-dom'
 
-const Dashboard = () => {
+const DashboardLayout = () => {
   return (
     <div className=' flex h-screen'>
       {/* <Nav/> */}
       <Sidebar/>
-      <div className='flex-1 px-4 overflow-auto'>
+      <div className='flex-1 px-2 overflow-auto bg-gray-200'>
       <Outlet/>
       </div>
 
@@ -17,4 +17,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default DashboardLayout

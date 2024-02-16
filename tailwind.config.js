@@ -2,8 +2,7 @@
 
 const withMT = require("@material-tailwind/react/utils/withMT");
 
-module.exports = withMT({
-  content: [
+module.exports = withMT({content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
@@ -13,7 +12,7 @@ module.exports = withMT({
         'border': 'border,border-radius,box-shadow,background-color',
       },
       boxShadow: {
-        'stat': '0 0 25px -10px rgba(0, 0, 0, 0.5)',
+        'stat': '0 0 30px -15px rgba(0, 0, 0, 0.5)',
       },
       fontSize: {
         'slidetitle': ['3.6rem', {
