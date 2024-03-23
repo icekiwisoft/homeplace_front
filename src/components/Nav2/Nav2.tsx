@@ -34,8 +34,8 @@ export default function Nav2(): React.ReactElement {
                     <div className="flex-10 ">
                         <ul className="flex gap-8 text-[16px] font-medium items-center">
    
-                            <NavLink  to="Services">
-                                <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">Contact us</li>
+                            <NavLink  to="/download">
+                                <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">enregistrements</li>
                             </NavLink>
                             {
                                 user?.is_admin &&

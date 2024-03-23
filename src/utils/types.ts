@@ -1,6 +1,4 @@
-import { Announcer } from "./types";
 // a furniture ad type can be a location or a sale
-
 export enum AdType {
   location,
   sale,
@@ -16,27 +14,27 @@ export interface Announcer {
   verified: boolean;
   id: string;
   bio: string;
-  creation_date:string
+  creation_date: string;
 }
 
 export interface Media {
   file: string;
   thumbnail: string;
-  id:string
+  id: string;
 }
 
 export interface AdBase {
   description: string;
   item_type: AdType;
   ad_type: AdType;
-  medias:number;
-  presentation:string;
-  mediasCount:number
-  category:Category
+  medias: number;
+  presentation: string;
+  mediasCount: number;
+  category: Category;
   id: string;
   price: number;
   announcer: Announcer;
-  creation_date:string
+  creation_date: string;
 }
 
 export interface FurnitureAd extends AdBase {}
@@ -59,7 +57,7 @@ export interface User {
 export interface Category {
   name: string;
   items: number;
-  id:string
-  type:number
-  creation_date:string
+  id: string;
+  type: number;
+  creation_date: string;
 }

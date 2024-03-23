@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { Announcer } from '../../../utils/types';
-import useAxios from '../../../utils/useAsios';
+import React from 'react'
 import AdsTable from '../../../components/Dashboard/AdsTable/AdsTable';
 
 
