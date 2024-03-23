@@ -15,26 +15,31 @@ export default function Nav(): React.ReactElement {
     <>
       <div className="md:hidden  text-black bg-[#fff] h-screen absolute z-[3] block top-[80px] w-full left-0 right-0 transition">
         <ul className="text-center  text-xs mt-16 z-[50000] transition-all ">
-          <Link  to="/">
+          <Link to="/">
             <li className="my-2 py-2 hover:bg-white hover:rounded">Accueil</li>
           </Link>
+          {user && (
+            <Link to="Dashboard">
+              <li className="my-2 py-2 hover:bg-white hover:rounded">
+                dashboard
+              </li>
+            </Link>
+          )}
 
-          <Link  to="Dashboard">
-            <li className="my-2 py-2 hover:bg-white hover:rounded">
-              dashboard
-            </li>
-          </Link>
-          <Link  to="Services">
+          <Link to="Services">
             <li className="my-2 py-2 hover:bg-white hover:rounded">
               Contact us
             </li>
           </Link>
-          <Link  to="login">
-            <li className="transition cursor-pointer bg-[#D88A3B] text-white font-bold py-2 my-2 mx-[10vw] rounded">
-              {" "}
-              sign in{" "}
-            </li>
-          </Link>
+
+          {!user && (
+            <Link to="login">
+              <li className="transition cursor-pointer bg-[#D88A3B] text-white font-bold py-2 my-2 mx-[10vw] rounded">
+                {" "}
+                sign in{" "}
+              </li>
+            </Link>
+          )}
         </ul>
       </div>
     </>
@@ -53,7 +58,7 @@ export default function Nav(): React.ReactElement {
         <div className="flex items-center flex-1 ">
           <span className="text-2xl font-bold flex">
             D<HiHomeModern className="h-auto" />
-            milis
+            milix
           </span>
         </div>
         <div className="lg:flex md:flex lg: flex-1 items center justify-end font-normal hidden">
@@ -64,20 +69,25 @@ export default function Nav(): React.ReactElement {
                   Contact us
                 </li>
               </Link>
-              <Link to="/dashboard">
-                <li className="hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
-                  dashboard
-                </li>
-              </Link>
 
-              <li>
-                <Link
-                  to="/login"
-                  className=" transition-border duration-300 cursor-pointer bg-white hover:rounded-full  text-black font-bold py-2 px-4 rounded "
-                >
-                  Sign in
+              {user && (
+                <Link to="/dashboard">
+                  <li className="hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
+                    dashboard
+                  </li>
                 </Link>
-              </li>
+              )}
+
+              {!user && (
+                <li>
+                  <Link
+                    to="/login"
+                    className=" transition-border duration-300 cursor-pointer bg-white hover:rounded-full  text-black font-bold py-2 px-4 rounded "
+                  >
+                    Sign in
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>
