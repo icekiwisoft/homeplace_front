@@ -1,30 +1,33 @@
 import React, { useEffect, useState } from "react";
-import defaultHouseImg from "../../assets/default-img/houses.jpg";
 import { Ad, Media } from "../../utils/types";
-import { PiPhone, PiPhoneBold } from "react-icons/pi";
 import { HiPhone, HiShare } from "react-icons/hi2";
-import { Swiper, SwiperRef, SwiperSlide, useSwiper } from "swiper/react";
-import { button } from "@material-tailwind/react";
-import { Pagination, Scrollbar,Keyboard, Mousewheel } from 'swiper/modules';
-import useAxios from "../../utils/useAsios";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Keyboard, Mousewheel } from "swiper/modules";
+import useAxios, { baseURL } from "../../utils/useAsios";
 import dayjs from "dayjs";
 
 export default function ProductDetailCard(props: Ad): React.ReactElement {
-  const { price, description, announcer, medias:mediasCount,presentation,id ,creation_date} = props;
-  const [medias,setMedias]=useState<Media[]>([])
+  const {
+    price,
+    description,
+    announcer,
+    medias: mediasCount,
+    presentation,
+    id,
+    creation_date,
+  } = props;
+  const [medias, setMedias] = useState<Media[]>([]);
   const [swiperRef, setSwiperRef] = useState<Swiper>();
-const axios=useAxios()
 
-const getMedias=async ()=>
-{
- const response= await axios.get(`/ads/${id}/medias`)
- setMedias([...response.data])
-}
-  useEffect(()=>{
-if(mediasCount)
-getMedias()
+  const axios = useAxios();
 
-  },[])
+  const getMedias = async () => {
+    const response = await axios.get(`/ads/${id}/medias`);
+    setMedias([...response.data]);
+  };
+  useEffect(() => {
+    if (mediasCount) getMedias();
+  }, []);
   return (
     <div className="bg-gray-200 py-4 px-5 rounded-lg">
       <h2 className="text-2xl font-semibold mb-5">{description}</h2>
@@ -32,7 +35,6 @@ getMedias()
       <div className="flex max-w-full gap-10">
         <div className="flex-[3] max-w-[512px] relative ">
           <Swiper
-          
             className="  h-[400px] rounded-lg border-none "
             onSwiper={setSwiperRef}
           >
@@ -40,8 +42,8 @@ getMedias()
               return (
                 <SwiperSlide key={m.id}>
                   <img
-                  alt={m.id}
-                    src={m.file}
+                    alt={m.id}
+                    src={"http://localhost:8000" + m.file}
                     className="object-fill  min-h-full min-w-full"
                   />
                 </SwiperSlide>
@@ -49,41 +51,32 @@ getMedias()
             })}
           </Swiper>
           <Swiper
-                  slidesPerView={'auto'}
-                  spaceBetween={10}
-                  keyboard={{
-                    enabled: true,
-                  }}
-
-
-                  modules={[Keyboard,Mousewheel]}
-
-        className="mt-5"
-      >
-      
-   
-         
+            slidesPerView={"auto"}
+            spaceBetween={10}
+            keyboard={{
+              enabled: true,
+            }}
+            modules={[Keyboard, Mousewheel]}
+            className="mt-5"
+          >
             {medias.map((m, i) => {
               return (
                 <SwiperSlide key={m.id} className="!w-16 ">
-                                 <button
-                title="show this media"
-                  key={m.id}
-                  onClick={() => swiperRef.slideTo(i)}
-                  className="h-16 w-16 rounded-lg overflow-hidden"
-                >
-                  <img
-                    alt={m.id}
-                    src={m.thumbnail}
-                    className="object-fill min-h-full min-w-full"
-                  />
-                </button>   
+                  <button
+                    title="show this media"
+                    key={m.id}
+                    onClick={() => swiperRef.slideTo(i)}
+                    className="h-16 w-16 rounded-lg overflow-hidden"
+                  >
+                    <img
+                      alt={m.id}
+                      src={baseURL + m.thumbnail}
+                      className="object-fill min-h-full min-w-full"
+                    />
+                  </button>
                 </SwiperSlide>
-
               );
             })}
-          
-
           </Swiper>
         </div>
 
@@ -91,7 +84,9 @@ getMedias()
           <div className="bg-white rounded-lg flex-1 py-2 px-9">
             <h2 className="text-3xl font-bold">{price} frcfa</h2>
             <div className="flex font-light flex-col gap-2 mt-4">
-              <span className="text-gray-900">publié le {dayjs( creation_date).format('DD/MM/YYYY')}</span>
+              <span className="text-gray-900">
+                publié le {dayjs(creation_date).format("DD/MM/YYYY")}
+              </span>
               <span className="text-gray-900">publie par {announcer.name}</span>
             </div>
           </div>
