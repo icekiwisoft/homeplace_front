@@ -2,10 +2,10 @@ import { HiHomeModern } from "react-icons/hi2";
 import { HiBars3 } from "react-icons/hi2";
 import { useContext, useState } from "react";
 import { FaTimes } from "react-icons/fa";
-import "./Nav.scss";
 import React from "react";
 import { Link } from "react-router-dom";
-import AuthContext from "../../../context/AuthContext";
+import Logo from "@assets/domilix.png";
+import AuthContext from "@context/AuthContext";
 
 export default function Nav(): React.ReactElement {
   const [click, setClick] = useState(false);
@@ -17,6 +17,16 @@ export default function Nav(): React.ReactElement {
         <ul className="text-center  text-xs mt-16 z-[50000] transition-all ">
           <Link to="/">
             <li className="my-2 py-2 hover:bg-white hover:rounded">Accueil</li>
+          </Link>
+          <Link to="/houses">
+            <li className="my-2 py-2 hover:bg-white hover:rounded">
+              Imobilier
+            </li>
+          </Link>
+          <Link to="/furnitures">
+            <li className="my-2 py-2 hover:bg-white hover:rounded">
+              mobilier
+            </li>
           </Link>
           {user && (
             <Link to="Dashboard">
@@ -35,8 +45,7 @@ export default function Nav(): React.ReactElement {
           {!user && (
             <Link to="login">
               <li className="transition cursor-pointer bg-[#D88A3B] text-white font-bold py-2 my-2 mx-[10vw] rounded">
-                {" "}
-                sign in{" "}
+                sign in
               </li>
             </Link>
           )}
@@ -67,6 +76,16 @@ export default function Nav(): React.ReactElement {
               <Link to="Services">
                 <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
                   Contact us
+                </li>
+              </Link>
+              <Link to="/houses">
+                <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
+                  houses
+                </li>
+              </Link>
+              <Link to="/furnitures">
+                <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
+                  furnitures
                 </li>
               </Link>
 

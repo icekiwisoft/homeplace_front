@@ -1,0 +1,62 @@
+"filename", "language", "TypeScript JSX", "TypeScript", "SCSS", "CSS", "JavaScript", "comment", "blank", "total"
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\App.tsx", "TypeScript JSX", 55, 0, 0, 0, 0, 0, 6, 61
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\AdsTable\AdsTable.tsx", "TypeScript JSX", 290, 0, 0, 0, 0, 0, 11, 301
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\AnnouncerPostDialog\AnnouncerPostDialog.tsx", "TypeScript JSX", 131, 0, 0, 0, 0, 0, 6, 137
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\AnnouncersTable\AnnouncersTable.tsx", "TypeScript JSX", 287, 0, 0, 0, 0, 0, 13, 300
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\CategoriesTable\CategoriesTable.tsx", "TypeScript JSX", 310, 0, 0, 0, 0, 0, 14, 324
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\CategoryPostDialog\CategoryPostDialog.tsx", "TypeScript JSX", 65, 0, 0, 0, 0, 0, 5, 70
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\FurniturePostDialog\FurniturePostDialog.scss", "SCSS", 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\FurniturePostDialog\FurniturePostDialog.tsx", "TypeScript JSX", 124, 0, 0, 0, 0, 0, 21, 145
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\HousePostDialog\HousePostDialog.tsx", "TypeScript JSX", 133, 0, 0, 0, 0, 0, 9, 142
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\MediaPostDialog\MediaPostDialog.scss", "SCSS", 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\MediaPostDialog\MediaPostDialog.tsx", "TypeScript JSX", 72, 0, 0, 0, 0, 0, 11, 83
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\TrafficChart\TrafficChart.tsx", "TypeScript JSX", 33, 0, 0, 0, 0, 0, 1, 34
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserInfoCard\UserInfoCard.scss", "SCSS", 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserInfoCard\UserInfoCard.tsx", "TypeScript JSX", 189, 0, 0, 0, 0, 1, 9, 199
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\AdsTab\AdsTab.tsx", "TypeScript JSX", 252, 0, 0, 0, 0, 0, 9, 261
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\MediasTab\MediaTab.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\UserTabs.scss", "SCSS", 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\UserTabs.tsx", "TypeScript JSX", 79, 0, 0, 0, 0, 0, 7, 86
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\FilterHeader\FilterHeader.tsx", "TypeScript JSX", 84, 0, 0, 0, 0, 0, 5, 89
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Footer\footer.tsx", "TypeScript JSX", 67, 0, 0, 0, 0, 0, 3, 70
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Header\Hero\Hero.tsx", "TypeScript JSX", 79, 0, 0, 0, 0, 1, 7, 87
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Header\Hero\hero.scss", "SCSS", 0, 0, 24, 0, 0, 0, 4, 28
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Header\Nav\Nav.tsx", "TypeScript JSX", 117, 0, 0, 0, 0, 0, 8, 125
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Header\header.tsx", "TypeScript JSX", 13, 0, 0, 0, 0, 0, 5, 18
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Nav2\Nav2.tsx", "TypeScript JSX", 89, 0, 0, 0, 0, 0, 6, 95
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\News_later\news_later.scss", "SCSS", 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\News_later\news_later.tsx", "TypeScript JSX", 25, 0, 0, 0, 0, 0, 1, 26
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\ProductCard\ProductCard.tsx", "TypeScript JSX", 37, 0, 0, 0, 0, 0, 6, 43
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\ProductDetailCard\ProductDetailCard.tsx", "TypeScript JSX", 105, 0, 0, 0, 0, 0, 6, 111
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\SideBar\Sidebar.tsx", "TypeScript JSX", 132, 0, 0, 0, 0, 0, 12, 144
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\SigninDialog\SigninDialog.tsx", "TypeScript JSX", 52, 0, 0, 0, 0, 0, 2, 54
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Stats\Stats.tsx", "TypeScript JSX", 50, 0, 0, 0, 0, 0, 5, 55
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\services\Services.tsx", "TypeScript JSX", 66, 0, 0, 0, 0, 0, 5, 71
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\utilities\fourniture.js", "JavaScript", 0, 0, 0, 0, 7, 0, 1, 8
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\context\AuthContext.tsx", "TypeScript JSX", 102, 0, 0, 0, 0, 0, 18, 120
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\index.css", "CSS", 0, 0, 0, 13, 0, 2, 5, 20
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\layouts\DashboardLayout.tsx", "TypeScript JSX", 16, 0, 0, 0, 0, 1, 4, 21
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\main.tsx", "TypeScript JSX", 9, 0, 0, 0, 0, 0, 2, 11
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Ad\Ad.tsx", "TypeScript JSX", 160, 0, 0, 0, 0, 10, 14, 184
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Ads\Ads.tsx", "TypeScript JSX", 163, 0, 0, 0, 0, 4, 19, 186
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Announcer\Announcer.tsx", "TypeScript JSX", 333, 0, 0, 0, 0, 5, 22, 360
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Ads\Ads.tsx", "TypeScript JSX", 9, 0, 0, 0, 0, 0, 5, 14
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Announcer\Announcer.tsx", "TypeScript JSX", 13, 0, 0, 0, 0, 0, 2, 15
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Announcers\Announcer.scss", "SCSS", 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Announcers\Announcers.tsx", "TypeScript JSX", 13, 0, 0, 0, 0, 0, 4, 17
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Categories\Categories.tsx", "TypeScript JSX", 8, 0, 0, 0, 0, 0, 8, 16
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Traffic\Traffic.tsx", "TypeScript JSX", 9, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Download\Download.tsx", "TypeScript JSX", 23, 0, 0, 0, 0, 0, 2, 25
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Furnitures\Furnitures.tsx", "TypeScript JSX", 71, 0, 0, 0, 0, 0, 16, 87
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Home\Home.tsx", "TypeScript JSX", 18, 0, 0, 0, 0, 0, 7, 25
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Login\Login.tsx", "TypeScript JSX", 68, 0, 0, 0, 0, 0, 11, 79
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Privacy\Privacy.tsx", "TypeScript JSX", 8, 0, 0, 0, 0, 0, 4, 12
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Signup\Signup.tsx", "TypeScript JSX", 42, 0, 0, 0, 0, 0, 15, 57
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Subscriptions\Subscriptions.tsx", "TypeScript JSX", 112, 0, 0, 0, 0, 0, 5, 117
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\errors\403.tsx", "TypeScript JSX", 25, 0, 0, 0, 0, 0, 3, 28
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\errors\404.tsx", "TypeScript JSX", 26, 0, 0, 0, 0, 0, 3, 29
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\errors\500.tsx", "TypeScript JSX", 23, 0, 0, 0, 0, 0, 3, 26
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\utils\PrivateRoute.tsx", "TypeScript JSX", 11, 0, 0, 0, 0, 1, 3, 15
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\utils\types.ts", "TypeScript", 0, 54, 0, 0, 0, 1, 9, 64
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\utils\useAsios.tsx", "TypeScript JSX", 27, 0, 0, 0, 0, 0, 11, 38
+"Total", "-", 4225, 54, 24, 13, 7, 26, 401, 4750

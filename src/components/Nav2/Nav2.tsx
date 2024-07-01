@@ -1,61 +1,91 @@
-import { NavLink, createSearchParams, useNavigate, useSearchParams } from 'react-router-dom'
-import './Nav2.scss'
-import React, { useContext } from 'react'
-import { HiHomeModern, HiMagnifyingGlass } from 'react-icons/hi2'
-import { Badge } from '@material-tailwind/react'
-import AuthContext from '../../context/AuthContext'
+import {
+  NavLink,
+  createSearchParams,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 
+import React, { useContext, useState } from "react";
+import AuthContext from "@context/AuthContext";
+import Logo from "@assets/domilix.png";
+import Piece from "@assets/piece.png";
+
+import { HeartIcon } from "@heroicons/react/24/outline";
+import SigninDialog from "@components/SigninDialog/SigninDialog";
+const links = [
+  { name: "Abonnements", url: "/subscriptions" },
+  { name: "Immobiliers", url: "/houses" },
+  { name: "Mobiliers", url: "/furnitures" },
+];
 export default function Nav2(): React.ReactElement {
-    const { user } = useContext(AuthContext);
-    const navigate=useNavigate()
-    const [UrlSearchParam,setUrlSearchParam]=useSearchParams()
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [UrlSearchParam, setUrlSearchParam] = useSearchParams();
+  const {toggleModal} =useContext(AuthContext)
+const domicoins=2000
+  return (
+    <nav className="bg-white top-0 left-0 fixed w-[100%] px-10 border-b border-gray-400 z-50 ">
+      <div className="h-[64px] flex justify-between border-0  border-gray-200  first-letter:  items-center text-black   ">
+        <div className="flex items-center ">
+          <NavLink className="text-2xl font-bold flex" to="/">
+            <img src={Logo} alt="logo" className=" h-5" />
+          </NavLink>
+        </div>
+        <div className="text-sm h-full">
+          {links.map((link) => {
+            return (
+              <NavLink
+                to={link.url}
+                key={link.name}
+                className="w-28 group justify-center relative h-full   group:  inline-flex items-center flex-col"
+              >
+                <span className="py-1">{link.name}</span>
+                <div className="w-0 h-0.5 absolute bottom-0  group-[.active]:w-full transition-all duration-500 bg-black "></div>
+              </NavLink>
+            );
+          })}
+        </div>
 
-    return (
-        <nav className="relative w-[100%] ">
-            <div className="h-[80px] flex justify-between border-0  border-gray-300  first-letter:  items-center text-black lg:py-3  py-2 ">
-                <div className="flex items-center ">
-                    <NavLink className="text-2xl font-bold flex" to="/">D<HiHomeModern className="h-auto" />milis</NavLink>
-                </div>
-                <div className='flex   rounded-full px-3 py-2 bg-blue-gray-50 border-solid items-center  '>
-                <input type="text" placeholder="search ...." defaultValue={UrlSearchParam.get("search")!} className="  outline-none w-[200px] bg-transparent   text-[1rem]  text-gray-600  font-normal" onKeyDown={(e)=>{
-                   if(e.key== 'Enter')
-                     {
-                          navigate({
-                            pathname: "/announces",
-                            search: createSearchParams({
-                            search: e.currentTarget.value
-                            }).toString()
-                            })
-                     }
-                }}  />
-<HiMagnifyingGlass size={28} className='text-gray-800'/>
-                </div>
-                <div className="lg:flex md:flex lg:  items center justify-end font-normal hidden">
-                    <div className="flex-10 ">
-                        <ul className="flex gap-8 text-[16px] font-medium items-center">
-   
-                            <NavLink  to="/download">
-                                <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">enregistrements</li>
-                            </NavLink>
-                            {
-                                user?.is_admin &&
-                                <NavLink  to="/dashboard">
-                                <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">dashboard</li>
-                            </NavLink>
-                            }
-           
-                            {!user&&
-                             <NavLink  to="/login">
-                                <li className="transition-all duration-700  cursor-pointer bg-gray-900 hover:bg-gray-800 hover:rounded-3xl text-white font-bold py-2 px-4 rounded-lg "> Sign in</li>
-                            </NavLink>
-                            }
+        <div className="lg:flex md:flex lg:  items center justify-end font-normal hidden">
+          <div className="flex-10 ">
+            <ul className="flex gap-8 text-[16px] font-medium items-center">
+              <li className=" text-sm  ">
+                <NavLink
+                  to="/subscriptions"
+                  className={
+                    "inline-flex justify-center gap-1.5 items-center align-middle cursor-pointer"
+                  }
+                >
+                  <img src={Piece} className="size-6" />
+                  <strong className="text-yellow-800 ">{domicoins}</strong>
+                </NavLink>
+              </li>
+              <NavLink to="/favorites">
+                <li className=" text-sm inline-flex justify-center gap-2 items-center align-middle cursor-pointer">
+                  <HeartIcon className="h-6 " /> Mes favoris
+                </li>
+              </NavLink>
+              {user?.is_admin && (
+                <NavLink to="/dashboard">
+                  <li className="  cursor-pointer">dashboard</li>
+                </NavLink>
+              )}
 
-                        </ul>
-                    </div>
-                  
-                </div>
-
-            </div>
-        </nav>
-    )
+              {!user && (
+                <li>
+                  <button
+                    onClick={toggleModal}
+                    className="transition-all duration-700  cursor-pointer bg-black hover:bg-gray-800 hover:rounded-3xl text-white font-bold py-2 px-4 rounded-lg "
+                  >
+                    Se connecter
+                  </button>
+                </li>
+              )}
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    </nav>
+  );
 }

@@ -25,7 +25,7 @@ export default function Signup (){
 
            
 
-           <button className='p-2 mt-10 bg-gray-950 rounded-md text-gray-50 text-[1.1rem]  w-full'>
+           <button className='p-2 mt-10 bg-gray-900 rounded-md text-gray-50 text-[1.1rem]  w-full'>
            Signup
            </button>
 

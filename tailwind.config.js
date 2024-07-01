@@ -8,6 +8,11 @@ module.exports = withMT({content: [
   ],
   theme: {
     extend: {
+      colors:{
+                indigo: {
+          950: '#181059',
+        },
+      },
       transitionProperty: {
         'border': 'border,border-radius,box-shadow,background-color',
       },

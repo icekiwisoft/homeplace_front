@@ -2,7 +2,8 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Navigation, Pagination, A11y, Autoplay } from "swiper/modules";
 import img1 from "../../../assets/bg_img/salon-viena-vision-confort-5-places.jpg";
 import img2 from "../../../assets/bg_img/6327323_1_115110.jpg";
-import "./hero.scss";
+
+import "./hero.scss"
 // Import Swiper styles
 import "swiper/css/bundle";
 import "swiper/css";
