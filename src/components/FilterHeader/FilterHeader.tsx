@@ -6,17 +6,37 @@ const filterButton = ["house", "furniture", "discover"];
 import AuthContext from "../../context/AuthContext";
 
 export default function FilterHeader(): React.ReactElement {
-  const { filterBy, setFilterBy } = useContext(AuthContext);
-
   return (
     <div>
-      <div className="mt-10  flex items-center justify-between">
-        <div className="max-h-28">
+      <div className="mt-10  flex items-center ">
+        <div className="flex   rounded-full px-3 py-2 bg-blue-gray-50 border-solid items-center  ">
+          <input
+            type="text"
+            placeholder="search ...."
+            defaultValue={UrlSearchParam.get("search")!}
+            className="  outline-none w-[200px] bg-transparent   text-[1rem]  text-gray-600  font-normal"
+            onKeyDown={(e) => {
+              if (e.key == "Enter") {
+                navigate({
+                  pathname: "/announces",
+                  search: createSearchParams({
+                    search: e.currentTarget.value,
+                  }).toString(),
+                });
+              }
+            }}
+          />
+          <HiMagnifyingGlass size={28} className="text-gray-800" />
+        </div>
+        <div className="">
           <Select
             placeholder={"sort by"}
-            className=" !border !border-gray-300"
+            className=" !border h-full  !border-gray-300"
             labelProps={{
               className: "hidden",
+            }}
+            containerProps={{
+              className: "w-36 min-w-[142px]",
             }}
             variant="outlined"
             value={filterBy?.orderBy}
@@ -31,19 +51,18 @@ export default function FilterHeader(): React.ReactElement {
           >
             <Option value={"description"}>name</Option>
             <Option value={"price"}>pricing</Option>
-
             <Option value={"created_at"}>news</Option>
           </Select>
         </div>
 
-        <div className="flex  gap-2 ">
+        <div className="flex ml-20  gap-2 ">
           {filterButton.map((b, i) => {
             const activeClassname = filterBy?.type === i ? "bg-gray-100" : "";
             return (
               <button
                 key={i}
                 className={
-                  "hover:bg-gray-100  font-semibold text-sm  px-4 py-1 rounded-full " +
+                  "  font-medium text-sm border border-gray-400 px-4 py-1.5 rounded-lg " +
                   activeClassname
                 }
                 onClick={() =>
@@ -59,28 +78,10 @@ export default function FilterHeader(): React.ReactElement {
           })}
         </div>
 
-        <button className=" flex gap-2 border items-center  text-sm font-medium   px-4 py-2 border-gray-300 rounded-full">
+        <button className=" flex gap-2  items-center       font-medium text-sm border  ml-auto border-gray-400 px-4 py-1.5 rounded-lg ">
           <AdjustmentsHorizontalIcon className="h-5" />
           <span>filter</span>
         </button>
-      </div>
-      <div className="my-4 flex gap-24">
-        <Select
-          placeholder={"category"}
-          className=" !border !border-gray-300"
-          labelProps={{
-            className: "hidden",
-          }}
-          variant="outlined"
-        >
-          <Option value="appart">appartement</Option>
-        </Select>
-        <Select label="quartier" placeholder={"category"}>
-          <Option value="appart">appartement</Option>
-        </Select>
-        <Select placeholder={"category"}>
-          <Option value="appart">appartement</Option>
-        </Select>
       </div>
     </div>
   );

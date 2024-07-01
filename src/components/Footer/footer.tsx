@@ -1,7 +1,6 @@
 import React from "react";
 import { FaGithub, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 import { HiHomeModern } from "react-icons/hi2";
-import "./footer.scss";
 
 export default function Footer(): React.ReactElement {
   return (

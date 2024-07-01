@@ -4,14 +4,11 @@ import { useNavigate } from "react-router-dom";
 import useAxios, { baseURL } from "../utils/useAsios";
 import { User } from "../utils/types";
 import Cookies from "js-cookie";
+import SigninDialog from "@components/SigninDialog/SigninDialog";
+
 interface AuthData {
   user: User;
   access_token: string;
-}
-
-interface Filter {
-  orderBy: string | undefined;
-  type: number | undefined;
 }
 interface IAuthContext {
   user: User | null;
@@ -26,8 +23,7 @@ interface IAuthContext {
   ) => Promise<void>;
   loginUser?: (username: any, password: any) => Promise<void>;
   logoutUser?: () => void;
-  filterBy?: Filter;
-  setFilterBy?: React.Dispatch<React.SetStateAction<Filter>>;
+  toggleModal?: () => void;
 }
 
 const AuthContext = createContext<IAuthContext>({
@@ -39,6 +35,11 @@ export default AuthContext;
 
 export const AuthProvider = ({ children }) => {
   const axios = useAxios();
+    const [showModal, setShowModal] = useState(false);
+    const toggleModal = () => {
+      setShowModal(!showModal);
+    };
+
   const [authData, setAuthData] = useState<AuthData | null>(() =>
     Cookies.get("authorization")
       ? JSON.parse(Cookies.get("authorization"))
@@ -58,20 +59,9 @@ export const AuthProvider = ({ children }) => {
       : "light"
   );
 
-  const [filterBy, setFilterBy] = useState<Filter>(() =>
-    localStorage.getItem("filterBy")
-      ? JSON.parse(localStorage.getItem("filterBy")!)
-      : {
-          orderBy: "name",
-          type: 0,
-        }
-  );
   const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log("xxxxx",filterBy)
-    if (filterBy) localStorage.setItem("filterBy", JSON.stringify(filterBy));
-  }, [filterBy]);
+
 
   const loginUser = async (email: string, password: string) => {
     const response = await axios.post(`login/`, {
@@ -118,9 +108,11 @@ export const AuthProvider = ({ children }) => {
     registerUser,
     loginUser,
     logoutUser,
-    filterBy,
-    setFilterBy,
+    toggleModal
+ 
   };
+
+
 
   useEffect(() => {
     if (authData) {
@@ -131,6 +123,7 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider value={contextData}>
       {loading ? null : children}
+      {showModal && <SigninDialog toggleModal={toggleModal} />}
     </AuthContext.Provider>
   );
 };

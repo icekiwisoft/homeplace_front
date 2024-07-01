@@ -1,22 +1,11 @@
 import React, { useContext } from "react";
 import image from "../../assets/img/IMG-20210906-WA0027-1-1200x1200.jpg";
 import image2 from "../../assets/img/photo_2023-10-18_19-37-38.jpg";
-import "./services.scss";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 
 function Services(): React.ReactElement {
-  const navigate = useNavigate();
-  const { filterBy, setFilterBy } = useContext(AuthContext);
-  const goToService = (type: number) => {
-    setFilterBy &&
-      setFilterBy({
-        ...filterBy,
-        type: type,
-      });
-
-    navigate("/announces");
-  };
+const navigate = useNavigate()
   return (
     <>
       <div className="relative max-w-full md:py-[100px] p-[20px] flex justify-center items-center lg:px-[75px] xl:px-[120px] ">
@@ -38,12 +27,12 @@ function Services(): React.ReactElement {
                 We believe your dream home is more than square footage and price
                 tags. It's a haven that reflects your spirit
               </p>
-              <button
-                className="rounded-lg bg-gray-900  text-white py-3 w-48  "
-                onClick={() => goToService(0)}
+              <Link
+                className="rounded-lg bg-gray-900  text-center text-white py-3 w-48  "
+                to={"/houses"}
               >
                 View more
-              </button>
+              </Link>
             </div>
           </div>
           <div className="flex md:flex-row md:gap-x-20 gap-5  justify-between flex-col-reverse">
@@ -56,12 +45,12 @@ function Services(): React.ReactElement {
                 Find the perfect pieces to transform your space and match your
                 unique personality
               </p>
-              <button
-                className="rounded-lg bg-gray-900  text-white p-3 w-48 "
-                onClick={() => goToService(1)}
+              <Link
+                className="rounded-lg bg-gray-900 text-center  text-white p-3 w-48 "
+                to={"/furnitures"}
               >
                 View more
-              </button>
+              </Link>
             </div>
 
             <div className="md:w-[483px] md:aspect-auto   aspect-video md:h-auto  w-full  overflow-hidden rounded-[20px]">
