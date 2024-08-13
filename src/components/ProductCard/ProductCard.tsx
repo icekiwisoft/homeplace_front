@@ -45,14 +45,14 @@ else
 
         <span className="text-gray-600  text-xs ">yaounde/odza</span>
       </div>
-      <div className="mt-3 flex justify-between items-center ">
+      <div className="mt-3 flex justify-end items-center ">
         <div
           className="flex gap-2.5"
           onClick={(e) => {
             e.preventDefault();
           }}
         >
-          <button className="size-8 p-1.5 rounded-full bg-gray-200">
+          <button className="size-8 p-1.5 rounded-full bg-gray-200 hover:bg-orange-700/25 hover:text-orange-700">
             <ShareIcon />
           </button>
 

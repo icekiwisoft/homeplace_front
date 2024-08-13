@@ -1,5 +1,7 @@
 import Nav2 from "@components/Nav2/Nav2";
-import { FaCheck, FaMarkdown, FaPlus, FaWindowClose } from "react-icons/fa";
+import { FaCheck, FaPlus } from "react-icons/fa";
+import Validity from "@assets/img/4336711 1.png"
+import Domicoint from "@assets/img/Domicoint.png"
 
 const options = [
   "Voir les informations de base d’une annonce.",
@@ -14,44 +16,26 @@ const PricingCard = ({
   isActive,
 }) => {
   return (
-    <div
-      className={`p-6 rounded-2xl shadow-lg relative ${
-        isActive ? "bg-indigo-950 text-white bottom-10" : "bg-white"
-      }`}
-    >
+    <div className={`p-6 rounded-2xl shadow-lg relative ${isActive ? "bg-indigo-950 text-white bottom-10" : "bg-white"}`}>
       {isActive && (
-        <div className="top-1 flex items-center px-1.5 justify-center absolute right-1 aspect-square size-min  rounded-full whitespace-nowrap bg-gray-200 text-orange-800 -rotate-12 text-xs">
+        <div className="top-1 flex items-center px-1.5 justify-center absolute right-1 aspect-square size-min  rounded-full whitespace-nowrap bg-gray-200 text-orange-800 font-bold rotate-12 text-xs">
           -12 %
         </div>
       )}
-      <h2 className="text-xl font-bold mb-4">{title}</h2>
-      <p className="mb-2">{credits}</p>
-       <p className="mb-4">{validity}</p>
-      <ul className={`mb-4 ${isActive ? ' text-gray-400':'text-gray-600' } `}>
+      <h2 className="text-xl font-bold mb-6">{title}</h2>
+      <p className="mb-4 flex flex-row gap-2"><img className="size-6" src={Domicoint}/>{credits}</p>
+      <p className="mb-6 flex flex-row gap-2"><img className="size-6" src={Validity}/>{validity}</p>
+      <ul className={`mb-6 ${isActive ? ' text-gray-400' : 'text-gray-600'} `}>
         {options.map((feature, index) => (
-          <li key={index} className="flex mb-2    ">
-            <span className="mr-2 mt-1">
-              {
-                (features.includes(feature))?
-                <FaCheck  size={10} />:
-                <FaPlus size={10} className="rotate-45"/>
-                
-              }
-              
-            </span>
+          <li key={index} className="flex mb-4">
+            <span className="mr-2 mt-1">{(features.includes(feature)) ?  <FaCheck size={10} /> :  <FaPlus size={10} className="rotate-45" />}</span>
             <span className="text-sm font-normal">{feature}</span>
           </li>
         ))}
       </ul>
-      <div className="text-2xl font-bold mb-4">{price}</div>
+      <div className="text-2xl font-bold mb-6">{price}</div>
       <button
-        className={`px-4 py-2 rounded-xl w-full ${
-          isActive
-            ? "bg-orange-500 text-white"
-            : "bg-orange-50 border  text-orange-700"
-        }`}
-      >
-        Choisir
+        className={`px-4 py-2 font-bold rounded-xl w-full ${isActive ? "bg-orange-500 text-white" : "bg-orange-50 border  text-orange-700"}`}>Choisir
       </button>
     </div>
   );
@@ -61,7 +45,7 @@ export default function Subscriptions() {
   return (
     <>
       <Nav2 />
-      <div className="min-h-screen bg-gray-50 flex mt-16 flex-col items-center justify-center py-10">
+      <div className="min-h-screen bg-gray-50 flex mt-6 flex-col items-center justify-center py-10">
         <h1 className="text-3xl font-bold  text-center mb-2">
           Le bon plan pour votre recherche
         </h1>
@@ -70,7 +54,7 @@ export default function Subscriptions() {
           aider à trouver un logement et un espace de bureau à un prix
           abordable. Tout ce dont vous avez besoin.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-16 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-28 ">
           <PricingCard
             title="Offre Standard"
             credits="20 credits"

@@ -6,6 +6,7 @@ import Nav2 from "@components/Nav2/Nav2";
 import ProductCard from "@components/ProductCard/ProductCard";
 import { Link, useSearchParams } from "react-router-dom";
 import { HiAdjustmentsHorizontal, HiMagnifyingGlass } from "react-icons/hi2";
+import Timer from "@components/Timer/Timer";
 
 export default function Furnitures(): React.ReactElement {
   const [ads, setAds] = useState<Ad[]>([]);
@@ -14,6 +15,7 @@ export default function Furnitures(): React.ReactElement {
   const [isFilterSidebarOpen, setIsFilterSidebarOpen] = useState(false); // State for filter sidebar
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const [UrlSearchParam, setUrlSearchParam] = useSearchParams();
+  const targetDate = new Date('2024-09-31T23:59:59');
 
   const handleFilterButtonClick = () => {
     setIsFilterSidebarOpen(!isFilterSidebarOpen); // Toggle filter sidebar visibility
@@ -67,19 +69,12 @@ export default function Furnitures(): React.ReactElement {
   return (
     <>
       <Nav2 />
-
-
-
-      <section
-        className={
-          " " +
-          " bg-gray-200  py-4 min-h-screen flex   2xl:px-10 xl:px-6  gap-y-14   "
-        }
-      >
-     
-     <div className="text-center m-auto w-96 bg-orange-600/15 text-orange-800 rounded-xl py-4 px-4">
-      <span>vous decouvrirez bientot une large gamme de mobilier </span>
-     </div>
+      <section className={ " " + " bg-gray-200 py-4 min-h-screen flex flex-col items-center justify-center 2xl:px-10 xl:px-6 gap-y-14"}>
+        <div className="flex flex-col gap-6 justify-center">
+          <h1 className="text-5xl text-black text-center font-semibold">Bientôt disponible !</h1>
+          <p className="text-gray-800 text-sm text-center px-[15%]">Nous travaillons d'arrache-pied pour vous proposer un nouveau service super cool. Reste connecté(e) pour en savoir plus.</p>
+        </div>
+        <Timer targetDate={targetDate}/>
       </section>
     </>
   );

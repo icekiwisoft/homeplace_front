@@ -62,3 +62,7 @@ export interface Category {
   type: number;
   creation_date: string;
 }
+
+export interface TimerProps {
+  targetDate: Date;
+}

@@ -9,9 +9,10 @@ import React, { useContext, useState } from "react";
 import AuthContext from "@context/AuthContext";
 import Logo from "@assets/domilix.png";
 import Piece from "@assets/piece.png";
-
+import Domicoint from "@assets/img/Domicoint.png"
 import { HeartIcon } from "@heroicons/react/24/outline";
 import SigninDialog from "@components/SigninDialog/SigninDialog";
+
 const links = [
   { name: "Abonnements", url: "/subscriptions" },
   { name: "Immobiliers", url: "/houses" },
@@ -22,7 +23,7 @@ export default function Nav2(): React.ReactElement {
   const navigate = useNavigate();
   const [UrlSearchParam, setUrlSearchParam] = useSearchParams();
   const {toggleModal} =useContext(AuthContext)
-const domicoins=2000
+  const domicoins=20
   return (
     <nav className="bg-white top-0 left-0 fixed w-[100%] px-10 border-b border-gray-400 z-50 ">
       <div className="h-[64px] flex justify-between border-0  border-gray-200  first-letter:  items-center text-black   ">
@@ -56,8 +57,8 @@ const domicoins=2000
                     "inline-flex justify-center gap-1.5 items-center align-middle cursor-pointer"
                   }
                 >
-                  <img src={Piece} className="size-6" />
-                  <strong className="text-yellow-800 ">{domicoins}</strong>
+                  <img src={Domicoint} className="size-6" />
+                  <strong className="text-yellow-800 text-lg">{domicoins}</strong>
                 </NavLink>
               </li>
               <NavLink to="/favorites">
