@@ -1,23 +1,17 @@
-import React, { useCallback, useContext, useEffect, useState } from "react";
-
+import Nav2 from '@components/Nav2/Nav2'
+import ProductCard from '@components/ProductCard/ProductCard'
 import { Ad } from "../../utils/types";
-import useAxios from "../../utils/useAsios";
-import Nav2 from "@components/Nav2/Nav2";
-import ProductCard from "@components/ProductCard/ProductCard";
+import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useSearchParams } from "react-router-dom";
-import { HiAdjustmentsHorizontal, HiMagnifyingGlass } from "react-icons/hi2";
+import useAxios from '../../utils/useAsios';
+import { HiAdjustmentsHorizontal, HiMagnifyingGlass } from 'react-icons/hi2';
 
-export default function Furnitures(): React.ReactElement {
+export default function Favorite() {
   const [ads, setAds] = useState<Ad[]>([]);
   const axios = useAxios();
-  const [nextPage, setNextPage] = useState<string | null>("ads");
-  const [isFilterSidebarOpen, setIsFilterSidebarOpen] = useState(false); // State for filter sidebar
   const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const [nextPage, setNextPage] = useState<string | null>("ads");
   const [UrlSearchParam, setUrlSearchParam] = useSearchParams();
-
-  const handleFilterButtonClick = () => {
-    setIsFilterSidebarOpen(!isFilterSidebarOpen); // Toggle filter sidebar visibility
-  };
 
   const getAds = useCallback(() => {
     setIsLoadingMore(true);
@@ -67,12 +61,31 @@ export default function Furnitures(): React.ReactElement {
   return (
     <>
       <Nav2 />
+      <div className="bg-white fixed top-16 w-full flex items-center justify-between px-10  py-3">
+        <div>Mes Favoris <span>5</span> </div>
+
+
+        <button
+          className={" inline-flex py-2 px-4 rounded-lg  items-center gap-2 text-gray-800"} >
+          {" "}
+          Tirer Par
+          <select className=' bg-[#D9D9D9] p-3 rounded-md outline-none '>
+            <option value="lol">Par defaut</option>
+            <option value="">Date d'ajout</option>
+          </select>
+        </button>
+      </div>
       <section
-        className={" " + " bg-gray-200  py-4 min-h-screen flex   2xl:px-10 xl:px-6  gap-y-14   "}>
-        <div className="text-center m-auto w-96 bg-orange-600/15 text-orange-800 rounded-xl py-4 px-4">
-          <span>vous decouvrirez bientot une large gamme de mobilier </span>
-        </div>
+        className={
+          " " +
+          "grid 2xl:gap-5 bg-gray-200 mt-32 py-4 min-h-screen   2xl:px-10 xl:px-6  gap-y-14   gap-x-10 2xl:grid-cols-4 lg:grid-cols-4    grid-cols-1  sm:grid-cols-3  "
+        }>
+        {ads.map((ad) => {
+          return (
+            <ProductCard {...ad} />
+          );
+        })}
       </section>
     </>
-  );
+  )
 }

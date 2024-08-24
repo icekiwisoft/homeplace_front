@@ -107,6 +107,7 @@ export default function Ads(): React.ReactElement {
           </div>
 
           {/* Standing Section */}
+
           <div className="mb-4">
             <h2 className="font-bold mb-2 text-base">Standing :</h2>
             <div>
@@ -170,13 +171,10 @@ export default function Ads(): React.ReactElement {
             ? "ml-80 w-[calc(100%-320px)] lg:!grid-cols-3 "
             : "") +
           "grid 2xl:gap-5 bg-gray-200 mt-32 py-4 min-h-screen   2xl:px-10 xl:px-6  gap-y-14   gap-x-10 2xl:grid-cols-5 lg:grid-cols-4    grid-cols-1  sm:grid-cols-3  "
-        }
-      >
+        }>
         {ads.map((ad) => {
           return (
-            
-              <ProductCard {...ad} />
-         
+            <ProductCard {...ad} />
           );
         })}
       </section>

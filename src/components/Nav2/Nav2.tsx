@@ -21,8 +21,8 @@ export default function Nav2(): React.ReactElement {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [UrlSearchParam, setUrlSearchParam] = useSearchParams();
-  const {toggleModal} =useContext(AuthContext)
-const domicoins=2000
+  const { toggleModal } = useContext(AuthContext)
+  const domicoins = 2000
   return (
     <nav className="bg-white top-0 left-0 fixed w-[100%] px-10 border-b border-gray-400 z-50 ">
       <div className="h-[64px] flex justify-between border-0  border-gray-200  first-letter:  items-center text-black   ">
@@ -56,11 +56,11 @@ const domicoins=2000
                     "inline-flex justify-center gap-1.5 items-center align-middle cursor-pointer"
                   }
                 >
-                  <img src={Piece} className="size-6" />
+                  <img src={Piece} alt="coin" className="size-6" />
                   <strong className="text-yellow-800 ">{domicoins}</strong>
                 </NavLink>
               </li>
-              <NavLink to="/favorites">
+              <NavLink to="/favorite">
                 <li className=" text-sm inline-flex justify-center gap-2 items-center align-middle cursor-pointer">
                   <HeartIcon className="h-6 " /> Mes favoris
                 </li>
@@ -85,7 +85,7 @@ const domicoins=2000
           </div>
         </div>
       </div>
-    
+
     </nav>
   );
 }

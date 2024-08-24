@@ -22,14 +22,14 @@ interface CarouselItemInterface {
 const CarouselItems: CarouselItemInterface[] = [
   {
     image: img1,
-    title: "more than thousand house",
+    title: "More than thousand house",
     text: " No need to wade through endless listings. Here, you'll discover a vast ocean of potential homes, each with its own unique story waiting to unfold",
     button: "Obtain your house",
     id: 0,
   },
   {
     image: img2,
-    title: "find your furnitures",
+    title: "Find your furnitures",
     text: " No more furniture fatigue. Dive into a world where thousands of options await, ready to transform your space and reflect your individuality",
     button: "decour your home",
     id: 1,

@@ -6,18 +6,17 @@ import { HeartIcon, ShareIcon } from "@heroicons/react/24/outline";
 import Domilix from "../../assets/domilix_icon.png";
 import AuthContext from "@context/AuthContext";
 export default function ProductCard(props: Ad): React.ReactElement {
-  const { price, presentation,id }: Ad = props;
+  const { price, presentation, id }: Ad = props;
   const navigate = useNavigate();
-  const {user,toggleModal} = useContext(AuthContext)
-  const [liked , setLike]=useState(false)
-  const like = ()=>
-    {
-if(user)
-  toggleModal!()
-else
-  setLike(!liked)
-  
-    }
+  const { user, toggleModal } = useContext(AuthContext)
+  const [liked, setLike] = useState(false)
+  const like = () => {
+    if (user)
+      toggleModal!()
+    else
+      setLike(!liked)
+
+  }
 
 
   return (
@@ -29,6 +28,7 @@ else
       <div className="h-44 bg-gray-300 rounded-lg overflow-hidden">
         {
           <img
+            alt="product"
             className=" object-cover min-h-full min-w-full  w-full"
             src={"http://localhost:8000" + presentation}
           />
@@ -52,14 +52,17 @@ else
             e.preventDefault();
           }}
         >
-          <button className="size-8 p-1.5 rounded-full bg-gray-200">
+          <button
+            className="size-8 p-1.5 rounded-full bg-gray-200"
+            title="share"
+          >
             <ShareIcon />
           </button>
 
           <button
             className={
               "size-8 p-1.5 rounded-full " +
-              (liked ? "bg-orange-700/25 text-orange-700 " :  "bg-gray-200")
+              (liked ? "bg-orange-700/25 text-orange-700 " : "bg-gray-200")
             }
             title="like"
             onClick={like}

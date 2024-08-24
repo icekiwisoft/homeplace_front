@@ -18,13 +18,13 @@ export default function Ad(): React.ReactElement {
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
-      setShowModal(!showModal);
-    };
-  
+    setShowModal(!showModal);
+  };
+
   const axios = useAxios();
 
 
-  
+
 
   const getAdinfo = async () => {
     const response = await axios.get(`/ads/${id}`);

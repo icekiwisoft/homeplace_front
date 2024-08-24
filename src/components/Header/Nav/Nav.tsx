@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import React from "react";
 import { Link } from "react-router-dom";
-import Logo from "@assets/domilix.png";
+// import Logo from "@assets/domilix.png";
 import AuthContext from "@context/AuthContext";
 
 export default function Nav(): React.ReactElement {
@@ -80,12 +80,12 @@ export default function Nav(): React.ReactElement {
               </Link>
               <Link to="/houses">
                 <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
-                  houses
+                  Houses
                 </li>
               </Link>
               <Link to="/furnitures">
                 <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
-                  furnitures
+                  Furnitures
                 </li>
               </Link>
 
