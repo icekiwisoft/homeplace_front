@@ -78,7 +78,7 @@ export default function Favorite() {
       <section
         className={
           " " +
-          "grid 2xl:gap-5 bg-gray-200 mt-32 py-4 min-h-screen   2xl:px-10 xl:px-6  gap-y-14   gap-x-10 2xl:grid-cols-4 lg:grid-cols-4    grid-cols-1  sm:grid-cols-3  "
+          "grid 2xl:gap-5 bg-gray-200 mt-36 py-4 min-h-screen   2xl:px-10 xl:px-6  gap-y-14   gap-x-10 2xl:grid-cols-4 lg:grid-cols-4    grid-cols-1  sm:grid-cols-3  "
         }>
         {ads.map((ad) => {
           return (
