@@ -66,3 +66,22 @@ export interface Category {
 export interface TimerProps {
   targetDate: Date;
 }
+
+export interface OfferDetailsProps {
+  title: string;
+  credits: string;
+  validity: string;
+  price: string;
+  features: string[];
+  onClose: () => void;
+}
+
+export interface PricingProps {
+  title: string;
+  credits: string;
+  validity: string;
+  price: string;
+  features: string[];
+  isActive: boolean;
+  onChoose: () => void;
+}
