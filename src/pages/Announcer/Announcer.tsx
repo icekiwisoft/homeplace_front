@@ -15,23 +15,23 @@ const people = [
 
 ];
 export default function Announcer() {
-    const [selected, setSelected] = useState(people[0]);
-   const options= [
-"announces",
-"about",
-"parametre"
-   ]
-   const [urlSearchParam] = useSearchParams();
-   const [option,setOption]=useState("announces")
+  const [selected, setSelected] = useState(people[0]);
+  const options = [
+    "announces",
+    "about",
+    "parametre"
+  ]
+  const [urlSearchParam] = useSearchParams();
+  const [option, setOption] = useState("announces")
 
-     const [isDialogOpen, setIsDialogOpen] = useState(false);
-     const toggleDialog = () => {
-       setIsDialogOpen(!isDialogOpen);
-     };
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const toggleDialog = () => {
+    setIsDialogOpen(!isDialogOpen);
+  };
   return (
     <>
       <Nav2 />
-      <div className=" px-40 bg-gray-200 py-28">
+      <div className=" px-10 bg-gray-200 py-28 xl:px-40 sm:px-1 ">
         {/* Profile Header */}
         <header className="rounded-xl bg-white overflow-hidden items-center justify-between mb-8">
           <div className="h-80 bg-gray-600 "></div>
@@ -73,7 +73,7 @@ export default function Announcer() {
         </header>
 
         {/* Navigation Tabs */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center mb-8  ">
           {options.map((menuItem) => {
             return (
               <button
@@ -90,17 +90,17 @@ export default function Announcer() {
           })}
 
           <button
-            className="bg-orange-500 text-white px-4 py-2 rounded ml-auto flex gap-2 items-center fixed right-0 top-1/3 rounded-l-3xl"
+            className="bg-orange-500 text-white px-4 py-2 z-50 rounded ml-auto flex gap-2 items-center fixed right-0 top-1/3 rounded-l-3xl"
             onClick={toggleDialog}
           >
-            <MdOutlineCampaign size={28} className="-rotate-45" /> Annonce
+            <MdOutlineCampaign size={28} className="-rotate-45 " /> Annonces
           </button>
         </div>
         {option === "announces" && (
           <>
-            <div className="mb-8 flex justify-between">
+            <div className="mb-8 lg:flex md:flex justify-between ">
               {/* Search Bar */}
-              <div className="flex w-80  rounded-lg px-3 py-1.5 bg-white ring-2 ring-gray-300 items-center  ">
+              <div className="flex w-full 2xl:w-[35rem]  lg:w-96 md:w-80  rounded-lg px-3 py-1.5 bg-white ring-2 ring-gray-300 items-center  ">
                 <HiMagnifyingGlass size={28} className="text-gray-800" />
 
                 <input
@@ -110,7 +110,7 @@ export default function Announcer() {
                   className="  outline-none flex-1 bg-transparent px-2  text-[1rem]  text-gray-600  font-normal"
                 />
               </div>
-              <div className="w-72">
+              <div className=" w-full  lg:w-96 md:w-80 ">
                 <Listbox value={selected} onChange={setSelected}>
                   <div className="relative mt-1">
                     <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
@@ -133,10 +133,9 @@ export default function Announcer() {
                           <Listbox.Option
                             key={personIdx}
                             className={({ active }) =>
-                              `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                active
-                                  ? "bg-amber-100 text-amber-900"
-                                  : "text-gray-900"
+                              `relative cursor-default select-none py-2 pl-10 pr-4  ${active
+                                ? "bg-amber-100 text-amber-900"
+                                : "text-gray-900"
                               }`
                             }
                             value={person}
@@ -144,9 +143,8 @@ export default function Announcer() {
                             {({ selected }) => (
                               <>
                                 <span
-                                  className={`block truncate ${
-                                    selected ? "font-medium" : "font-normal"
-                                  }`}
+                                  className={`block truncate ${selected ? "font-medium" : "font-normal"
+                                    }`}
                                 >
                                   {person.name}
                                 </span>
@@ -170,11 +168,11 @@ export default function Announcer() {
             </div>
 
             {/* Apartment Listings */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2  grid-cols-1 gap-4">
               {Array(20)
                 .fill(0)
                 .map(() => {
-                  return <ProductCard  />;
+                  return <ProductCard />;
                 })}
             </div>
           </>

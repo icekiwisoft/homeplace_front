@@ -22,6 +22,7 @@ import Download from "@pages/Download/Download.tsx";
 import Subscriptions from "@pages/Subscriptions/Subscriptions.tsx";
 import Announcer from "@pages/Announcer/Announcer.tsx";
 import Furnitures from "@pages/Furnitures/Furnitures.tsx";
+import Favorite from "@pages/Favorites/Favorite.tsx";
 
 function App(): React.ReactElement {
   return (
@@ -34,6 +35,7 @@ function App(): React.ReactElement {
           <Route path="houses" Component={Ads} />
           <Route path="houses/:id" Component={Ad} />
           <Route path="furnitures" Component={Furnitures} />
+          <Route path="/favorite" Component={Favorite} />
 
           <Route path="subscriptions" Component={Subscriptions} />
           <Route path="announcers/:id" Component={Announcer} />

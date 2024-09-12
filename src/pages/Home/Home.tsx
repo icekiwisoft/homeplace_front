@@ -7,16 +7,12 @@ import Stats from "@components/Stats/Stats";
 import { Input } from "@material-tailwind/react";
 
 
-export default function Home():React.ReactElement {
+export default function Home(): React.ReactElement {
   return (
     <>
-
-    
-    <Header />
-      <Services/>
-   
-<Stats/>
-
+      <Header />
+      <Services />
+      <Stats />
       <News_later />
       <Footer />
     </>
