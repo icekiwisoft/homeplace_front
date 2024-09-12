@@ -1,7 +1,7 @@
 import Nav2 from "@components/Nav2/Nav2";
 import { FaCheck, FaPlus } from "react-icons/fa";
-import Validity from "@assets/img/4336711 1.png"
-import Domicoint from "@assets/img/Domicoint.png"
+import Validity from "@assets/img/4336711 1.png";
+import Domicoint from "@assets/img/Domicoint.png";
 import ChoiseMode from "@components/Cards/Paiement/ChoiseMode";
 import { useState } from "react";
 import { PricingProps } from "utils/types";
@@ -21,7 +21,7 @@ const PricingCard: React.FC<PricingProps> = ({
   onChoose
 }) => {
   return (
-    <div className={`p-6 rounded-2xl shadow-lg relative ${isActive ? "bg-indigo-950 text-white bottom-10" : "bg-white"}`}>
+    <div className={`p-6 rounded-2xl shadow-lg relative ${isActive ? "bg-indigo-950 text-white lg:bottom-10" : "bg-white"}`}>
       {isActive && (
         <div className="top-1 flex items-center px-1.5 justify-center absolute right-1 aspect-square size-min rounded-full whitespace-nowrap bg-gray-200 text-orange-800 font-bold rotate-12 text-xs">
           -12 %
@@ -63,15 +63,15 @@ export default function Subscriptions() {
     <>
       <Nav2 />
       <div className="min-h-screen bg-gray-50 flex mt-6 flex-col items-center justify-center py-10">
-        <h1 className="text-3xl font-bold text-center mb-2">
+        <h1 className="mb-2 mt-3 lg:text-5xl sm:text-4xl text-3xl text-black text-center font-semibold">
           Le bon plan pour votre recherche
         </h1>
-        <p className="text-center mb-28 w-[656px] text-sm text-gray-700">
+        <p className="mb-28 sm:w-[85%] w-[125%] text-gray-800 lg:text-sm text-xs text-center px-[15%]">
           Nous mettons à votre disposition plusieurs plans puissants pour vous
           aider à trouver un logement et un espace de bureau à un prix
           abordable. Tout ce dont vous avez besoin.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 px-28 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:px-28 px-8">
           <PricingCard
             title="Offre Standard"
             credits="20 credits"
