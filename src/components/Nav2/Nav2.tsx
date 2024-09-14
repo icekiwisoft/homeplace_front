@@ -29,7 +29,7 @@ export default function Nav2(): React.ReactElement {
   const content = (
     <>
       <div className="md:hidden text-black bg-white h-screen absolute z-[3] top-[64px] w-full left-0 right-0 transition">
-        <ul className="text-center text-xs mt-16 z-[50000] transition-all">
+        <ul className="text-center text-xs mt-10 z-[50000] transition-all">
           {links.map((link) => (
             <NavLink to={link.url} key={link.name}>
               <li className="my-2 py-2 hover:bg-gray-200 hover:rounded">
@@ -48,7 +48,7 @@ export default function Nav2(): React.ReactElement {
             <li>
               <button
                 onClick={toggleModal}
-                className="transition-all duration-700 cursor-pointer bg-black hover:bg-gray-800 text-white font-bold py-2 my-2 mx-[10vw] rounded-lg"
+                className="transition-all duration-700 cursor-pointer bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 my-2 mx-[10vw] rounded-lg"
               >
                 Se connecter
               </button>
@@ -67,21 +67,21 @@ export default function Nav2(): React.ReactElement {
             <img src={Logo} alt="logo" className="h-5" />
           </NavLink>
         </div>
-        <div className="lg:flex md:flex hidden items-center justify-end font-normal">
-          <div className="flex-10">
+        <div className="lg:flex md:flex  items-center justify-end font-normal">
+          <div className="flex items-center ">
             <ul className="flex gap-8 text-[16px] font-medium items-center">
               <li className="text-sm">
                 <NavLink
                   to="/subscriptions"
-                  className="inline-flex justify-center gap-1.5 items-center"
+                  className="inline-flex justify-center gap-1.5 items-center  "
                 >
-                  <img src={Piece} alt="coin" className="size-6" />
+                  <img src={Piece} alt="coin" className="size-6 lg:flex md:flex hidden" />
                   <strong className="text-yellow-800">{domicoins}</strong>
                 </NavLink>
               </li>
               <NavLink to="/favorite">
                 <li className="text-sm inline-flex justify-center gap-2 items-center">
-                  <HeartIcon className="h-6" /> Mes favoris
+                  <HeartIcon className="h-6" /> <p className="lg:flex md:flex hidden" >Mes </p>Favoris 
                 </li>
               </NavLink>
               {user?.is_admin && (
@@ -93,7 +93,7 @@ export default function Nav2(): React.ReactElement {
                 <li>
                   <button
                     onClick={toggleModal}
-                    className="transition-all duration-700 cursor-pointer bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg"
+                    className="transition-all duration-700 cursor-pointer bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg lg:flex md:flex hidden"
                   >
                     Se connecter
                   </button>
