@@ -45,7 +45,7 @@ export default function ProductCard(props: Ad): React.ReactElement {
 
         <span className="text-gray-600  text-xs ">yaounde/odza</span>
       </div>
-      <div className="mt-3 flex justify-between items-center ">
+      <div className="mt-3 flex justify-end items-center ">
         <div
           className="flex gap-2.5"
           onClick={(e) => {

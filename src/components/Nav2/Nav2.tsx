@@ -13,6 +13,7 @@ import { FaTimes } from "react-icons/fa";
 import { GoX } from "react-icons/go";
 import { GoQuote } from "react-icons/go";
 
+
 const links = [
   { name: "Abonnements", url: "/subscriptions" },
   { name: "Immobiliers", url: "/houses" },

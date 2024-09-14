@@ -1,6 +1,6 @@
 import React, { FormEvent, useContext, useState } from "react";
-import Home from "../../assets/img/home.jpg";
-import AuthContext from "../../context/AuthContext";
+import Home from "@assets/img/home.jpg";
+import AuthContext from "@context/AuthContext";
 
 
 

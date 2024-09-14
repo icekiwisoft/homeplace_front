@@ -1,4 +1,4 @@
-import React from "react";
+
 import Nav from "../../components/Header/Nav/Nav";
 
 export default function Error404() {
