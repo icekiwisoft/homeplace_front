@@ -140,7 +140,7 @@ export default function Ads(): React.ReactElement {
       )}
 
       <div className="bg-white fixed top-16 w-full flex items-center justify-between px-10  py-3">
-        <div>Toutes les categories</div>
+        <div  >Toutes les categories</div>
         <div className="flex w-96  rounded-full px-3 py-1.5 bg-gray-200 border-solid items-center  ">
           <HiMagnifyingGlass size={28} className="text-gray-800" />
 
