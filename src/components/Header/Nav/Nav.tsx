@@ -55,19 +55,13 @@ export default function Nav(): React.ReactElement {
   );
 
   return (
-    <nav
-      className={`relative w-[100%] *:!border-none z-4  ${
-        click ? "active" : ""
-      }  `}
-    >
+    <nav className={`relative w-[100%] *:!border-none z-4  ${click ? "active" : ""}`}>
       <div className="bg-gray-900 border-0 z-20 absolute w-full h-[80px] colorer"></div>
-      <div
-        className={`border-0 h-[80px] flex justify-between first-letter:  items-center text-white lg:py-3 px-6 py-2 border-b relative z-50`}
-      >
+      <div className={`border-0 h-[80px] flex justify-between first-letter:  items-center text-white lg:py-3 px-6 py-2 border-b relative z-50`} >
         <div className="flex items-center flex-1 ">
           <span className="text-2xl font-bold flex">
-            D<HiHomeModern className="h-auto" />
-            milix
+            {/* <HiHomeModern className="h-auto" /> */}
+            Domilix
           </span>
         </div>
         <div className="lg:flex md:flex lg: flex-1 items center justify-end font-normal hidden">
@@ -88,7 +82,6 @@ export default function Nav(): React.ReactElement {
                   Furnitures
                 </li>
               </Link>
-
               {user && (
                 <Link to="/dashboard">
                   <li className="hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
@@ -111,14 +104,9 @@ export default function Nav(): React.ReactElement {
           </div>
         </div>
         <button className="block md:hidden " onClick={handleClick}>
-          {click ? (
-            <FaTimes className="text-2xl" />
-          ) : (
-            <HiBars3 className="text-4xl" />
-          )}
+          {click ? (<FaTimes className="text-2xl" />) : (<HiBars3 className="text-4xl" />)}
         </button>
       </div>
-
       {click && content}
     </nav>
   );
