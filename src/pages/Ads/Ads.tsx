@@ -139,18 +139,21 @@ export default function Ads(): React.ReactElement {
         </div>
       )}
 
-      <div className="bg-white fixed top-16 w-full flex items-center justify-between px-10  py-3">
-        <div  >Toutes les categories</div>
+      <div className="bg-white fixed top-16 w-screen justify-center flex items-center md:justify-between lg:justify-between px-10  py-3">
+        <div className="flex">
+          <span className="hidden lg:block">Toutes les</span>&nbsp;
+          <span className="capitalize lg:normal-case md:normal hidden xl:block lg:block md:block ">categories</span>
+        </div>
+        &nbsp;
         <div className="flex w-96  rounded-full px-3 py-1.5 bg-gray-200 border-solid items-center  ">
           <HiMagnifyingGlass size={28} className="text-gray-800" />
-
           <input
             type="text"
             placeholder="search ...."
             defaultValue={UrlSearchParam.get("search")!}
             className="  outline-none flex-1 bg-transparent px-2  text-[1rem]  text-gray-600  font-normal"
           />
-        </div>
+        </div> &nbsp;
 
         <button
           className={
@@ -160,7 +163,8 @@ export default function Ads(): React.ReactElement {
           onClick={handleFilterButtonClick}
         >
           {" "}
-          <HiAdjustmentsHorizontal size={24} /> filtre avancé
+          <HiAdjustmentsHorizontal size={24} /> 
+          <span className=" hidden lg:block md:block " >filtre avancé</span>
         </button>
       </div>
 

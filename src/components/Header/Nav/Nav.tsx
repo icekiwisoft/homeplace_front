@@ -3,7 +3,8 @@ import { HiBars3 } from "react-icons/hi2";
 import { useContext, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import Logo from "@assets/Whited.svg";
 // import Logo from "@assets/domilix.png";
 import AuthContext from "@context/AuthContext";
 
@@ -59,10 +60,15 @@ export default function Nav(): React.ReactElement {
       <div className="bg-gray-900 border-0 z-20 absolute w-full h-[80px] colorer"></div>
       <div className={`border-0 h-[80px] flex justify-between first-letter:  items-center text-white lg:py-3 px-6 py-2 border-b relative z-50`} >
         <div className="flex items-center flex-1 ">
-          <span className="text-2xl font-bold flex">
-            {/* <HiHomeModern className="h-auto" /> */}
+          <NavLink className="text-2xl text-white flex" to="/">
+            <img src={Logo} alt="logo" className="h-5" />
+          </NavLink>
+
+          {/* <span className="text-2xl font-bold flex">
+            <HiHomeModern className="h-auto" />
             Domilix
-          </span>
+          </span> */}
+
         </div>
         <div className="lg:flex md:flex lg: flex-1 items center justify-end font-normal hidden">
           <div className="flex-10 ">
