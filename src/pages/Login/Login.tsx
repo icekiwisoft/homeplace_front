@@ -55,7 +55,7 @@ export default function Login():React.ReactNode {
                 remember me
               </span>
 
-              <a className="text-orange-700">forgot password</a>
+              <a className="text-orange-700" href="/Forgot">forgot password</a>
             </div>
 
             <button className="p-2 mt-10 bg-gray-900 rounded-md text-gray-50 text-[1.1rem]  w-full">
@@ -64,7 +64,10 @@ export default function Login():React.ReactNode {
 
             <div className="text-center mt-5">
               <span className="text-[0.9rem]">
-                you can not create a account for now
+                Don't you have account <a className='text-orange-700'href='/Signup'>
+            sign up
+           </a>
+                
               </span>
             </div>
           </form>

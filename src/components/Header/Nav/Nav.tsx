@@ -41,6 +41,7 @@ export default function Nav(): React.ReactElement {
               Contact us
             </li>
           </Link>
+          
 
           {!user && (
             <Link to="login">
@@ -48,7 +49,10 @@ export default function Nav(): React.ReactElement {
                 sign in
               </li>
             </Link>
+            
           )}
+          
+
         </ul>
       </div>
     </>
@@ -67,11 +71,7 @@ export default function Nav(): React.ReactElement {
         <div className="lg:flex md:flex lg: flex-1 items center justify-end font-normal hidden">
           <div className="flex-10 ">
             <ul className="flex gap-8 text-[16px] font-medium items-center">
-              <Link to="Services">
-                <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
-                  Contact us
-                </li>
-              </Link>
+              
               <Link to="/houses">
                 <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
                   Houses
@@ -80,6 +80,11 @@ export default function Nav(): React.ReactElement {
               <Link to="/furnitures">
                 <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
                   Furnitures
+                </li>
+              </Link>
+              <Link to="Services">
+                <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
+                  Contact us
                 </li>
               </Link>
               {user && (
@@ -99,7 +104,13 @@ export default function Nav(): React.ReactElement {
                     Sign in
                   </Link>
                 </li>
+                
               )}
+              <Link to="Signup ">
+            <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
+              Sign up
+            </li>
+          </Link>
             </ul>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import Nav from "../../components/Header/Nav/Nav";
+import { Link } from "react-router-dom";
 
 export default function Error500() {
   return (
@@ -14,9 +15,11 @@ export default function Error500() {
             </p>
             <p className="mb-8">something appendend on the server</p>
 
+            <Link to={"/"}>
             <button className="px-4 inline py-3 text-sm font-medium leading-5 shadow text-white transition-colors duration-150 border border-transparent rounded-lg focus:outline-none focus:shadow-outline-blue bg-gray-900">
               back to homepage
             </button>
+            </Link>
           </div>
         </div>
       </div>

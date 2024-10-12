@@ -23,6 +23,11 @@ import Subscriptions from "@pages/Subscriptions/Subscriptions.tsx";
 import Announcer from "@pages/Announcer/Announcer.tsx";
 import Furnitures from "@pages/Furnitures/Furnitures.tsx";
 import Favorite from "@pages/Favorites/Favorite.tsx";
+import Profile from "@pages/Dashboard/Profile/Profile.tsx";
+import Settings from "@pages/Dashboard/Settings/Settings.tsx";
+import Validation from "@pages/Validation/Validation.tsx";
+import Services from "@components/services/Services.tsx";
+import Forgot from "@pages/Forgot/Forgot.tsx";
 
 function App(): React.ReactElement {
   return (
@@ -32,10 +37,13 @@ function App(): React.ReactElement {
           <Route path="/" index Component={Home} />
           <Route path="/login" Component={Login} />
           <Route path="/signup" Component={Signup} />
+          <Route path="/Forgot" Component={Forgot} />
           <Route path="houses" Component={Ads} />
           <Route path="houses/:id" Component={Ad} />
           <Route path="furnitures" Component={Furnitures} />
+          <Route path="/Validation" Component={Validation} />
           <Route path="/favorite" Component={Favorite} />
+          <Route path="Services" Component={Services} />
 
           <Route path="subscriptions" Component={Subscriptions} />
           <Route path="announcers/:id" Component={Announcer} />
@@ -45,6 +53,8 @@ function App(): React.ReactElement {
             <Route path="ads" Component={AdsAdmin} />
             <Route path="visualization/traffic" Component={Traffic} />
             <Route path="categories" Component={Categories} />
+            <Route path="Settings" Component={Settings} />
+            <Route path="Profile" Component={Profile} />
             <Route path="announcers/:id" Component={DashboardAnnouncer} />
           </Route>
 
