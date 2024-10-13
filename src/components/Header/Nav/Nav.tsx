@@ -9,9 +9,10 @@ import Logo from "@assets/Whited.svg";
 import AuthContext from "@context/AuthContext";
 
 export default function Nav(): React.ReactElement {
+  
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
-  const { user } = useContext(AuthContext);
+  const { user, toggleModal } = useContext(AuthContext);
   const content = (
     <>
       <div className="md:hidden  text-black bg-[#fff] h-screen absolute z-[3] block top-[80px] w-full left-0 right-0 transition">
@@ -42,15 +43,13 @@ export default function Nav(): React.ReactElement {
               Contact us
             </li>
           </Link>
-          
 
           {!user && (
-            <Link to="login">
-              <li className="transition cursor-pointer bg-[#D88A3B] text-white font-bold py-2 my-2 mx-[10vw] rounded">
-                sign in
-              </li>
-            </Link>
-            
+            <li >
+              <button onClick={toggleModal} className="transition cursor-pointer bg-[#D88A3B] text-white font-bold py-2 my-2 mx-[10vw] rounded">
+                sign
+              </button>
+            </li>
           )}
           
 
@@ -77,7 +76,11 @@ export default function Nav(): React.ReactElement {
         <div className="lg:flex md:flex lg: flex-1 items center justify-end font-normal hidden">
           <div className="flex-10 ">
             <ul className="flex gap-8 text-[16px] font-medium items-center">
-              
+              <Link to="/404">
+                <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
+                  Contact us
+                </li>
+              </Link>
               <Link to="/houses">
                 <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
                   Houses
@@ -88,11 +91,7 @@ export default function Nav(): React.ReactElement {
                   Furnitures
                 </li>
               </Link>
-              <Link to="Services">
-                <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
-                  Contact us
-                </li>
-              </Link>
+              
               {user && (
                 <Link to="/dashboard">
                   <li className="hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
@@ -103,19 +102,15 @@ export default function Nav(): React.ReactElement {
 
               {!user && (
                 <li>
-                  <Link
-                    to="/login"
-                    className=" transition-border duration-300 cursor-pointer bg-white hover:rounded-full  text-black font-bold py-2 px-4 rounded "
-                  >
+                  <button onClick={toggleModal}
+                    className=" transition-border duration-300 cursor-pointer bg-white   text-black font-bold py-2 px-4 rounded ">
                     Sign in
-                  </Link>
+                  </button>
                 </li>
                 
               )}
               <Link to="Signup ">
-            <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
-              Sign up
-            </li>
+            
           </Link>
             </ul>
           </div>
