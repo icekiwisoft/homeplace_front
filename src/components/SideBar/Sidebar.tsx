@@ -119,18 +119,23 @@ export default function Sidebar() {
         </Accordion>
         <hr className="my-2 border-blue-gray-50" />
 
+
+        <NavLink to={"/dashboard/Profile"}>
         <ListItem>
           <ListItemPrefix>
             <UserCircleIcon className="h-5 w-5" />
           </ListItemPrefix>
           Profile
         </ListItem>
+        </NavLink>
+        <NavLink to={"/dashboard/settings"}>
         <ListItem>
           <ListItemPrefix>
             <Cog6ToothIcon className="h-5 w-5" />
           </ListItemPrefix>
           Settings
         </ListItem>
+        </NavLink>
         <ListItem>
           <ListItemPrefix>
             <PowerIcon className="h-5 w-5" />
