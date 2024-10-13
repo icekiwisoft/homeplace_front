@@ -31,7 +31,7 @@ export default function Announcer() {
   return (
     <>
       <Nav2 />
-      <div className=" px-10 bg-gray-200 py-28 xl:px-40 sm:px-1 ">
+      <div className=" px-2 bg-gray-200 py-28 xl:px-40 lg:px-28 md:px-10 ">
         {/* Profile Header */}
         <header className="rounded-xl bg-white overflow-hidden items-center justify-between mb-8">
           <div className="h-80 bg-gray-600 "></div>

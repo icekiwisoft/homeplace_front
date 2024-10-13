@@ -63,8 +63,6 @@ export default function Favorite() {
       <Nav2 />
       <div className="bg-white fixed top-16 w-full flex items-center justify-between px-10  py-3">
         <div>Mes Favoris <span>5</span> </div>
-
-
         <button
           className={" inline-flex py-2 px-4 rounded-lg  items-center gap-2 text-gray-800"} >
           {" "}
