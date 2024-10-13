@@ -1,0 +1,141 @@
+Date : 2024-06-29 16:03:20
+Directory : c:\Users\LENOVO\Documents\GitHub\homeplace_front\src
+Total : 60 files,  4323 codes, 26 comments, 401 blanks, all 4750 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| TypeScript JSX |         50 |      4,225 |         23 |        376 |      4,624 |
+| TypeScript     |          1 |         54 |          1 |          9 |         64 |
+| SCSS           |          7 |         24 |          0 |         10 |         34 |
+| CSS            |          1 |         13 |          2 |          5 |         20 |
+| JavaScript     |          1 |          7 |          0 |          1 |          8 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                   | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                      |         60 |      4,323 |         26 |        401 |      4,750 |
+| . (Files)                                                                                                              |          3 |         77 |          2 |         13 |         92 |
+| components                                                                                                             |         33 |      2,912 |          2 |        198 |      3,112 |
+| components\Dashboard                                                                                                   |         17 |      1,965 |          1 |        121 |      2,087 |
+| components\Dashboard\AdsTable                                                                                          |          1 |        290 |          0 |         11 |        301 |
+| components\Dashboard\AnnouncerPostDialog                                                                               |          1 |        131 |          0 |          6 |        137 |
+| components\Dashboard\AnnouncersTable                                                                                   |          1 |        287 |          0 |         13 |        300 |
+| components\Dashboard\CategoriesTable                                                                                   |          1 |        310 |          0 |         14 |        324 |
+| components\Dashboard\CategoryPostDialog                                                                                |          1 |         65 |          0 |          5 |         70 |
+| components\Dashboard\FurniturePostDialog                                                                               |          2 |        124 |          0 |         22 |        146 |
+| components\Dashboard\HousePostDialog                                                                                   |          1 |        133 |          0 |          9 |        142 |
+| components\Dashboard\MediaPostDialog                                                                                   |          2 |         72 |          0 |         12 |         84 |
+| components\Dashboard\TrafficChart                                                                                      |          1 |         33 |          0 |          1 |         34 |
+| components\Dashboard\UserInfoCard                                                                                      |          2 |        189 |          1 |         10 |        200 |
+| components\Dashboard\UserTabs                                                                                          |          4 |        331 |          0 |         18 |        349 |
+| components\Dashboard\UserTabs (Files)                                                                                  |          2 |         79 |          0 |          8 |         87 |
+| components\Dashboard\UserTabs\AdsTab                                                                                   |          1 |        252 |          0 |          9 |        261 |
+| components\Dashboard\UserTabs\MediasTab                                                                                |          1 |          0 |          0 |          1 |          1 |
+| components\FilterHeader                                                                                                |          1 |         84 |          0 |          5 |         89 |
+| components\Footer                                                                                                      |          1 |         67 |          0 |          3 |         70 |
+| components\Header                                                                                                      |          4 |        233 |          1 |         24 |        258 |
+| components\Header (Files)                                                                                              |          1 |         13 |          0 |          5 |         18 |
+| components\Header\Hero                                                                                                 |          2 |        103 |          1 |         11 |        115 |
+| components\Header\Nav                                                                                                  |          1 |        117 |          0 |          8 |        125 |
+| components\Nav2                                                                                                        |          1 |         89 |          0 |          6 |         95 |
+| components\News_later                                                                                                  |          2 |         25 |          0 |          2 |         27 |
+| components\ProductCard                                                                                                 |          1 |         37 |          0 |          6 |         43 |
+| components\ProductDetailCard                                                                                           |          1 |        105 |          0 |          6 |        111 |
+| components\SideBar                                                                                                     |          1 |        132 |          0 |         12 |        144 |
+| components\SigninDialog                                                                                                |          1 |         52 |          0 |          2 |         54 |
+| components\Stats                                                                                                       |          1 |         50 |          0 |          5 |         55 |
+| components\services                                                                                                    |          1 |         66 |          0 |          5 |         71 |
+| components\utilities                                                                                                   |          1 |          7 |          0 |          1 |          8 |
+| context                                                                                                                |          1 |        102 |          0 |         18 |        120 |
+| layouts                                                                                                                |          1 |         16 |          1 |          4 |         21 |
+| pages                                                                                                                  |         19 |      1,124 |         19 |        145 |      1,288 |
+| pages\Ad                                                                                                               |          1 |        160 |         10 |         14 |        184 |
+| pages\Ads                                                                                                              |          1 |        163 |          4 |         19 |        186 |
+| pages\Announcer                                                                                                        |          1 |        333 |          5 |         22 |        360 |
+| pages\Dashboard                                                                                                        |          6 |         52 |          0 |         21 |         73 |
+| pages\Dashboard\Ads                                                                                                    |          1 |          9 |          0 |          5 |         14 |
+| pages\Dashboard\Announcer                                                                                              |          1 |         13 |          0 |          2 |         15 |
+| pages\Dashboard\Announcers                                                                                             |          2 |         13 |          0 |          5 |         18 |
+| pages\Dashboard\Categories                                                                                             |          1 |          8 |          0 |          8 |         16 |
+| pages\Dashboard\Traffic                                                                                                |          1 |          9 |          0 |          1 |         10 |
+| pages\Download                                                                                                         |          1 |         23 |          0 |          2 |         25 |
+| pages\Furnitures                                                                                                       |          1 |         71 |          0 |         16 |         87 |
+| pages\Home                                                                                                             |          1 |         18 |          0 |          7 |         25 |
+| pages\Login                                                                                                            |          1 |         68 |          0 |         11 |         79 |
+| pages\Privacy                                                                                                          |          1 |          8 |          0 |          4 |         12 |
+| pages\Signup                                                                                                           |          1 |         42 |          0 |         15 |         57 |
+| pages\Subscriptions                                                                                                    |          1 |        112 |          0 |          5 |        117 |
+| pages\errors                                                                                                           |          3 |         74 |          0 |          9 |         83 |
+| utils                                                                                                                  |          3 |         92 |          2 |         23 |        117 |
++------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                                                                                               | language       | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\App.tsx                                                           | TypeScript JSX |         55 |          0 |          6 |         61 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\AdsTable\AdsTable.tsx                        | TypeScript JSX |        290 |          0 |         11 |        301 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\AnnouncerPostDialog\AnnouncerPostDialog.tsx  | TypeScript JSX |        131 |          0 |          6 |        137 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\AnnouncersTable\AnnouncersTable.tsx          | TypeScript JSX |        287 |          0 |         13 |        300 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\CategoriesTable\CategoriesTable.tsx          | TypeScript JSX |        310 |          0 |         14 |        324 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\CategoryPostDialog\CategoryPostDialog.tsx    | TypeScript JSX |         65 |          0 |          5 |         70 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\FurniturePostDialog\FurniturePostDialog.scss | SCSS           |          0 |          0 |          1 |          1 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\FurniturePostDialog\FurniturePostDialog.tsx  | TypeScript JSX |        124 |          0 |         21 |        145 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\HousePostDialog\HousePostDialog.tsx          | TypeScript JSX |        133 |          0 |          9 |        142 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\MediaPostDialog\MediaPostDialog.scss         | SCSS           |          0 |          0 |          1 |          1 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\MediaPostDialog\MediaPostDialog.tsx          | TypeScript JSX |         72 |          0 |         11 |         83 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\TrafficChart\TrafficChart.tsx                | TypeScript JSX |         33 |          0 |          1 |         34 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserInfoCard\UserInfoCard.scss               | SCSS           |          0 |          0 |          1 |          1 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserInfoCard\UserInfoCard.tsx                | TypeScript JSX |        189 |          1 |          9 |        199 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\AdsTab\AdsTab.tsx                   | TypeScript JSX |        252 |          0 |          9 |        261 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\MediasTab\MediaTab.tsx              | TypeScript JSX |          0 |          0 |          1 |          1 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\UserTabs.scss                       | SCSS           |          0 |          0 |          1 |          1 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\UserTabs.tsx                        | TypeScript JSX |         79 |          0 |          7 |         86 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\FilterHeader\FilterHeader.tsx                          | TypeScript JSX |         84 |          0 |          5 |         89 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Footer\footer.tsx                                      | TypeScript JSX |         67 |          0 |          3 |         70 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Header\Hero\Hero.tsx                                   | TypeScript JSX |         79 |          1 |          7 |         87 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Header\Hero\hero.scss                                  | SCSS           |         24 |          0 |          4 |         28 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Header\Nav\Nav.tsx                                     | TypeScript JSX |        117 |          0 |          8 |        125 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Header\header.tsx                                      | TypeScript JSX |         13 |          0 |          5 |         18 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Nav2\Nav2.tsx                                          | TypeScript JSX |         89 |          0 |          6 |         95 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\News_later\news_later.scss                             | SCSS           |          0 |          0 |          1 |          1 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\News_later\news_later.tsx                              | TypeScript JSX |         25 |          0 |          1 |         26 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\ProductCard\ProductCard.tsx                            | TypeScript JSX |         37 |          0 |          6 |         43 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\ProductDetailCard\ProductDetailCard.tsx                | TypeScript JSX |        105 |          0 |          6 |        111 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\SideBar\Sidebar.tsx                                    | TypeScript JSX |        132 |          0 |         12 |        144 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\SigninDialog\SigninDialog.tsx                          | TypeScript JSX |         52 |          0 |          2 |         54 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Stats\Stats.tsx                                        | TypeScript JSX |         50 |          0 |          5 |         55 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\services\Services.tsx                                  | TypeScript JSX |         66 |          0 |          5 |         71 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\utilities\fourniture.js                                | JavaScript     |          7 |          0 |          1 |          8 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\context\AuthContext.tsx                                           | TypeScript JSX |        102 |          0 |         18 |        120 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\index.css                                                         | CSS            |         13 |          2 |          5 |         20 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\layouts\DashboardLayout.tsx                                       | TypeScript JSX |         16 |          1 |          4 |         21 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\main.tsx                                                          | TypeScript JSX |          9 |          0 |          2 |         11 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Ad\Ad.tsx                                                   | TypeScript JSX |        160 |         10 |         14 |        184 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Ads\Ads.tsx                                                 | TypeScript JSX |        163 |          4 |         19 |        186 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Announcer\Announcer.tsx                                     | TypeScript JSX |        333 |          5 |         22 |        360 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Ads\Ads.tsx                                       | TypeScript JSX |          9 |          0 |          5 |         14 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Announcer\Announcer.tsx                           | TypeScript JSX |         13 |          0 |          2 |         15 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Announcers\Announcer.scss                         | SCSS           |          0 |          0 |          1 |          1 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Announcers\Announcers.tsx                         | TypeScript JSX |         13 |          0 |          4 |         17 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Categories\Categories.tsx                         | TypeScript JSX |          8 |          0 |          8 |         16 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Traffic\Traffic.tsx                               | TypeScript JSX |          9 |          0 |          1 |         10 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Download\Download.tsx                                       | TypeScript JSX |         23 |          0 |          2 |         25 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Furnitures\Furnitures.tsx                                   | TypeScript JSX |         71 |          0 |         16 |         87 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Home\Home.tsx                                               | TypeScript JSX |         18 |          0 |          7 |         25 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Login\Login.tsx                                             | TypeScript JSX |         68 |          0 |         11 |         79 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Privacy\Privacy.tsx                                         | TypeScript JSX |          8 |          0 |          4 |         12 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Signup\Signup.tsx                                           | TypeScript JSX |         42 |          0 |         15 |         57 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Subscriptions\Subscriptions.tsx                             | TypeScript JSX |        112 |          0 |          5 |        117 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\errors\403.tsx                                              | TypeScript JSX |         25 |          0 |          3 |         28 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\errors\404.tsx                                              | TypeScript JSX |         26 |          0 |          3 |         29 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\errors\500.tsx                                              | TypeScript JSX |         23 |          0 |          3 |         26 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\utils\PrivateRoute.tsx                                            | TypeScript JSX |         11 |          1 |          3 |         15 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\utils\types.ts                                                    | TypeScript     |         54 |          1 |          9 |         64 |
+| c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\utils\useAsios.tsx                                                | TypeScript JSX |         27 |          0 |         11 |         38 |
+| Total                                                                                                                  |                |      4,323 |         26 |        401 |      4,750 |
++------------------------------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
