@@ -15,6 +15,9 @@ interface IAuthContext {
   setUser?: React.Dispatch<React.SetStateAction<User | null>>;
   authData: AuthData | null;
   setAuthData?: React.Dispatch<React.SetStateAction<AuthData | null>>;
+  credits: number;
+  setCredits: React.Dispatch<React.SetStateAction<number>>;
+  startCreditPurchase?: (num_phone: string, amount: string) => Promise<void>;
   registerUser?: (
     username: any,
     email: any,
@@ -29,6 +32,8 @@ interface IAuthContext {
 const AuthContext = createContext<IAuthContext>({
   user: null,
   authData: null,
+  credits: 0,
+  setCredits: () => {},
 });
 
 export default AuthContext;
@@ -51,6 +56,7 @@ export const AuthProvider = ({ children }) => {
       ? jwtDecode(JSON.parse(Cookies.get("authorization")).access_token)
       : null
   );
+  const [credits, setCredits] = useState<number>(user ? user.credits : 0);
   const [loading, setLoading] = useState(true);
 
   const [theme, setTheme] = useState<string>(() =>
@@ -62,6 +68,16 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
 
+  // Démarrer un achat de crédit
+  const startCreditPurchase = async (num_phone: string, amount:string) => {
+    try {
+      const response = await axios.post("/credit/purchase/", { num_phone,amount });
+      const data = response.data;
+      console.log("Achat de crédits démarré, suivez les instructions de paiement mobile");
+    } catch (error) {
+      console.error("Erreur lors de l'achat de crédits:", error);
+    }
+  };
 
   const loginUser = async (email: string, password: string) => {
     const response = await axios.post(`login/`, {
@@ -105,11 +121,13 @@ export const AuthProvider = ({ children }) => {
     setUser,
     authData,
     setAuthData,
+    credits,
+    setCredits,
     registerUser,
     loginUser,
     logoutUser,
-    toggleModal
- 
+    toggleModal,
+    startCreditPurchase,
   };
 
 

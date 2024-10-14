@@ -52,6 +52,7 @@ export interface User {
   name: string;
   email: string;
   is_admin: boolean;
+  credits: number;
   domicoin:number
 }
 
@@ -69,7 +70,7 @@ export interface TimerProps {
 
 export interface OfferDetailsProps {
   title: string;
-  credits: string;
+  credit: string;
   validity: string;
   price: string;
   features: string[];

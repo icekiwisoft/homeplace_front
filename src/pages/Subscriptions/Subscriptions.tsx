@@ -58,6 +58,7 @@ export default function Subscriptions() {
   const handleClosePopup = () => {
     setSelectedOffer(null); // Close the popup
   };
+  
 
   return (
     <>
