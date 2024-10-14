@@ -1,28 +1,78 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { OfferDetailsProps } from 'utils/types';
 import MTN_money from '@assets/img/MTN-Money.png';
 import Orange_money from '@assets/img/orange-Money.png';
-// import Paypal from '@assets/img/Paypal.png';
 import Alert from '../Alert/AlertNotifs';
+import AuthContext from '@context/AuthContext';
 
-const ChoiseMode: React.FC<OfferDetailsProps> = ({ title, credits, validity, price, features, onClose }) => {
+const ChoiseMode: React.FC<OfferDetailsProps> = ({ title, credit, validity, price, features, onClose }) => {
   const [selectedPayment, setSelectedPayment] = useState<string | null>(null);
   const paymentImages: Record<string, string> = {
     'MTN Mobile Money': MTN_money,
     'Orange Money': Orange_money,
-    // 'PayPal': Paypal,
   };
-  const [state, setstate] = useState(true);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+  const [showErrorAlert, setShowErrorAlert] = useState(false); // Pour les erreurs générales
+  const [phoneError, setPhoneError] = useState<string | null>(null); // Pour les erreurs de validation de téléphone
+  const [isFetching, setIsFetching] = useState(false);
+  const [accountName, setAccountName] = useState<string | null>(null);
+  const { startCreditPurchase } = useContext(AuthContext);
+  const [num_phone, setNum_phone] = useState<string>(''); // Stocker le numéro de téléphone en tant que chaîne
 
-  const handlePayment = () => {
-    // Simulate successful payment and show alert
-    setShowSuccessAlert(true);
+  // Fonction de validation du numéro de téléphone
+  const validatePhoneNumber = (phone: string): boolean => {
+    const phoneRegex = /^6\d{8}$/; // Vérifie que le numéro commence par '6' et contient exactement 9 chiffres
+    return phoneRegex.test(phone);
+  };
 
-    // Optionally hide the alert after a few seconds (e.g., 3 seconds)
-    setTimeout(() => {
-      setShowSuccessAlert(false);
-    }, 3000); // 3 seconds
+  const fetchAccountName = async (phone: string) => {
+    setIsFetching(true); // Show loader
+    setAccountName(null); // Reset previous account name
+    try {
+      // Simulate an API call (replace this with actual API logic)
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // For the sake of this example, we are assuming the account name is "John Doe"
+      setAccountName("John Doe");
+    } catch (error) {
+      setPhoneError("Erreur lors de la récupération du nom associé.");
+    } finally {
+      setIsFetching(false); // Hide loader
+    }
+  };
+
+  // Démarre l'achat de crédits avec validation du numéro
+  const handlePurchase = async () => {
+    if (!validatePhoneNumber(num_phone)) {
+      setPhoneError("Le numéro de téléphone doit commencer par 6 et contenir exactement 9 chiffres.");
+      return;
+    }
+    setPhoneError(null); // Effacer l'erreur si la validation passe
+
+    if (selectedPayment) {
+      try {
+        await startCreditPurchase(num_phone, price);
+        setShowSuccessAlert(true); // Affiche l'alerte de succès
+        setTimeout(() => {
+          setShowSuccessAlert(false);
+        }, 1000);
+      } catch (error) {
+        setShowErrorAlert(true); // Affiche l'alerte d'échec
+        setTimeout(() => {
+          setShowErrorAlert(false);
+        }, 1000);
+      }
+    }
+  };
+
+  const handlePhoneInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputPhone = e.target.value;
+    setNum_phone(inputPhone);
+    setIsFetching(true);
+    if (validatePhoneNumber(inputPhone)) {
+      fetchAccountName(inputPhone);
+    } else {
+      setAccountName(null);
+    }
   };
 
   const handlePaymentSelect = (method: string) => {
@@ -35,9 +85,10 @@ const ChoiseMode: React.FC<OfferDetailsProps> = ({ title, credits, validity, pri
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
-    {showSuccessAlert && (
-      <Alert type="success" message="Votre paiement a été effectué avec succès !" />
-    )}
+      {showSuccessAlert && <Alert type="success" message="Votre paiement a été effectué avec succès !" />}
+      {showErrorAlert && <Alert type="error" message="Une erreur est survenue lors du paiement." />}
+      {phoneError && <Alert type="error" message={phoneError} />} {/* Affiche une alerte pour les erreurs de téléphone */}
+
       <div className="bg-white px-4 py-10 lg:p-12 shadow-lg rounded-md max-w-[93%] sm:max-w-[75%] lg:max-w-[52%] w-full relative">
         <button
           onClick={onClose}
@@ -61,12 +112,6 @@ const ChoiseMode: React.FC<OfferDetailsProps> = ({ title, credits, validity, pri
                 className="h-9 sm:h-10 lg:h-14 hover:cursor-pointer"
                 onClick={() => handlePaymentSelect('Orange Money')}
               />
-              {/* <img
-                src={Paypal}
-                alt="PayPal"
-                className="h-9 sm:h-10 lg:h-14 hover:cursor-pointer"
-                onClick={() => handlePaymentSelect('PayPal')}
-              /> */}
             </div>
           ) : (
             <div className="animate-slide-up transition-all duration-500 ease-in-out lg:w-[55%] lg:mb-[0%]">
@@ -75,9 +120,11 @@ const ChoiseMode: React.FC<OfferDetailsProps> = ({ title, credits, validity, pri
                   &#x2190; Retour
                 </button>
                 <h3 className="text-base font-semibold text-indigo-900 w-full mb-4">
-                  Vous avez sélectionné : 
+                  Vous avez sélectionné :
                 </h3>
-                <div className="flex items-center gap-4"> <span className="text-base text-orange-600">{selectedPayment}</span> <img src={paymentImages[selectedPayment]} alt={selectedPayment} className="h-8 sm:h-10 ml-3"/>
+                <div className="flex items-center gap-4">
+                  <span className="text-base text-orange-600">{selectedPayment}</span>
+                  <img src={paymentImages[selectedPayment]} alt={selectedPayment} className="h-8 sm:h-10 ml-3" />
                 </div>
               </div>
               <div className="mt-6">
@@ -89,37 +136,55 @@ const ChoiseMode: React.FC<OfferDetailsProps> = ({ title, credits, validity, pri
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="number"
                     type="text"
+                    value={num_phone}
+                    onChange={handlePhoneInputChange}
                     placeholder="Entrez votre numéro"
                   />
                 </div>
-                <button className="bg-orange-600 w-full mt-8 text-white font-bold py-2 px-6 rounded hover:bg-orange-700" onClick={handlePayment}>
+                {isFetching && <div role="status">
+                  <svg aria-hidden="true" className="inline w-6 h-6 text-gray-200 animate-spin dark:text-gray-600 fill-yellow-400" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor" />
+                    <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill" />
+                  </svg>
+                  <span className="sr-only">Loading...</span>
+                </div>}
+                {accountName && !isFetching && (
+                  <p className="text-sm text-orange-700 mt-2">{accountName}</p>
+                )}
+                <button
+                  className="bg-orange-600 w-full mt-8 text-white font-bold py-2 px-6 rounded hover:bg-orange-700"
+                  onClick={handlePurchase}
+                >
                   Payer maintenant
                 </button>
               </div>
             </div>
           )}
-          {!selectedPayment ? (<div className="lg:border-l border-t border-gray-300 relative lg:pl-12 lg:ml-12 text-center mt-6 pt-4 flex-1">
-            <p className="text-[#3D3D3D] w-full text-sm font-semibold absolute lg:-top-7 lg:w-4/5 mt-2">
-              Vous êtes sur le point de profiter de tous les avantages de notre offre !
-            </p>
-            <h3 className="mt-14 sm:mt-10  text-left text-sm font-semibold underline underline-offset-1">Détails de l’offre :</h3>
-            <ul className="mt-3 pl-9 lg:w-2/3 text-left text-[#0E0559] flex flex-col gap-2 text-xs">
-              <li>📈 {credits}</li>
-              <li>⏳ {validity}</li>
-              {features.map((feature, index) => (
-                <li key={index} className="flex items-center mt-1">
-                  ✓ {feature}
-                </li>
-              ))}
-            </ul>
-            <span className="text-sm flex flex-row gap-2 mt-6 items-end">
-              <p>Montant : </p>
-              <p className="text-xl font-bold text-orange-600">{price}</p>
-            </span>
-            <p className="text-orange-600 text-sm mt-6">
-              Pour compléter votre paiement, veuillez sélectionner votre méthode de paiement dans les options présentées.
-            </p>
-          </div>):(<></>)}
+
+          {!selectedPayment && (
+            <div className="lg:border-l border-t border-gray-300 relative lg:pl-12 lg:ml-12 text-center mt-6 pt-4 flex-1">
+              <p className="text-[#3D3D3D] w-full text-sm font-semibold absolute lg:-top-7 lg:w-4/5 mt-2">
+                Vous êtes sur le point de profiter de tous les avantages de notre offre !
+              </p>
+              <h3 className="mt-14 sm:mt-10 text-left text-sm font-semibold underline underline-offset-1">Détails de l’offre :</h3>
+              <ul className="mt-3 pl-9 lg:w-2/3 text-left text-[#0E0559] flex flex-col gap-2 text-xs">
+                <li>📈 {credit}</li>
+                <li>⏳ {validity}</li>
+                {features.map((feature, index) => (
+                  <li key={index} className="flex items-center mt-1">
+                    ✓ {feature}
+                  </li>
+                ))}
+              </ul>
+              <span className="text-sm flex flex-row gap-2 mt-6 items-end">
+                <p>Montant : </p>
+                <p className="text-xl font-bold text-orange-600">{price}</p>
+              </span>
+              <p className="text-orange-600 text-sm mt-6">
+                Pour compléter votre paiement, veuillez sélectionner votre méthode de paiement dans les options présentées.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>
