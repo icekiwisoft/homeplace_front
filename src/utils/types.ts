@@ -86,3 +86,8 @@ export interface PricingProps {
   isActive: boolean;
   onChoose: () => void;
 }
+
+export interface PhoneProps {
+  value: string;
+  onChange: (phone: string) => void;
+}

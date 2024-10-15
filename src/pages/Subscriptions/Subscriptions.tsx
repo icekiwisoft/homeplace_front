@@ -151,11 +151,10 @@ export default function Subscriptions() {
       {selectedOffer && (
         <ChoiseMode
           title={selectedOffer.title}
-          credits={selectedOffer.credits}
+          credit={selectedOffer.credits}
           validity={selectedOffer.validity}
           price={selectedOffer.price}
           features={selectedOffer.features}
-          isActive={true}
           onClose={handleClosePopup}
         />
       )}

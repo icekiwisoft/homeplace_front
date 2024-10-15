@@ -4,6 +4,9 @@ import MTN_money from '@assets/img/MTN-Money.png';
 import Orange_money from '@assets/img/orange-Money.png';
 import Alert from '../Alert/AlertNotifs';
 import AuthContext from '@context/AuthContext';
+import 'react-international-phone/style.css';
+import { ChakraProvider } from "@chakra-ui/react";
+import { Phone } from '@components/Phone/Phone';
 
 const ChoiseMode: React.FC<OfferDetailsProps> = ({ title, credit, validity, price, features, onClose }) => {
   const [selectedPayment, setSelectedPayment] = useState<string | null>(null);
@@ -11,46 +14,19 @@ const ChoiseMode: React.FC<OfferDetailsProps> = ({ title, credit, validity, pric
     'MTN Mobile Money': MTN_money,
     'Orange Money': Orange_money,
   };
+  const [isFetching, setIsFetching] = useState(false);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showErrorAlert, setShowErrorAlert] = useState(false); // Pour les erreurs générales
-  const [phoneError, setPhoneError] = useState<string | null>(null); // Pour les erreurs de validation de téléphone
-  const [isFetching, setIsFetching] = useState(false);
-  const [accountName, setAccountName] = useState<string | null>(null);
   const { startCreditPurchase } = useContext(AuthContext);
-  const [num_phone, setNum_phone] = useState<string>(''); // Stocker le numéro de téléphone en tant que chaîne
+  const [phone, setChakraPhone] = useState("+237");
 
-  // Fonction de validation du numéro de téléphone
-  const validatePhoneNumber = (phone: string): boolean => {
-    const phoneRegex = /^6\d{8}$/; // Vérifie que le numéro commence par '6' et contient exactement 9 chiffres
-    return phoneRegex.test(phone);
-  };
-
-  const fetchAccountName = async (phone: string) => {
-    setIsFetching(true); // Show loader
-    setAccountName(null); // Reset previous account name
-    try {
-      // Simulate an API call (replace this with actual API logic)
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      // For the sake of this example, we are assuming the account name is "John Doe"
-      setAccountName("John Doe");
-    } catch (error) {
-      setPhoneError("Erreur lors de la récupération du nom associé.");
-    } finally {
-      setIsFetching(false); // Hide loader
-    }
-  };
 
   // Démarre l'achat de crédits avec validation du numéro
   const handlePurchase = async () => {
-    if (!validatePhoneNumber(num_phone)) {
-      setPhoneError("Le numéro de téléphone doit commencer par 6 et contenir exactement 9 chiffres.");
-      return;
-    }
-    setPhoneError(null); // Effacer l'erreur si la validation passe
-
+    setIsFetching(true)
     if (selectedPayment) {
       try {
-        await startCreditPurchase(num_phone, price);
+        await startCreditPurchase?.(phone, price);
         setShowSuccessAlert(true); // Affiche l'alerte de succès
         setTimeout(() => {
           setShowSuccessAlert(false);
@@ -61,17 +37,6 @@ const ChoiseMode: React.FC<OfferDetailsProps> = ({ title, credit, validity, pric
           setShowErrorAlert(false);
         }, 1000);
       }
-    }
-  };
-
-  const handlePhoneInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputPhone = e.target.value;
-    setNum_phone(inputPhone);
-    setIsFetching(true);
-    if (validatePhoneNumber(inputPhone)) {
-      fetchAccountName(inputPhone);
-    } else {
-      setAccountName(null);
     }
   };
 
@@ -87,7 +52,6 @@ const ChoiseMode: React.FC<OfferDetailsProps> = ({ title, credit, validity, pric
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm">
       {showSuccessAlert && <Alert type="success" message="Votre paiement a été effectué avec succès !" />}
       {showErrorAlert && <Alert type="error" message="Une erreur est survenue lors du paiement." />}
-      {phoneError && <Alert type="error" message={phoneError} />} {/* Affiche une alerte pour les erreurs de téléphone */}
 
       <div className="bg-white px-4 py-10 lg:p-12 shadow-lg rounded-md max-w-[93%] sm:max-w-[75%] lg:max-w-[52%] w-full relative">
         <button
@@ -132,14 +96,9 @@ const ChoiseMode: React.FC<OfferDetailsProps> = ({ title, credit, validity, pric
                   <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="number">
                     Numéro de téléphone
                   </label>
-                  <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="number"
-                    type="text"
-                    value={num_phone}
-                    onChange={handlePhoneInputChange}
-                    placeholder="Entrez votre numéro"
-                  />
+                  <ChakraProvider>
+                    <Phone value={phone} onChange={setChakraPhone} />
+                  </ChakraProvider>
                 </div>
                 {isFetching && <div role="status">
                   <svg aria-hidden="true" className="inline w-6 h-6 text-gray-200 animate-spin dark:text-gray-600 fill-yellow-400" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -148,9 +107,6 @@ const ChoiseMode: React.FC<OfferDetailsProps> = ({ title, credit, validity, pric
                   </svg>
                   <span className="sr-only">Loading...</span>
                 </div>}
-                {accountName && !isFetching && (
-                  <p className="text-sm text-orange-700 mt-2">{accountName}</p>
-                )}
                 <button
                   className="bg-orange-600 w-full mt-8 text-white font-bold py-2 px-6 rounded hover:bg-orange-700"
                   onClick={handlePurchase}
@@ -166,7 +122,7 @@ const ChoiseMode: React.FC<OfferDetailsProps> = ({ title, credit, validity, pric
               <p className="text-[#3D3D3D] w-full text-sm font-semibold absolute lg:-top-7 lg:w-4/5 mt-2">
                 Vous êtes sur le point de profiter de tous les avantages de notre offre !
               </p>
-              <h3 className="mt-14 sm:mt-10 text-left text-sm font-semibold underline underline-offset-1">Détails de l’offre :</h3>
+              <h3 className="mt-14 sm:mt-10 text-left "><span className='text-sm font-semibold underline underline-offset-1'>Détails de l’offre :</span><span className='text-indigo-900 font-semibold ml-1'>  {title}</span></h3>
               <ul className="mt-3 pl-9 lg:w-2/3 text-left text-[#0E0559] flex flex-col gap-2 text-xs">
                 <li>📈 {credit}</li>
                 <li>⏳ {validity}</li>

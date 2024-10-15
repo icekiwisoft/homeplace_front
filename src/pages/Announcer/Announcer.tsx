@@ -6,13 +6,17 @@ import React, { Fragment, useState } from "react";
 import { render } from "react-dom";
 import { HiCheck, HiChevronUpDown, HiMagnifyingGlass, HiOutlineSpeakerWave } from "react-icons/hi2";
 import { MdOutlineCampaign } from "react-icons/md";
+import { FiEdit } from "react-icons/fi";
+import { BiLike } from "react-icons/bi";
+import { GrAnnounce } from "react-icons/gr";
 import { useSearchParams } from "react-router-dom";
+import Cover from "@assets/bg_img/cover_annonceur.jpg"
+import Domilix from "@assets/domilix_icon.png"
 
 const people = [
   { name: "most popular" },
   { name: "news " },
-  { name: "pricing" },
-
+  { name: "pricing" }
 ];
 export default function Announcer() {
   const [selected, setSelected] = useState(people[0]);
@@ -31,56 +35,62 @@ export default function Announcer() {
   return (
     <>
       <Nav2 />
-      <div className=" px-2 bg-gray-200 py-28 xl:px-40 lg:px-28 md:px-10 ">
+      <div className=" px-2 bg-gray-200 py-20 sm:py-28 xl:px-40 lg:px-28 md:px-10 ">
         {/* Profile Header */}
-        <header className="rounded-xl bg-white overflow-hidden items-center justify-between mb-8">
-          <div className="h-80 bg-gray-600 "></div>
-          <div className="flex gap-6 pr-4 pl-10 items-center py-3 h-20">
+        <header className="rounded-xl relative bg-white overflow-hidden items-center justify-between mb-3 sm:mb-8">
+          <div className="h-40 sm:h-80 bg-gray-600 "><img src={Cover} className="h-full w-full" /></div>
+          <div className="flex gap-2 w-full items-start sm:gap-6 pr-4 pl-4 sm:pl-10 sm:items-center py-3 h-16 sm:h-20">
             <img
               alt="Domilix"
-              className=" bottom-14  relative size-28 rounded-lg bg-gray-100"
+              src={Domilix}
+              className=" bottom-10 sm:bottom-14 relative size-16 sm:size-28 rounded-lg bg-gray-100"
             />
 
             <div>
               <h1 className="text-lg font-bold">Domilix</h1>
-              <p className="text-gray-500 text-sm">
+              <p className="text-gray-500 absolute left-5 sm:left-0 sm:relative  text-[10px] sm:text-sm">
                 annonceur depuis plus de 5 ans
               </p>
             </div>
 
-            <div className="flex ml-20 space-x-4">
-              <div className="flex flex-col  text-gray-500 text-sm">
-                <strong className="font-bold text-lg text-orange-500">
-                  450{" "}
+            <div className="flex ml-auto sm:ml-20 sm:space-x-4 gap-1">
+              <div className="flex flex-row sm:flex-col h-fit sm:h-auto items-end text-gray-500 text-sm">
+                <strong className="sm:font-bold h-fit text-[15px] sm:text-lg text-orange-500">
+                  450
                 </strong>
-                Likes
+                <BiLike className="sm:hidden ml-1 size-5 mb-[2px] sm:mb-0"/>
+                <span className="hidden sm:flex">Likes</span>
               </div>
 
-              <div className=" bg-gray-400  w-[1px] flex-grow "></div>
+              <div className=" bg-gray-400 w-[1px] flex-grow "></div>
 
-              <div className="flex flex-col  text-gray-500 text-sm">
-                <strong className="font-bold text-lg text-orange-500">
-                  3777
+              <div className="flex flex-row sm:flex-col h-fit sm:h-auto items-end text-gray-500 text-sm">
+                <strong className="sm:font-bold h-fit text-[15px] sm:text-lg text-orange-500">
+                  377
                 </strong>
-                Annonces
+                <span className="hidden sm:flex">Annonces</span>
+                <GrAnnounce className="sm:hidden size-5 ml-1 mb-[2px] sm:mb-0"/>
               </div>
             </div>
 
-            <button className=" ml-auto text-sm text-gray-600 bg-gray-200 border px-4 py-2 rounded border-gray-600">
+            <button className="hidden lg:block ml-auto text-sm text-gray-600 bg-gray-200 border px-4 py-2 rounded border-gray-600">
               Editer le profil
             </button>
           </div>
+          <button className="absolute top-2 right-2 lg:hidden text-gray-600 bg-white bg-opacity-65 border p-2 rounded border-gray-500">
+            <FiEdit/>
+          </button>
         </header>
 
         {/* Navigation Tabs */}
-        <div className="flex justify-center mb-8  ">
+        <div className="flex justify-center gap-1 mb-8  ">
           {options.map((menuItem) => {
             return (
               <button
                 key={menuItem}
                 className={
-                  "  text-black px-4 py-2 rounded-lg mr-4 " +
-                  (option === menuItem ? " bg-orange-500 text-white" : "")
+                  "  text-black text-[14px] rounded sm:rounded-lg mr-4" +
+                  (option === menuItem ? " bg-orange-500 text-white  px-4 py-2" : "")
                 }
                 onClick={() => setOption(menuItem)}
               >
@@ -90,10 +100,10 @@ export default function Announcer() {
           })}
 
           <button
-            className="bg-orange-500 text-white px-4 py-2 z-50 rounded ml-auto flex gap-2 items-center fixed right-0 top-1/3 rounded-l-3xl"
+            className="bg-orange-500 text-white px-2 sm:px-4 py-2 z-50 rounded ml-auto flex gap-2 items-center fixed -right-2 sm:right-0 top-[160px] sm:top-1/3 rounded-l-3xl"
             onClick={toggleDialog}
           >
-            <MdOutlineCampaign size={28} className="-rotate-45 " /> Annonces
+            <MdOutlineCampaign size={28} className="-rotate-45" /> <span className="hidden lg:block">Annonces</span>
           </button>
         </div>
         {option === "announces" && (
@@ -178,7 +188,7 @@ export default function Announcer() {
           </>
         )}
         {option === "about" && (
-          <div className="mt-20 min-h-52 py-10 text-sm text-gray-600 rounded-lg px-10 bg-white">
+          <div className="sm:mt-20 min-h-52 py-10 text-sm text-gray-600 rounded-lg px-10 bg-white">
             <h2 className=" font-semibold text-lg text-black mb-3">bio</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur. Viverra tortor volutpat

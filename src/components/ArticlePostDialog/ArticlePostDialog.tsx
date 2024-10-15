@@ -214,7 +214,7 @@ export default function ArticlePostDialog ({ toggleDialog }:{toggleDialog:()=>vo
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
+                    <Listbox.Options className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
                       {categories.map((person, personIdx) => (
                         <Listbox.Option
                           key={personIdx}
@@ -288,15 +288,15 @@ export default function ArticlePostDialog ({ toggleDialog }:{toggleDialog:()=>vo
           ✖
         </button>
         <h2 className="text-2xl font-bold mb-4">Create Post</h2>
-        {renderSteppers()}
-        <form onSubmit={handleSubmit} className="mt-10">
+        <div className="flex gap-4 w-full rela justify-center items-center">{renderSteppers()}</div>
+        <form onSubmit={handleSubmit} className="mt-10 pb-10">
           {renderStepContent()}
-          <div className="flex justify-between mt-4">
+          <div className="flex justify-between relative align-rigth mt-4">
             {currentStep > 1 && (
               <button
                 type="button"
                 onClick={handleBack}
-                className="px-4 py-2 bg-gray-300 rounded-lg"
+                className="px-4 py-2 left-0 absolute bg-gray-300 rounded-lg"
               >
                 Back
               </button>
@@ -305,14 +305,14 @@ export default function ArticlePostDialog ({ toggleDialog }:{toggleDialog:()=>vo
               <button
                 type="button"
                 onClick={handleNext}
-                className="px-4 py-2  text-black font-semibold rounded-lg"
+                className="px-4 py-2 right-0 absolute text-black font-semibold rounded-lg"
               >
                 Next
               </button>
             ) : (
               <button
                 type="button"
-                className="px-4 py-2  text-black font-semibold rounded-lg"
+                className="px-4 py-2  right-0 absolute  text-black font-semibold rounded-lg"
               >
                 Submit
               </button>
