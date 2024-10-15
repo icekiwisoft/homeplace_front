@@ -21,7 +21,7 @@ const PricingCard: React.FC<PricingProps> = ({
   onChoose
 }) => {
   return (
-    <div className={`p-6 rounded-2xl shadow-lg relative ${isActive ? "bg-indigo-950 text-white lg:bottom-10" : "bg-white"}`}>
+    <div className={`p-6 rounded-2xl min-w-[250px] shadow-lg relative ${isActive ? "bg-indigo-950 text-white lg:bottom-10" : "bg-white"}`}>
       {isActive && (
         <div className="top-1 flex items-center px-1.5 justify-center absolute right-1 aspect-square size-min rounded-full whitespace-nowrap bg-gray-200 text-orange-800 font-bold rotate-12 text-xs">
           -12 %
