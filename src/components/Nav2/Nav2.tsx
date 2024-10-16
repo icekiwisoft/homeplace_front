@@ -22,7 +22,7 @@ export default function Nav2(): React.ReactElement {
   const { user, toggleModal } = useContext(AuthContext);
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
-  const domicoins = 2000;
+  const domicoins = 20;
 
   // Contenu du menu mobile
   const content = (
@@ -81,41 +81,50 @@ export default function Nav2(): React.ReactElement {
             </NavLink>
           </div>
           {/* Menu Desktop */}
-          <div className="lg:flex md:flex hidden items-center justify-end font-normal">
-            <div className="flex items-center">
-              <ul className="flex gap-8 text-[16px] font-medium items-center">
-                <li className="text-sm">
-                  <NavLink
-                    to="/subscriptions"
-                    className="inline-flex justify-center gap-1.5 items-center"
-                  >
-                    <img src={Piece} alt="coin" className="size-6" />
-                    <strong className="text-yellow-800">{domicoins}</strong>
-                  </NavLink>
-                </li>
-                <NavLink to="/favorite">
-                  <li className="text-sm inline-flex justify-center gap-2 items-center">
-                    <HeartIcon className="h-6" />Mes Favoris
-                  </li>
-                </NavLink>
-                {user?.is_admin && (
-                  <NavLink to="/dashboard">
-                    <li className="cursor-pointer">Dashboard</li>
-                  </NavLink>
-                )}
-                {!user && (
-                  <li>
-                    <button
-                      onClick={toggleModal}
-                      className="transition-all duration-700 cursor-pointer bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg"
+          <div>
+
+            <div className="flex block sm:hidden justify-self-end ">
+              <img src={Piece} alt="coin" className="size-6" />
+              <strong className="text-yellow-800">{domicoins}</strong>
+            </div>
+
+            <div className="lg:flex md:flex hidden items-center justify-end font-normal">
+              <div className="flex items-center">
+                <ul className="flex gap-8 text-[16px] font-medium items-center">
+                  <li className="text-sm">
+                    <NavLink
+                      to="/subscriptions"
+                      className="inline-flex justify-center gap-1.5 items-center"
                     >
-                      Se connecter
-                    </button>
+                      <img src={Piece} alt="coin" className="size-6" />
+                      <strong className="text-yellow-800">{domicoins}</strong>
+                    </NavLink>
                   </li>
-                )}
-              </ul>
+                  <NavLink to="/favorite">
+                    <li className="text-sm inline-flex justify-center gap-2 items-center">
+                      <HeartIcon className="h-6" />Mes Favoris
+                    </li>
+                  </NavLink>
+                  {user?.is_admin && (
+                    <NavLink to="/dashboard">
+                      <li className="cursor-pointer">Dashboard</li>
+                    </NavLink>
+                  )}
+                  {!user && (
+                    <li>
+                      <button
+                        onClick={toggleModal}
+                        className="transition-all duration-700 cursor-pointer bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg"
+                      >
+                        Se connecter
+                      </button>
+                    </li>
+                  )}
+                </ul>
+              </div>
             </div>
           </div>
+
           {/* Hamburger Button */}
           <button className="block md:hidden" onClick={handleClick}>
             {click ? <GoX className=" text-4xl " /> : <HiBars3 className="text-4xl" />}

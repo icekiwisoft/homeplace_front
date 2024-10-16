@@ -46,8 +46,8 @@ export default function Nav(): React.ReactElement {
 
           {!user && (
             <li >
-              <button onClick={toggleModal} className="transition cursor-pointer bg-[#D88A3B] text-white font-bold py-2 my-2 mx-[10vw] rounded">
-                sign
+              <button onClick={toggleModal} className="transition cursor-pointer bg-[#D88A3B] text-white font-bold px-6 py-2 my-2 mx-[10vw] rounded">
+              sign in
               </button>
             </li>
           )}
@@ -102,16 +102,14 @@ export default function Nav(): React.ReactElement {
 
               {!user && (
                 <li>
-                  <button onClick={toggleModal}
-                    className=" transition-border duration-300 cursor-pointer bg-white   text-black font-bold py-2 px-4 rounded ">
+                  <Link
+                    to="/login"
+                    className=" transition-border duration-300 cursor-pointer bg-white hover:rounded-full  text-black font-bold py-2 px-4 rounded "
+                  >
                     Sign in
-                  </button>
+                  </Link>
                 </li>
-                
               )}
-              <Link to="Signup ">
-            
-          </Link>
             </ul>
           </div>
         </div>
