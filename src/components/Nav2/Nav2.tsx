@@ -35,13 +35,7 @@ export default function Nav2(): React.ReactElement {
             </li>
           </NavLink>
         ))}
-        {/* Section Domicoin */}
-        {/* <li className="my-2 hover:bg-gray-200 hover:rounded">
-          <div className="inline-flex justify-center gap-1.5 items-center">
-            <img src={Piece} alt="coin" className="size-6" />
-            <strong className="text-yellow-800">{domicoins}</strong>
-          </div>
-        </li> */}
+
         {/* Section Favoris */}
         <NavLink to="/favorite">
           <button className="my-2  hover:bg-gray-200 hover:rounded active:bg-violet-700 inline-flex justify-center gap-2 items-center">
@@ -72,7 +66,6 @@ export default function Nav2(): React.ReactElement {
   );
 
   return (
-    <>
       <nav className="bg-white top-0 left-0 fixed w-[100%] px-2 lg:px-10 md:px-4 border-b border-gray-400 z-50">
         <div className="h-[64px] flex justify-between items-center text-black">
           <div className="flex items-center">
@@ -82,20 +75,11 @@ export default function Nav2(): React.ReactElement {
           </div>
           {/* Menu Desktop */}
           <div>
-
-            <div className="flex block sm:hidden justify-self-end ">
-              <img src={Piece} alt="coin" className="size-6" />
-              <strong className="text-yellow-800">{domicoins}</strong>
-            </div>
-
             <div className="lg:flex md:flex hidden items-center justify-end font-normal">
               <div className="flex items-center">
                 <ul className="flex gap-8 text-[16px] font-medium items-center">
                   <li className="text-sm">
-                    <NavLink
-                      to="/subscriptions"
-                      className="inline-flex justify-center gap-1.5 items-center"
-                    >
+                    <NavLink to="/subscriptions" className="inline-flex justify-center gap-1.5 items-center">
                       <img src={Piece} alt="coin" className="size-6" />
                       <strong className="text-yellow-800">{domicoins}</strong>
                     </NavLink>
@@ -124,15 +108,20 @@ export default function Nav2(): React.ReactElement {
               </div>
             </div>
           </div>
-
-          {/* Hamburger Button */}
-          <button className="block md:hidden" onClick={handleClick}>
-            {click ? <GoX className=" text-4xl " /> : <HiBars3 className="text-4xl" />}
-          </button>
+          <div className="flex md:hidden lg:hidden  items-center gap-4 " >
+            <NavLink to="/subscriptions" className="inline-flex justify-center gap-1.5 items-center">
+              <img src={Piece} alt="coin" className="size-6" />
+              <strong className="text-yellow-800">{domicoins}</strong>
+            </NavLink>
+            {/* Hamburger Button */}
+            <button className="block md:hidden" onClick={handleClick}>
+              {click ? <GoX className=" text-4xl " /> : <HiBars3 className="text-4xl" />}
+            </button>
+          </div>
         </div>
         {/* Menu Mobile */}
         {click && content}
       </nav>
-    </>
+    
   );
 }

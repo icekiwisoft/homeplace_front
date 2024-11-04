@@ -68,7 +68,7 @@ export default function Ads(): React.ReactElement {
     <>
       <Nav2 />
       {isFilterSidebarOpen && (
-        <div className="fixed z-30 border-r border-r-gray-300 shadow-lg left-0 w-80 bg-white h-[calc(100%-64px)] top-16 text-xs  py-3 px-4 ">
+        <div className="fixed z-30 border-r border-r-gray-300 shadow-lg left-0 w-80 bg-white h-[calc(100%-64px)] top-16 text-xs py-3 px-4 ">
           {/* Budget Section */}
           <div className="mb-4">
             <h2 className="font-bold mb-2 text-base">Budget :</h2>
@@ -139,7 +139,7 @@ export default function Ads(): React.ReactElement {
         </div>
       )}
 
-      <div className="bg-white fixed top-16 w-screen justify-center flex items-center md:justify-between lg:justify-between px-10  py-3">
+      <div className="bg-white fixed top-16 w-screen justify-center flex items-center md:justify-between lg:justify-between px-2  xl:px-10 lg:px-10 md:px-4 py-3">
         <div className="flex">
           <span className="hidden lg:block">Toutes les</span>&nbsp;
           <span className="capitalize lg:normal-case md:normal hidden xl:block lg:block md:block ">categories</span>
@@ -158,13 +158,13 @@ export default function Ads(): React.ReactElement {
         <button
           className={
             (isFilterSidebarOpen && "bg-gray-200 ") +
-            " inline-flex py-2 px-4 rounded-lg  items-center gap-2 text-gray-800"
+            " inline-flex py-2 px-4 lg:px-0 md:px-0 rounded-lg  items-center gap-2 text-gray-800"
           }
           onClick={handleFilterButtonClick}
         >
           {" "}
-          <HiAdjustmentsHorizontal size={24} /> 
-          <span className=" hidden lg:block md:block " >filtre avancé</span>
+          <HiAdjustmentsHorizontal size={24} />
+          <span className=" hidden lg:block md:block  " >filtre avancé</span>
         </button>
       </div>
 

@@ -61,17 +61,8 @@ export default function Favorite() {
   return (
     <>
       <Nav2 />
-      <div className="bg-white fixed top-16 w-full flex items-center justify-between px-10  py-3">
-        <div>Mes Favoris <span>5</span> </div>
-        <button
-          className={" inline-flex py-2 px-4 rounded-lg  items-center gap-2 text-gray-800"} >
-          {" "}
-          Tirer Par
-          <select className=' bg-[#D9D9D9] p-3 rounded-md outline-none '>
-            <option value="lol">Par defaut</option>
-            <option value="">Date d'ajout</option>
-          </select>
-        </button>
+      <div className="fixed top-[5rem] w-full py-3 px-2 md:px-4 lg:px-10 xl:px-10 ">
+        <div className=' font-bold text-2xl ' >Favoris</div>
       </div>
       <section
         className={
