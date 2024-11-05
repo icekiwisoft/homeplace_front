@@ -1,5 +1,6 @@
 import { HiHomeModern } from "react-icons/hi2";
 import { HiBars3 } from "react-icons/hi2";
+import { GoX } from "react-icons/go";
 import { useContext, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import React from "react";
@@ -9,7 +10,7 @@ import Logo from "@assets/Whited.svg";
 import AuthContext from "@context/AuthContext";
 
 export default function Nav(): React.ReactElement {
-  
+
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const { user, toggleModal } = useContext(AuthContext);
@@ -46,12 +47,12 @@ export default function Nav(): React.ReactElement {
 
           {!user && (
             <li >
-              <button onClick={toggleModal} className="transition cursor-pointer bg-[#D88A3B] text-white font-bold py-2 my-2 mx-[10vw] rounded">
-                sign
+              <button onClick={toggleModal} className="transition cursor-pointer bg-[#D88A3B] text-white font-bold px-6 py-2 my-2 mx-[10vw] rounded">
+                sign in
               </button>
             </li>
           )}
-          
+
 
         </ul>
       </div>
@@ -91,7 +92,7 @@ export default function Nav(): React.ReactElement {
                   Furnitures
                 </li>
               </Link>
-              
+
               {user && (
                 <Link to="/dashboard">
                   <li className="hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
@@ -102,21 +103,19 @@ export default function Nav(): React.ReactElement {
 
               {!user && (
                 <li>
-                  <button onClick={toggleModal}
-                    className=" transition-border duration-300 cursor-pointer bg-white   text-black font-bold py-2 px-4 rounded ">
+                  <Link
+                    to="/login"
+                    className=" transition-border duration-300 cursor-pointer bg-white hover:rounded-full  text-black font-bold py-2 px-4 rounded "
+                  >
                     Sign in
-                  </button>
+                  </Link>
                 </li>
-                
               )}
-              <Link to="Signup ">
-            
-          </Link>
             </ul>
           </div>
         </div>
         <button className="block md:hidden " onClick={handleClick}>
-          {click ? (<FaTimes className="text-2xl" />) : (<HiBars3 className="text-4xl" />)}
+          {click ? (<GoX className="text-4xl" />) : (<HiBars3 className="text-4xl" />)}
         </button>
       </div>
       {click && content}
