@@ -5,7 +5,7 @@ import { useContext } from "react";
 import AuthContext from "../context/AuthContext";
 import Cookies from "js-cookie";
 
-export const baseURL = "http://localhost:8000";
+export const baseURL = "https://api.domilix.com";
 
 const useAxios = () => {
   const { authData, setUser, setAuthData } = useContext(AuthContext);

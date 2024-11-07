@@ -1,5 +1,4 @@
 import React, { useCallback, useContext, useEffect, useState } from "react";
-
 import { Ad } from "../../utils/types";
 import useAxios from "../../utils/useAsios";
 import Nav2 from "@components/Nav2/Nav2";
@@ -142,7 +141,9 @@ export default function Ads(): React.ReactElement {
       <div className="bg-white fixed top-16 w-screen justify-center flex items-center md:justify-between lg:justify-between px-2  xl:px-10 lg:px-10 md:px-4 py-3">
         <div className="flex">
           <span className="hidden lg:block">Toutes les</span>&nbsp;
-          <span className="capitalize lg:normal-case md:normal hidden xl:block lg:block md:block ">categories</span>
+          <span className="capitalize lg:normal-case md:normal hidden xl:block lg:block md:block ">
+            categories
+          </span>
         </div>
         &nbsp;
         <div className="flex w-96  rounded-full px-3 py-1.5 bg-gray-200 border-solid items-center  ">
@@ -153,8 +154,8 @@ export default function Ads(): React.ReactElement {
             defaultValue={UrlSearchParam.get("search")!}
             className="  outline-none flex-1 bg-transparent px-2  text-[1rem]  text-gray-600  font-normal"
           />
-        </div> &nbsp;
-
+        </div>{" "}
+        &nbsp;
         <button
           className={
             (isFilterSidebarOpen && "bg-gray-200 ") +
@@ -164,7 +165,7 @@ export default function Ads(): React.ReactElement {
         >
           {" "}
           <HiAdjustmentsHorizontal size={24} />
-          <span className=" hidden lg:block md:block  " >filtre avancé</span>
+          <span className=" hidden lg:block md:block  ">filtre avancé</span>
         </button>
       </div>
 
@@ -175,11 +176,10 @@ export default function Ads(): React.ReactElement {
             ? "ml-80 w-[calc(100%-320px)] lg:!grid-cols-3 "
             : "") +
           "grid 2xl:gap-5 bg-gray-200 mt-32 py-4 min-h-screen   2xl:px-10 xl:px-6  gap-y-14   gap-x-10 2xl:grid-cols-5 lg:grid-cols-4    grid-cols-1  sm:grid-cols-3  "
-        }>
+        }
+      >
         {ads.map((ad) => {
-          return (
-            <ProductCard {...ad} />
-          );
+          return <ProductCard {...ad} />;
         })}
       </section>
     </>

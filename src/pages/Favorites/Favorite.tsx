@@ -61,13 +61,13 @@ export default function Favorite() {
   return (
     <>
       <Nav2 />
-      <div className="fixed top-[5rem] w-full py-3 px-2 md:px-4 lg:px-10 xl:px-10 ">
+      <div className="bg-white fixed top-16 flex px-2  xl:px-10 lg:px-10 md:px-4 py-3 w-full ">
         <div className=' font-bold text-2xl ' >Favoris</div>
       </div>
       <section
         className={
           " " +
-          "grid 2xl:gap-5 bg-gray-200 mt-36 py-4 min-h-screen   2xl:px-10 xl:px-6  gap-y-14   gap-x-10 2xl:grid-cols-4 lg:grid-cols-4    grid-cols-1  sm:grid-cols-3  "
+          "grid 2xl:gap-5 bg-gray-200 mt-36 py-4 min-h-screen 2xl:px-10 xl:px-6 gap-y-4 gap-x-4 2xl:grid-cols-4 lg:grid-cols-3 grid-cols-1  sm:grid-cols-2 md:grid-cols-3 px-2 md:px-4 "
         }>
         {ads.map((ad) => {
           return (
