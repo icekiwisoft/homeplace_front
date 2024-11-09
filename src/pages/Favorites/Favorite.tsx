@@ -4,7 +4,7 @@ import { Ad } from "../../utils/types";
 import React, { useCallback, useEffect, useState } from 'react'
 import { Link, useSearchParams } from "react-router-dom";
 import useAxios from '../../utils/useAsios';
-import { HiAdjustmentsHorizontal, HiMagnifyingGlass } from 'react-icons/hi2';
+//import { HiAdjustmentsHorizontal, HiMagnifyingGlass } from 'react-icons/hi2';
 
 export default function Favorite() {
   const [ads, setAds] = useState<Ad[]>([]);
