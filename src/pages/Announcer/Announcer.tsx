@@ -58,7 +58,7 @@ export default function Announcer() {
                 <strong className="sm:font-bold h-fit text-[15px] sm:text-lg text-orange-500">
                   450
                 </strong>
-                <BiLike className="sm:hidden ml-1 size-5 mb-[2px] sm:mb-0"/>
+                <BiLike className="sm:hidden ml-1 size-5 mb-[2px] sm:mb-0" />
                 <span className="hidden sm:flex">Likes</span>
               </div>
 
@@ -69,7 +69,7 @@ export default function Announcer() {
                   377
                 </strong>
                 <span className="hidden sm:flex">Annonces</span>
-                <GrAnnounce className="sm:hidden size-5 ml-1 mb-[2px] sm:mb-0"/>
+                <GrAnnounce className="sm:hidden size-5 ml-1 mb-[2px] sm:mb-0" />
               </div>
             </div>
 
@@ -78,7 +78,7 @@ export default function Announcer() {
             </button>
           </div>
           <button className="absolute top-2 right-2 lg:hidden text-gray-600 bg-white bg-opacity-65 border p-2 rounded border-gray-500">
-            <FiEdit/>
+            <FiEdit />
           </button>
         </header>
 
