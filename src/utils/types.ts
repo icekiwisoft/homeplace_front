@@ -91,3 +91,24 @@ export interface PhoneProps {
   value: string;
   onChange: (phone: string) => void;
 }
+
+export interface EncodedEmailProps {
+  email: string;
+}
+
+export type AdCreationRequest = {
+  category_id: string;
+  price: number;
+  type: string;
+  ad_type: string;
+  bedroom: number;
+  mainroom: number;
+  medias: File[];
+  gate: number;
+  pool: number;
+  garage: number;
+  toilet: number;
+  furnitured: number;
+  localization: string[];
+  period: string;
+};

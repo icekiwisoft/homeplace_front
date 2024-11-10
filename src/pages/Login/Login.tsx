@@ -3,9 +3,6 @@ import Home from "../../assets/img/home.jpg";
 import AuthContext from "../../context/AuthContext";
 
 
-
-
-
 export default function Login():React.ReactNode {
   const { loginUser } = useContext(AuthContext);
   const [email, setEmail] = useState("");
