@@ -19,7 +19,7 @@ interface IAuthContext {
   setAuthData?: React.Dispatch<React.SetStateAction<AuthData | null>>;
   credits: number;
   setCredits: React.Dispatch<React.SetStateAction<number>>;
-  startCreditPurchase?: (num_phone: string, amount: string) => Promise<void>;
+  startCreditPurchase?: (plan_name: string, payment_info: string, method: string) => Promise<void>;
   registerUser?: (
     name: string,
     email: string,
@@ -79,9 +79,9 @@ export const AuthProvider = ({ children }) => {
   }
 
   // Starts credit purchase process by making a POST request with phone number and amount
-  const startCreditPurchase = async (num_phone: string, amount: string) => {
+  const startCreditPurchase = async (plan_name: string, payment_info: string, method: string) => {
     try {
-      const response = await axios.post("/credit/purchase/", { num_phone, amount });
+      const response = await axios.post(`${baseURL}/subscriptions/`, { "plan_name" :plan_name, "payment_info" :payment_info, "method" :method });
       console.log("Credit purchase initiated, follow mobile payment instructions", response);
     } catch (error) {
       console.error("Credit purchase error:", error);
