@@ -96,7 +96,7 @@ export interface EncodedEmailProps {
   email: string;
 }
 
-export type AdCreationRequest = {
+export interface AdCreationRequest {
   category_id: string;
   price: number;
   type: string;
@@ -111,4 +111,9 @@ export type AdCreationRequest = {
   furnitured: number;
   localization: string[];
   period: string;
-};
+}
+
+export interface Category {
+  id: string;
+  name: string;
+}
