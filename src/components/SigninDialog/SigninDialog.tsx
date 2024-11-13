@@ -49,7 +49,8 @@ export default function SigninDialog({ toggleModal }: any) {
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
     if (loginUser) {
-      await loginUser(email, password);
+      console.log(rememberMe)
+      await loginUser(email, password, rememberMe);
       toggleModal(); // Fermer le modal après connexion réussie
     } else {
       console.error("La fonction de connexion n'est pas disponible.");

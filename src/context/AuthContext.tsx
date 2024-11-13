@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 import useAxios, { baseURL } from "@utils/useAsios";
 import { User } from "utils/types";
@@ -7,9 +7,13 @@ import Cookies from "js-cookie";
 import SigninDialog from "@components/SigninDialog/SigninDialog";
 
 // Define interfaces for AuthData (containing user and token) and IAuthContext
+interface Auth {
+  "token": string,
+  "type": string
+}
 interface AuthData {
   user: User;
-  access_token: string;
+  authorisation: Auth;
 }
 
 interface IAuthContext {
@@ -26,7 +30,7 @@ interface IAuthContext {
     password: string,
     phone_number: string
   ) => Promise<void>;
-  loginUser?: (email: string, password: string) => Promise<void>;
+  loginUser?: (email: string, password: string, rememberMe: boolean) => Promise<void>;
   logoutUser?: () => void;
   toggleModal?: () => void;
   validateEmailCode?: (email: string, code: string) => Promise<void>;
@@ -38,20 +42,20 @@ const AuthContext = createContext<IAuthContext>({
   user: null,
   authData: null,
   credits: 0,
-  setCredits: () => {},
+  setCredits: () => { },
 });
 
 export default AuthContext;
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children }:any) => {
   // Initialize necessary hooks and state
   const axios = useAxios();
   const navigate = useNavigate();
-  
+
   const [showModal, setShowModal] = useState(false); // Manage modal visibility
   const [rememberMe, setRememberMe] = useState(false); // Track "Remember Me" preference
   const [authData, setAuthData] = useState<AuthData | null>(retrieveAuthData); // Store auth data from cookies/session
-  const [user, setUser] = useState<User | null>(() => (authData ? jwtDecode(authData.access_token) : null)); // Decode user from token
+  const [user, setUser] = useState<User | null>(() => (authData ? jwtDecode(authData.authorisation.token) : null)); // Decode user from token
   const [credits, setCredits] = useState<number>(user ? user.credits : 0); // Track user's credits
   const [loading, setLoading] = useState(true); // Loading indicator for async data retrieval
   const [emailVerified, setEmailVerified] = useState(false); // Track email verification status
@@ -75,13 +79,17 @@ export const AuthProvider = ({ children }) => {
       sessionStorage.setItem("authorization", dataString);
     }
     setAuthData(data); // Update context state
-    setUser(jwtDecode(data.access_token)); // Set user from decoded token
+    const token = data.authorisation?.token; if (typeof token !== 'string' || token.trim() === '') { 
+      console.error('Invalid token:', token); 
+      throw new Error("Invalid token specified"); 
+    }
+    setUser(jwtDecode(data.authorisation.token)); // Set user from decoded token
   }
 
   // Starts credit purchase process by making a POST request with phone number and amount
   const startCreditPurchase = async (plan_name: string, payment_info: string, method: string) => {
     try {
-      const response = await axios.post(`${baseURL}/subscriptions/`, { "plan_name" :plan_name, "payment_info" :payment_info, "method" :method });
+      const response = await axios.post(`${baseURL}/subscriptions/`, { "plan_name": plan_name, "payment_info": payment_info, "method": method });
       console.log("Credit purchase initiated, follow mobile payment instructions", response);
     } catch (error) {
       console.error("Credit purchase error:", error);
@@ -89,11 +97,14 @@ export const AuthProvider = ({ children }) => {
   };
 
   // Login function that authenticates the user, stores auth data, and navigates to the homepage
-  const loginUser = async (email: string, password: string) => {
+  const loginUser = async (email: string, password: string, rememberMe: boolean) => {
     try {
       const response = await axios.post(`${baseURL}/auth/login`, { email, password });
       if (response.status === 200) {
         setAuthDataWithPersistence(response.data); // Store auth data with selected persistence method
+        if (rememberMe) {
+          setRememberMe(rememberMe);
+        }
         navigate("/"); // Redirect to the homepage after successful login
       }
     } catch (error) {

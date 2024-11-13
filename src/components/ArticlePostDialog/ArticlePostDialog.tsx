@@ -25,7 +25,7 @@ export default function ArticlePostDialog({ toggleDialog }: { toggleDialog: () =
   const [formData, setFormData] = useState({
     category_id: '',
     price: '',
-    type: '',
+    type: 'realestate',
     ad_type: '',
     bedroom: 0,
     mainroom: 0,
@@ -44,7 +44,9 @@ export default function ArticlePostDialog({ toggleDialog }: { toggleDialog: () =
   let priorityMediaIndex : number = 0;
 
   // Données pour le type et la période
-  const Type = [{ key: "realestate", name: "Immobilier" }];
+  const Type = [
+    { key: "realestate", name: "Immobilier" }
+  ];
   const Period = [
     { key: "hour", name: "Heure" },
     { key: "day", name: "Jour" },
@@ -62,7 +64,7 @@ export default function ArticlePostDialog({ toggleDialog }: { toggleDialog: () =
   ]
   const adType = [
     {
-      key: "Location",
+      key: "location",
       name: "Location"
     },
     {
@@ -75,24 +77,32 @@ export default function ArticlePostDialog({ toggleDialog }: { toggleDialog: () =
   useEffect(() => {
     setSelectedType(Type[0]);
     setSelectedPeriod(Period[2]);
-    setSelectedCurrency(Currency[0])
-    setSelectedAdType(adType[0])
-    fetchCategories(formData?.type == "realestate" ? 0 : 1);
+    setSelectedCurrency(Currency[0]);
+    setSelectedAdType(adType[0]);
+    fetchCategories(formData?.type == "realestate" ? "house" : "furniture");
   }, []);
 
   // Mise à jour de formData en fonction de la catégorie, du type et de la période sélectionnés
   useEffect(() => {
+    // fetchCategories(formData?.type == "realestate" ? 0 : 1);
     setFormData((prev) => ({
       ...prev,
       category_id: selectedCategory?.id || '',
-      type: selectedType?.key || '',
       period: selectedPeriod?.key || '',
       ad_type: selectedAdType?.key || '',
     }));
-  }, [selectedCategory, selectedType, selectedPeriod, selectedAdType]);
+  }, [selectedCategory, selectedPeriod, selectedAdType]);
+
+  useEffect(() => {    
+    fetchCategories(formData?.type == "realestate" ? "house" : "furniture");
+    setFormData((prev) => ({
+      ...prev,
+      type: selectedType?.key || 'realestate',
+    }));
+  }, [selectedType]);
 
   // Récupération des catégories à partir de l'API
-  const fetchCategories = async (type : number) => {
+  const fetchCategories = async (type : string) => {
     try {
       const response = await axios.get(`${baseURL}/categories`, {
         params: { type }
@@ -148,10 +158,59 @@ export default function ArticlePostDialog({ toggleDialog }: { toggleDialog: () =
   };
 
   // Soumission du formulaire
-  const handleSubmit = (e: FormEvent) => {
+  // const handleSubmit = (e: FormEvent) => {
+  //   e.preventDefault();
+  //   console.log(formData);
+  //   toggleDialog();
+  // };
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log(formData);
-    toggleDialog();
+  
+    // Créez une instance de FormData
+    const data = new FormData();
+  
+    // Ajoutez les champs du formulaire au FormData
+    data.append("category_id", formData.category_id);
+    data.append("price", formData.price);
+    data.append("type", formData.type);
+    data.append("ad_type", formData.ad_type);
+    data.append("bedroom", formData.bedroom.toString());
+    data.append("mainroom", formData.mainroom.toString());
+    data.append("toilet", formData.toilet.toString());
+    data.append("kitchen", formData.kitchen.toString());
+    data.append("gate", formData.gate ? "1" : "0");
+    data.append("pool", formData.pool ? "1" : "0");
+    data.append("garage", formData.garage ? "1" : "0");
+    data.append("furnitured", formData.furnitured ? "1" : "0");
+    data.append("period", formData.period);
+    data.append("description", formData.description);
+  
+    // Ajoutez les coordonnées de localisation
+    data.append("localization[]", formData.localization[0].toString());
+    data.append("localization[]", formData.localization[1].toString());
+  
+    // Ajoutez les fichiers (images) au FormData
+    formData.medias.forEach((file) => {
+      data.append("medias[]", file);
+    });
+  
+    try {
+      // console.log(formData);
+      // for (let [key, value] of data.entries()) { 
+      //   console.log(key, value);
+      // }
+      // Envoyez la requête avec Axios
+      const response = await axios.post(`${baseURL}/ads`, data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+  
+      console.log("Réponse de l'API :", response.data);
+      toggleDialog(); // Ferme la boîte de dialogue après validation
+    } catch (error) {
+      console.error("Erreur lors de la soumission :", error);
+    }
   };
 
   // Rendu des étapes sous forme de bulles numérotées
@@ -398,7 +457,7 @@ export default function ArticlePostDialog({ toggleDialog }: { toggleDialog: () =
                     <span className="font-semibold">Click to upload</span> or drag and drop
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">
-                    SVG, PNG, JPG, or GIF (MAX. 800x400px)
+                    PNG, JPG, or JPEG (MAX. 800x400px)
                   </p>
                 </div>
                 <input

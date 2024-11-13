@@ -12,12 +12,12 @@ const useAxios = () => {
 
   const axiosInstance = axios.create({
     baseURL: baseURL,
-    headers: { Authorization: `Bearer ${authData?.access_token}` },
+    headers: { Authorization: `Bearer ${authData?.authorisation.token}` },
   });
 
   if (authData)
     axiosInstance.interceptors.request.use(async (req) => {
-      const user = jwtDecode(authData.access_token);
+      const user = jwtDecode(authData.authorisation.token);
       const isExpired = dayjs.unix(user.exp!).diff(dayjs()) < 1;
 
       if (!isExpired) return req;
