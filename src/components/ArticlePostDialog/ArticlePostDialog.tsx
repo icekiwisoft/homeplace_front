@@ -38,7 +38,8 @@ export default function ArticlePostDialog({ toggleDialog }: { toggleDialog: () =
     furnitured: false,
     localization: [0, 0] as [number, number],
     period: '',
-    description: ''
+    description: '',
+    devise: ''
   });
 
   let priorityMediaIndex : number = 0;
@@ -90,8 +91,9 @@ export default function ArticlePostDialog({ toggleDialog }: { toggleDialog: () =
       category_id: selectedCategory?.id || '',
       period: selectedPeriod?.key || '',
       ad_type: selectedAdType?.key || '',
+      devise: selectedCurrency?.key || ''
     }));
-  }, [selectedCategory, selectedPeriod, selectedAdType]);
+  }, [selectedCategory, selectedPeriod, selectedAdType, selectedCurrency]);
 
   useEffect(() => {    
     fetchCategories(formData?.type == "realestate" ? "house" : "furniture");
@@ -158,11 +160,6 @@ export default function ArticlePostDialog({ toggleDialog }: { toggleDialog: () =
   };
 
   // Soumission du formulaire
-  // const handleSubmit = (e: FormEvent) => {
-  //   e.preventDefault();
-  //   console.log(formData);
-  //   toggleDialog();
-  // };
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
   
@@ -184,6 +181,7 @@ export default function ArticlePostDialog({ toggleDialog }: { toggleDialog: () =
     data.append("furnitured", formData.furnitured ? "1" : "0");
     data.append("period", formData.period);
     data.append("description", formData.description);
+    data.append("devise", formData.devise);
   
     // Ajoutez les coordonnées de localisation
     data.append("localization[]", formData.localization[0].toString());
