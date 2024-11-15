@@ -23,10 +23,11 @@ const ChoiseMode: React.FC<OfferDetailsProps> = ({ title, credit, validity, pric
 
   // Démarre l'achat de crédits avec validation du numéro
   const handlePurchase = async () => {
+    console.log(title, phone, selectedPayment)
     setIsFetching(true)
     if (selectedPayment) {
       try {
-        await startCreditPurchase?.(phone, price);
+        await startCreditPurchase?.(title, phone, selectedPayment);
         setIsFetching(false)
         setShowSuccessAlert(true); // Affiche l'alerte de succès
         setTimeout(() => {
