@@ -1,10 +1,12 @@
-import React, { createContext, useState, useEffect } from "react";
-import { jwtDecode } from "jwt-decode";
-import { useNavigate } from "react-router-dom";
-import useAxios, { baseURL } from "../utils/useAsios";
-import { User } from "../utils/types";
-import Cookies from "js-cookie";
-import SigninDialog from "@components/SigninDialog/SigninDialog";
+import SigninDialog from '@components/SigninDialog/SigninDialog';
+import Cookies from 'js-cookie';
+import { jwtDecode } from 'jwt-decode';
+import React, { createContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import { User } from '../utils/types';
+
+import useAxios, { baseURL } from '../utils/useAsios';
 
 interface AuthData {
   user: User;
@@ -38,42 +40,46 @@ const AuthContext = createContext<IAuthContext>({
 
 export default AuthContext;
 
-export const AuthProvider = ({ children }) => {
+export function AuthProvider({ children }) {
   const axios = useAxios();
-    const [showModal, setShowModal] = useState(false);
-    const toggleModal = () => {
-      setShowModal(!showModal);
-    };
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
 
   const [authData, setAuthData] = useState<AuthData | null>(() =>
-    Cookies.get("authorization")
-      ? JSON.parse(Cookies.get("authorization"))
+    Cookies.get('authorization')
+      ? JSON.parse(Cookies.get('authorization'))
       : null
   );
 
   const [user, setUser] = useState<User | null>(() =>
-    Cookies.get("authorization")
-      ? jwtDecode(JSON.parse(Cookies.get("authorization")).access_token)
+    Cookies.get('authorization')
+      ? jwtDecode(JSON.parse(Cookies.get('authorization')).access_token)
       : null
   );
   const [credits, setCredits] = useState<number>(user ? user.credits : 0);
   const [loading, setLoading] = useState(true);
 
   const [theme, setTheme] = useState<string>(() =>
-    localStorage.getItem("theme")
-      ? JSON.parse(localStorage.getItem("theme")!)
-      : "light"
+    localStorage.getItem('theme')
+      ? JSON.parse(localStorage.getItem('theme')!)
+      : 'light'
   );
 
   const navigate = useNavigate();
 
-
   // Démarrer un achat de crédit
-  const startCreditPurchase = async (num_phone: string, amount:string) => {
+  const startCreditPurchase = async (num_phone: string, amount: string) => {
     try {
-      const response = await axios.post("/credit/purchase/", { num_phone,amount });
+      const response = await axios.post('/credit/purchase/', {
+        num_phone,
+        amount,
+      });
       const data = response.data;
-      console.log("Achat de crédits démarré, suivez les instructions de paiement mobile");
+      console.log(
+        'Achat de crédits démarré, suivez les instructions de paiement mobile'
+      );
     } catch (error) {
       console.error("Erreur lors de l'achat de crédits:", error);
     }
@@ -88,8 +94,8 @@ export const AuthProvider = ({ children }) => {
     if (response.status === 200) {
       setAuthData(data);
       setUser(jwtDecode(data.access_token));
-      Cookies.set("authorization", JSON.stringify(data));
-      navigate("/");
+      Cookies.set('authorization', JSON.stringify(data));
+      navigate('/');
     }
   };
 
@@ -106,14 +112,14 @@ export const AuthProvider = ({ children }) => {
       password2,
     });
     if (response.status === 201) {
-      navigate("/login");
+      navigate('/login');
     }
   };
 
   const logoutUser = () => {
     setAuthData(null);
     setUser(null);
-    navigate("/");
+    navigate('/');
   };
 
   const contextData = {
@@ -130,8 +136,6 @@ export const AuthProvider = ({ children }) => {
     startCreditPurchase,
   };
 
-
-
   useEffect(() => {
     if (authData) {
     }
@@ -144,4 +148,4 @@ export const AuthProvider = ({ children }) => {
       {showModal && <SigninDialog toggleModal={toggleModal} />}
     </AuthContext.Provider>
   );
-};
+}

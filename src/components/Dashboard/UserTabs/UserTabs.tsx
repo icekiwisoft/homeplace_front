@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { FaArrowUp } from "react-icons/fa";
-import { MdPerson } from "react-icons/md";
-import defaultFurnitureImg from "../../../assets/default-img/furnitures.jpg";
-import defaultHouseImg from "../../../assets/default-img/houses.jpg";
-import { Link, useParams } from "react-router-dom";
-import { Ad, Media } from "../../../utils/types";
-import useAxios from "../../../utils/useAsios";
 import {
   Tab,
   TabPanel,
   Tabs,
   TabsBody,
   TabsHeader,
-} from "@material-tailwind/react";
-import AdsTab from "./AdsTab/AdsTab";
+} from '@material-tailwind/react';
+import React, { useEffect, useState } from 'react';
+import { FaArrowUp } from 'react-icons/fa';
+import { MdPerson } from 'react-icons/md';
+import { Link, useParams } from 'react-router-dom';
+
+import AdsTab from './AdsTab/AdsTab';
+import defaultFurnitureImg from '../../../assets/default-img/furnitures.jpg';
+import defaultHouseImg from '../../../assets/default-img/houses.jpg';
+import { Ad, Media } from '../../../utils/types';
+import useAxios from '../../../utils/useAsios';
 
 function AnnounceTab() {
   const { id } = useParams();
@@ -28,10 +29,10 @@ function AnnounceTab() {
     getAds();
   }, []);
   return (
-    <div className="grid grid-cols-3 xxl:grid-cols-4 gap-5">
-      {ads.map((ad) => {
-        return <ProductCard {...ad} />;
-      })}
+    <div className='grid grid-cols-3 xxl:grid-cols-4 gap-5'>
+      {ads.map(ad => (
+        <ProductCard {...ad} />
+      ))}
     </div>
   );
 }
@@ -49,10 +50,10 @@ function MediaTab() {
     getmedias();
   }, []);
   return (
-    <div className="grid grid-cols-4 gap-5">
-      {medias.map((media) => {
-        return <MediaCard {...media} />;
-      })}
+    <div className='grid grid-cols-4 gap-5'>
+      {medias.map(media => (
+        <MediaCard {...media} />
+      ))}
     </div>
   );
 }
@@ -61,7 +62,7 @@ export default function UserTabs() {
   const [option, setOption] = useState(0);
 
   return (
-    <Tabs id="custom-animation" value={0}>
+    <Tabs id='custom-animation' value={0}>
       <TabsHeader>
         <Tab value={0}>ads</Tab>
         <Tab value={1}>media</Tab>

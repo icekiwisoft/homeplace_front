@@ -4,6 +4,7 @@ export enum AdType {
   sale,
 }
 
+//interface for announcer
 export interface Announcer {
   name: string;
   avatar: string;
@@ -17,13 +18,15 @@ export interface Announcer {
   creation_date: string;
 }
 
+//interface for media
 export interface Media {
   file: string;
   thumbnail: string;
   id: string;
 }
 
-export interface AdBase {
+//interface for ad
+export interface Ad {
   description: string;
   item_type: AdType;
   ad_type: AdType;
@@ -37,23 +40,12 @@ export interface AdBase {
   creation_date: string;
 }
 
-export interface FurnitureAd extends AdBase {}
-
-export interface HouseAd extends AdBase {
-  pallor: number;
-  bathroom: number;
-  kitchen: number;
-  room: number;
-}
-
-export type Ad = FurnitureAd | HouseAd;
-
 export interface User {
   name: string;
   email: string;
   is_admin: boolean;
   credits: number;
-  domicoin:number
+  domicoin: number;
 }
 
 export interface Category {

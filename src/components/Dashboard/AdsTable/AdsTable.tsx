@@ -1,5 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Ad } from "../../../utils/types";
+import {
+  ChevronUpDownIcon,
+  MagnifyingGlassIcon,
+  PencilIcon,
+  TrashIcon,
+  UserPlusIcon,
+} from '@heroicons/react/24/solid';
 import {
   Avatar,
   Button,
@@ -19,33 +24,29 @@ import {
   TabsHeader,
   Tooltip,
   Typography,
-} from "@material-tailwind/react";
-import {
-  ChevronUpDownIcon,
-  MagnifyingGlassIcon,
-  PencilIcon,
-  TrashIcon,
-  UserPlusIcon,
-} from "@heroicons/react/24/solid";
-import useAxios from "../../../utils/useAsios";
-import dayjs from "dayjs";
+} from '@material-tailwind/react';
+import dayjs from 'dayjs';
+import React, { useEffect, useState } from 'react';
+
+import { Ad } from '../../../utils/types';
+import useAxios from '../../../utils/useAsios';
 
 const TABS = [
   {
-    label: "All",
-    value: "all",
+    label: 'All',
+    value: 'all',
   },
   {
-    label: "furniture",
-    value: "furniture",
+    label: 'furniture',
+    value: 'furniture',
   },
   {
-    label: "house",
-    value: "house",
+    label: 'house',
+    value: 'house',
   },
 ];
 
-const TABLE_HEAD = ["ads", "category", "type", "created at ", ""];
+const TABLE_HEAD = ['ads', 'category', 'type', 'created at ', ''];
 
 export default function AdsTable() {
   const [adsPage, setAdsPage] = useState<Ad[][]>([]);
@@ -59,7 +60,7 @@ export default function AdsTable() {
   };
   const getCurrentAds = async () => {
     if (adsPage.length < page + 1) {
-      const response = await axios.get("/ads", {
+      const response = await axios.get('/ads', {
         params: {
           page: page,
         },
@@ -83,20 +84,20 @@ export default function AdsTable() {
   }, [page, adsPage]);
 
   return (
-    <Card className="h-full w-full">
-      <CardHeader floated={false} shadow={false} className="rounded-none">
-        <div className="mb-8 flex items-center justify-between gap-8">
+    <Card className='h-full w-full'>
+      <CardHeader floated={false} shadow={false} className='rounded-none'>
+        <div className='mb-8 flex items-center justify-between gap-8'>
           <div>
-            <Typography variant="h5" color="blue-gray">
+            <Typography variant='h5' color='blue-gray'>
               ads list
             </Typography>
-            <Typography color="gray" className="mt-1 font-normal">
+            <Typography color='gray' className='mt-1 font-normal'>
               See information about ads
             </Typography>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-          <Tabs value="all" className="w-full md:w-max">
+        <div className='flex flex-col items-center justify-between gap-4 md:flex-row'>
+          <Tabs value='all' className='w-full md:w-max'>
             <TabsHeader>
               {TABS.map(({ label, value }) => (
                 <Tab key={value} value={value}>
@@ -105,31 +106,31 @@ export default function AdsTable() {
               ))}
             </TabsHeader>
           </Tabs>
-          <div className="w-full md:w-72">
+          <div className='w-full md:w-72'>
             <Input
-              label="Search"
-              icon={<MagnifyingGlassIcon className="h-5 w-5" />}
+              label='Search'
+              icon={<MagnifyingGlassIcon className='h-5 w-5' />}
             />
           </div>
         </div>
       </CardHeader>
-      <CardBody className="overflow-scroll flex-1 px-0">
-        <table className="mt-4 w-full min-w-max table-auto text-left">
+      <CardBody className='overflow-scroll flex-1 px-0'>
+        <table className='mt-4 w-full min-w-max table-auto text-left'>
           <thead>
             <tr>
               {TABLE_HEAD.map((head, index) => (
                 <th
                   key={head}
-                  className="cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50"
+                  className='cursor-pointer border-y border-blue-gray-100 bg-blue-gray-50/50 p-4 transition-colors hover:bg-blue-gray-50'
                 >
                   <Typography
-                    variant="small"
-                    color="blue-gray"
-                    className="flex items-center justify-between gap-2 font-normal leading-none opacity-70"
+                    variant='small'
+                    color='blue-gray'
+                    className='flex items-center justify-between gap-2 font-normal leading-none opacity-70'
                   >
-                    {head}{" "}
+                    {head}{' '}
                     {index !== TABLE_HEAD.length - 1 && (
-                      <ChevronUpDownIcon strokeWidth={2} className="h-4 w-4" />
+                      <ChevronUpDownIcon strokeWidth={2} className='h-4 w-4' />
                     )}
                   </Typography>
                 </th>
@@ -152,25 +153,25 @@ export default function AdsTable() {
               ) => {
                 const isLast = index === currentAds.length - 1;
                 const classes = isLast
-                  ? "p-4"
-                  : "p-4 border-b border-blue-gray-50";
+                  ? 'p-4'
+                  : 'p-4 border-b border-blue-gray-50';
 
                 return (
                   <tr key={id}>
                     <td className={classes}>
-                      <div className="flex items-center gap-3">
-                        <div className="flex flex-col">
+                      <div className='flex items-center gap-3'>
+                        <div className='flex flex-col'>
                           <Typography
-                            variant="small"
-                            color="blue-gray"
-                            className="font-normal"
+                            variant='small'
+                            color='blue-gray'
+                            className='font-normal'
                           >
                             {description}
                           </Typography>
                           <Typography
-                            variant="small"
-                            color="blue-gray"
-                            className="font-normal opacity-70"
+                            variant='small'
+                            color='blue-gray'
+                            className='font-normal opacity-70'
                           >
                             {price} frcfa
                           </Typography>
@@ -178,30 +179,30 @@ export default function AdsTable() {
                       </div>
                     </td>
                     <td className={classes}>
-                      <div className="flex flex-col">
+                      <div className='flex flex-col'>
                         {category ? (
                           <>
-                            {" "}
+                            {' '}
                             <Typography
-                              variant="small"
-                              color="blue-gray"
-                              className="font-normal"
+                              variant='small'
+                              color='blue-gray'
+                              className='font-normal'
                             >
                               {category.name}
                             </Typography>
                             <Typography
-                              variant="small"
-                              color="blue-gray"
-                              className="font-normal opacity-70"
+                              variant='small'
+                              color='blue-gray'
+                              className='font-normal opacity-70'
                             >
                               {category.type}
                             </Typography>
                           </>
                         ) : (
                           <Typography
-                            variant="small"
-                            color="blue-gray"
-                            className="font-bold"
+                            variant='small'
+                            color='blue-gray'
+                            className='font-bold'
                           >
                             non specifié
                           </Typography>
@@ -209,38 +210,38 @@ export default function AdsTable() {
                       </div>
                     </td>
                     <td className={classes}>
-                      <div className="w-max">
+                      <div className='w-max'>
                         <Chip
-                          variant="ghost"
-                          size="sm"
-                          value={ad_type ? "sale" : "location"}
-                          color={ad_type ? "green" : "blue-gray"}
+                          variant='ghost'
+                          size='sm'
+                          value={ad_type ? 'sale' : 'location'}
+                          color={ad_type ? 'green' : 'blue-gray'}
                         />
                       </div>
                     </td>
                     <td className={classes}>
                       <Typography
-                        variant="small"
-                        color="blue-gray"
-                        className="font-normal"
+                        variant='small'
+                        color='blue-gray'
+                        className='font-normal'
                       >
-                        {dayjs(creation_date).format("DD/MM/YY")}
+                        {dayjs(creation_date).format('DD/MM/YY')}
                       </Typography>
                     </td>
                     <td className={classes}>
-                      <div className="flex">
-                        <Tooltip content="Edit User">
-                          <IconButton variant="text">
-                            <PencilIcon className="h-4 w-4" />
+                      <div className='flex'>
+                        <Tooltip content='Edit User'>
+                          <IconButton variant='text'>
+                            <PencilIcon className='h-4 w-4' />
                           </IconButton>
                         </Tooltip>
-                        <Tooltip content="delete User">
+                        <Tooltip content='delete User'>
                           <IconButton
-                            color="red"
+                            color='red'
                             onClick={() => setDeleteAd(id)}
-                            variant="text"
+                            variant='text'
                           >
-                            <TrashIcon className="h-4 w-4" />
+                            <TrashIcon className='h-4 w-4' />
                           </IconButton>
                         </Tooltip>
                       </div>
@@ -252,15 +253,15 @@ export default function AdsTable() {
           </tbody>
         </table>
       </CardBody>
-      <CardFooter className="flex items-center justify-between border-t border-blue-gray-50 p-4">
-        <Typography variant="small" color="blue-gray" className="font-normal">
+      <CardFooter className='flex items-center justify-between border-t border-blue-gray-50 p-4'>
+        <Typography variant='small' color='blue-gray' className='font-normal'>
           Page {page} of 10
         </Typography>
-        <div className="flex gap-2">
-          <Button variant="outlined" onClick={previousPage} size="sm">
+        <div className='flex gap-2'>
+          <Button variant='outlined' onClick={previousPage} size='sm'>
             Previous
           </Button>
-          <Button variant="outlined" onClick={nextPage} size="sm">
+          <Button variant='outlined' onClick={nextPage} size='sm'>
             Next
           </Button>
         </div>
@@ -269,26 +270,26 @@ export default function AdsTable() {
       <Dialog
         open={deleteAd ? true : false}
         handler={() => setDeleteAd(null)}
-        size="xs"
+        size='xs'
       >
-        <div className="flex items-center justify-between">
-          <DialogHeader className="flex flex-col items-start">
-            <Typography className="" variant="h4">
+        <div className='flex items-center justify-between'>
+          <DialogHeader className='flex flex-col items-start'>
+            <Typography className='' variant='h4'>
               delete this ad
             </Typography>
           </DialogHeader>
         </div>
-        <DialogBody className=" overflow-auto">
-          <Typography className="mb-5  " color="gray" variant="lead">
+        <DialogBody className=' overflow-auto'>
+          <Typography className='mb-5  ' color='gray' variant='lead'>
             whant to delete this ads ?
           </Typography>
         </DialogBody>
-        <DialogFooter className="space-x-2">
+        <DialogFooter className='space-x-2'>
           <Button onClick={() => removeAd(deleteAd!)}>delete</Button>
 
           <Button
-            variant="text"
-            color="gray"
+            variant='text'
+            color='gray'
             onClick={() => removeAd(deleteAd!)}
           >
             cancel
