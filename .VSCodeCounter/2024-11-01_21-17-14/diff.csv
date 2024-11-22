@@ -1,0 +1,141 @@
+"filename", "language", "TypeScript JSX", "TypeScript", "SCSS", "CSS", "JavaScript", "XML", "comment", "blank", "total"
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\App.tsx", "TypeScript JSX", -55, 0, 0, 0, 0, 0, 0, -6, -61
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\AdsTable\AdsTable.tsx", "TypeScript JSX", -290, 0, 0, 0, 0, 0, 0, -11, -301
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\AnnouncerPostDialog\AnnouncerPostDialog.tsx", "TypeScript JSX", -131, 0, 0, 0, 0, 0, 0, -6, -137
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\AnnouncersTable\AnnouncersTable.tsx", "TypeScript JSX", -287, 0, 0, 0, 0, 0, 0, -13, -300
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\CategoriesTable\CategoriesTable.tsx", "TypeScript JSX", -310, 0, 0, 0, 0, 0, 0, -14, -324
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\CategoryPostDialog\CategoryPostDialog.tsx", "TypeScript JSX", -65, 0, 0, 0, 0, 0, 0, -5, -70
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\FurniturePostDialog\FurniturePostDialog.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, -1, -1
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\FurniturePostDialog\FurniturePostDialog.tsx", "TypeScript JSX", -124, 0, 0, 0, 0, 0, 0, -21, -145
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\HousePostDialog\HousePostDialog.tsx", "TypeScript JSX", -133, 0, 0, 0, 0, 0, 0, -9, -142
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\MediaPostDialog\MediaPostDialog.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, -1, -1
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\MediaPostDialog\MediaPostDialog.tsx", "TypeScript JSX", -72, 0, 0, 0, 0, 0, 0, -11, -83
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\TrafficChart\TrafficChart.tsx", "TypeScript JSX", -33, 0, 0, 0, 0, 0, 0, -1, -34
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserInfoCard\UserInfoCard.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, -1, -1
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserInfoCard\UserInfoCard.tsx", "TypeScript JSX", -189, 0, 0, 0, 0, 0, -1, -9, -199
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\AdsTab\AdsTab.tsx", "TypeScript JSX", -252, 0, 0, 0, 0, 0, 0, -9, -261
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\MediasTab\MediaTab.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, -1, -1
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\UserTabs.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, -1, -1
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\UserTabs.tsx", "TypeScript JSX", -79, 0, 0, 0, 0, 0, 0, -7, -86
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\FilterHeader\FilterHeader.tsx", "TypeScript JSX", -84, 0, 0, 0, 0, 0, 0, -5, -89
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Footer\footer.tsx", "TypeScript JSX", -67, 0, 0, 0, 0, 0, 0, -3, -70
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Header\Hero\Hero.tsx", "TypeScript JSX", -79, 0, 0, 0, 0, 0, -1, -7, -87
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Header\Hero\hero.scss", "SCSS", 0, 0, -24, 0, 0, 0, 0, -4, -28
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Header\Nav\Nav.tsx", "TypeScript JSX", -117, 0, 0, 0, 0, 0, 0, -8, -125
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Header\header.tsx", "TypeScript JSX", -13, 0, 0, 0, 0, 0, 0, -5, -18
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Nav2\Nav2.tsx", "TypeScript JSX", -89, 0, 0, 0, 0, 0, 0, -6, -95
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\News_later\news_later.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, -1, -1
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\News_later\news_later.tsx", "TypeScript JSX", -25, 0, 0, 0, 0, 0, 0, -1, -26
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\ProductCard\ProductCard.tsx", "TypeScript JSX", -37, 0, 0, 0, 0, 0, 0, -6, -43
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\ProductDetailCard\ProductDetailCard.tsx", "TypeScript JSX", -105, 0, 0, 0, 0, 0, 0, -6, -111
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\SideBar\Sidebar.tsx", "TypeScript JSX", -132, 0, 0, 0, 0, 0, 0, -12, -144
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\SigninDialog\SigninDialog.tsx", "TypeScript JSX", -52, 0, 0, 0, 0, 0, 0, -2, -54
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\Stats\Stats.tsx", "TypeScript JSX", -50, 0, 0, 0, 0, 0, 0, -5, -55
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\services\Services.tsx", "TypeScript JSX", -66, 0, 0, 0, 0, 0, 0, -5, -71
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\components\utilities\fourniture.js", "JavaScript", 0, 0, 0, 0, -7, 0, 0, -1, -8
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\context\AuthContext.tsx", "TypeScript JSX", -102, 0, 0, 0, 0, 0, 0, -18, -120
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\index.css", "CSS", 0, 0, 0, -13, 0, 0, -2, -5, -20
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\layouts\DashboardLayout.tsx", "TypeScript JSX", -16, 0, 0, 0, 0, 0, -1, -4, -21
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\main.tsx", "TypeScript JSX", -9, 0, 0, 0, 0, 0, 0, -2, -11
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Ad\Ad.tsx", "TypeScript JSX", -160, 0, 0, 0, 0, 0, -10, -14, -184
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Ads\Ads.tsx", "TypeScript JSX", -163, 0, 0, 0, 0, 0, -4, -19, -186
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Announcer\Announcer.tsx", "TypeScript JSX", -333, 0, 0, 0, 0, 0, -5, -22, -360
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Ads\Ads.tsx", "TypeScript JSX", -9, 0, 0, 0, 0, 0, 0, -5, -14
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Announcer\Announcer.tsx", "TypeScript JSX", -13, 0, 0, 0, 0, 0, 0, -2, -15
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Announcers\Announcer.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, -1, -1
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Announcers\Announcers.tsx", "TypeScript JSX", -13, 0, 0, 0, 0, 0, 0, -4, -17
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Categories\Categories.tsx", "TypeScript JSX", -8, 0, 0, 0, 0, 0, 0, -8, -16
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Dashboard\Traffic\Traffic.tsx", "TypeScript JSX", -9, 0, 0, 0, 0, 0, 0, -1, -10
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Download\Download.tsx", "TypeScript JSX", -23, 0, 0, 0, 0, 0, 0, -2, -25
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Furnitures\Furnitures.tsx", "TypeScript JSX", -71, 0, 0, 0, 0, 0, 0, -16, -87
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Home\Home.tsx", "TypeScript JSX", -18, 0, 0, 0, 0, 0, 0, -7, -25
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Login\Login.tsx", "TypeScript JSX", -68, 0, 0, 0, 0, 0, 0, -11, -79
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Privacy\Privacy.tsx", "TypeScript JSX", -8, 0, 0, 0, 0, 0, 0, -4, -12
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Signup\Signup.tsx", "TypeScript JSX", -42, 0, 0, 0, 0, 0, 0, -15, -57
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\Subscriptions\Subscriptions.tsx", "TypeScript JSX", -112, 0, 0, 0, 0, 0, 0, -5, -117
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\errors\403.tsx", "TypeScript JSX", -25, 0, 0, 0, 0, 0, 0, -3, -28
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\errors\404.tsx", "TypeScript JSX", -26, 0, 0, 0, 0, 0, 0, -3, -29
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\pages\errors\500.tsx", "TypeScript JSX", -23, 0, 0, 0, 0, 0, 0, -3, -26
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\utils\PrivateRoute.tsx", "TypeScript JSX", -11, 0, 0, 0, 0, 0, -1, -3, -15
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\utils\types.ts", "TypeScript", 0, -54, 0, 0, 0, 0, -1, -9, -64
+"c:\Users\LENOVO\Documents\GitHub\homeplace_front\src\utils\useAsios.tsx", "TypeScript JSX", -27, 0, 0, 0, 0, 0, 0, -11, -38
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\App.tsx", "TypeScript JSX", 68, 0, 0, 0, 0, 0, 0, 8, 76
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\assets\Whited.svg", "XML", 0, 0, 0, 0, 0, 133, 0, 0, 133
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\ArticlePostDialog\ArticlePostDialog.tsx", "TypeScript JSX", 315, 0, 0, 0, 0, 0, 1, 10, 326
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Cards\Alert\AlertNotifs.tsx", "TypeScript JSX", 73, 0, 0, 0, 0, 0, 1, 8, 82
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Cards\Paiement\ChoiseMode.tsx", "TypeScript JSX", 195, 0, 0, 0, 0, 0, 1, 10, 206
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\AdsTable\AdsTable.tsx", "TypeScript JSX", 290, 0, 0, 0, 0, 0, 0, 11, 301
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\AnnouncerPostDialog\AnnouncerPostDialog.tsx", "TypeScript JSX", 131, 0, 0, 0, 0, 0, 0, 6, 137
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\AnnouncersTable\AnnouncersTable.tsx", "TypeScript JSX", 287, 0, 0, 0, 0, 0, 0, 13, 300
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\CategoriesTable\CategoriesTable.tsx", "TypeScript JSX", 310, 0, 0, 0, 0, 0, 0, 14, 324
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\CategoryPostDialog\CategoryPostDialog.tsx", "TypeScript JSX", 65, 0, 0, 0, 0, 0, 0, 5, 70
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\FurniturePostDialog\FurniturePostDialog.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\FurniturePostDialog\FurniturePostDialog.tsx", "TypeScript JSX", 124, 0, 0, 0, 0, 0, 0, 21, 145
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\HousePostDialog\HousePostDialog.tsx", "TypeScript JSX", 133, 0, 0, 0, 0, 0, 0, 9, 142
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\MediaPostDialog\MediaPostDialog.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\MediaPostDialog\MediaPostDialog.tsx", "TypeScript JSX", 72, 0, 0, 0, 0, 0, 0, 11, 83
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\TrafficChart\TrafficChart.tsx", "TypeScript JSX", 33, 0, 0, 0, 0, 0, 0, 1, 34
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\UserInfoCard\UserInfoCard.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\UserInfoCard\UserInfoCard.tsx", "TypeScript JSX", 189, 0, 0, 0, 0, 0, 1, 9, 199
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\AdsTab\AdsTab.tsx", "TypeScript JSX", 252, 0, 0, 0, 0, 0, 0, 9, 261
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\MediasTab\MediaTab.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\UserTabs.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Dashboard\UserTabs\UserTabs.tsx", "TypeScript JSX", 79, 0, 0, 0, 0, 0, 0, 7, 86
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\FilterHeader\FilterHeader.tsx", "TypeScript JSX", 84, 0, 0, 0, 0, 0, 0, 5, 89
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Footer\footer.tsx", "TypeScript JSX", 67, 0, 0, 0, 0, 0, 0, 3, 70
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Header\Hero\Hero.tsx", "TypeScript JSX", 79, 0, 0, 0, 0, 0, 1, 7, 87
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Header\Hero\hero.scss", "SCSS", 0, 0, 24, 0, 0, 0, 0, 4, 28
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Header\Nav\Nav.tsx", "TypeScript JSX", 107, 0, 0, 0, 0, 0, 5, 14, 126
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Header\header.tsx", "TypeScript JSX", 13, 0, 0, 0, 0, 0, 0, 3, 16
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\MediasDialog\MediasDialog.tsx", "TypeScript JSX", 60, 0, 0, 0, 0, 0, 1, 5, 66
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Nav2\Nav2.tsx", "TypeScript JSX", 111, 0, 0, 0, 0, 0, 14, 5, 130
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\News_later\news_later.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\News_later\news_later.tsx", "TypeScript JSX", 25, 0, 0, 0, 0, 0, 0, 1, 26
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Phone\Phone.tsx", "TypeScript JSX", 57, 0, 0, 0, 0, 0, 2, 6, 65
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\ProductCard\ProductCard.tsx", "TypeScript JSX", 70, 0, 0, 0, 0, 0, 0, 7, 77
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\ProductDetailCard\ProductDetailCard.tsx", "TypeScript JSX", 105, 0, 0, 0, 0, 0, 0, 6, 111
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\SideBar\Sidebar.tsx", "TypeScript JSX", 136, 0, 0, 0, 0, 0, 0, 13, 149
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\SigninDialog\SigninDialog.tsx", "TypeScript JSX", 52, 0, 0, 0, 0, 0, 0, 2, 54
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Stats\Stats.tsx", "TypeScript JSX", 50, 0, 0, 0, 0, 0, 0, 5, 55
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\Timer\Timer.tsx", "TypeScript JSX", 71, 0, 0, 0, 0, 0, 0, 9, 80
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\services\Services.tsx", "TypeScript JSX", 66, 0, 0, 0, 0, 0, 0, 5, 71
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\components\utilities\fourniture.js", "JavaScript", 0, 0, 0, 0, 7, 0, 0, 1, 8
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\context\AuthContext.tsx", "TypeScript JSX", 133, 0, 0, 0, 0, 0, 1, 16, 150
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\index.css", "CSS", 0, 0, 0, 18, 0, 0, 2, 6, 26
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\layouts\DashboardLayout.tsx", "TypeScript JSX", 16, 0, 0, 0, 0, 0, 1, 4, 21
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\main.tsx", "TypeScript JSX", 9, 0, 0, 0, 0, 0, 0, 2, 11
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Ad\Ad.tsx", "TypeScript JSX", 166, 0, 0, 0, 0, 0, 10, 19, 195
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Ads\Ads.tsx", "TypeScript JSX", 165, 0, 0, 0, 0, 0, 4, 19, 188
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Announcer\Announcer.tsx", "TypeScript JSX", 202, 0, 0, 0, 0, 0, 4, 14, 220
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Dashboard\Ads\Ads.tsx", "TypeScript JSX", 9, 0, 0, 0, 0, 0, 0, 5, 14
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Dashboard\Announcer\Announcer.tsx", "TypeScript JSX", 13, 0, 0, 0, 0, 0, 0, 2, 15
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Dashboard\Announcers\Announcer.scss", "SCSS", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Dashboard\Announcers\Announcers.tsx", "TypeScript JSX", 13, 0, 0, 0, 0, 0, 0, 4, 17
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Dashboard\Categories\Categories.tsx", "TypeScript JSX", 8, 0, 0, 0, 0, 0, 0, 8, 16
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Dashboard\Profile\Profile.tsx", "TypeScript JSX", 70, 0, 0, 0, 0, 0, 0, 3, 73
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Dashboard\Settings\Settings.tsx", "TypeScript JSX", 67, 0, 0, 0, 0, 0, 0, 5, 72
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Dashboard\Traffic\Traffic.tsx", "TypeScript JSX", 9, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Download\Download.tsx", "TypeScript JSX", 23, 0, 0, 0, 0, 0, 0, 2, 25
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Favorites\Favorite.tsx", "TypeScript JSX", 80, 0, 0, 0, 0, 0, 0, 10, 90
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Forgot\Forgot.tsx", "TypeScript JSX", 58, 0, 0, 0, 0, 0, 1, 6, 65
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Furnitures\Furnitures.tsx", "TypeScript JSX", 64, 0, 0, 0, 0, 0, 10, 12, 86
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Home\Home.tsx", "TypeScript JSX", 18, 0, 0, 0, 0, 0, 0, 3, 21
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Login\Login.tsx", "TypeScript JSX", 70, 0, 0, 0, 0, 0, 0, 12, 82
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Privacy\Privacy.tsx", "TypeScript JSX", 8, 0, 0, 0, 0, 0, 0, 4, 12
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Signup\Signup.tsx", "TypeScript JSX", 45, 0, 0, 0, 0, 0, 0, 15, 60
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Subscriptions\Subscriptions.tsx", "TypeScript JSX", 155, 0, 0, 0, 0, 0, 0, 8, 163
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\Validation\Validation.tsx", "TypeScript JSX", 58, 0, 0, 0, 0, 0, 1, 6, 65
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\errors\403.tsx", "TypeScript JSX", 28, 0, 0, 0, 0, 0, 0, 3, 31
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\errors\404.tsx", "TypeScript JSX", 29, 0, 0, 0, 0, 0, 0, 4, 33
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\pages\errors\500.tsx", "TypeScript JSX", 26, 0, 0, 0, 0, 0, 0, 3, 29
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\services\SubscriptionApi.ts", "TypeScript", 0, 19, 0, 0, 0, 0, 2, 3, 24
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\services\announceApi.ts", "TypeScript", 0, 18, 0, 0, 0, 0, 2, 3, 23
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\services\announcerApi.ts", "TypeScript", 0, 11, 0, 0, 0, 0, 2, 3, 16
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\services\api.ts", "TypeScript", 0, 21, 0, 0, 0, 0, 0, 10, 31
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\services\mediaApi.ts", "TypeScript", 0, 15, 0, 0, 0, 0, 2, 3, 20
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\services\userApi.ts", "TypeScript", 0, 24, 0, 0, 0, 0, 4, 5, 33
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\stores\defineStore.ts", "TypeScript", 0, 14, 0, 0, 0, 0, 2, 4, 20
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\utils\PrivateRoute.tsx", "TypeScript JSX", 11, 0, 0, 0, 0, 0, 1, 3, 15
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\utils\types.ts", "TypeScript", 0, 72, 0, 0, 0, 0, 4, 10, 86
+"c:\Users\ngdream\Documents\GitHub\homeplace_front\src\utils\useAsios.tsx", "TypeScript JSX", 26, 0, 0, 0, 0, 0, 0, 10, 36
+"Total", "-", 1123, 140, 0, 5, 0, 133, 54, 109, 1564

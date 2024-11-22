@@ -1,7 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700;800&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +12,8 @@
   -webkit-user-select: none;
   user-select: none;
   box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
+  
   /*this line is just for element checking*/
   /* box-shadow: 0 0 0 1px inset blue; */
 }
@@ -17,4 +21,5 @@
 *::-webkit-scrollbar {
   background: #000;
   display: none;
+
 }

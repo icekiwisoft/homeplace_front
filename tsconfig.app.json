@@ -12,6 +12,9 @@
       "@utils/*": ["utils/*"],
       "@assets/*": ["./assets/*"],
       "@components/*": ["components/*"],
+            "@services/*": ["services/*"],
+                        "@stores/*": ["stores/*"],
+
        "@context/*": ["context/*"],
        "@layouts/*":["layout/*"],
       "@pages/*": ["pages/*"] // enables us to use @components/MyComponent
@@ -31,5 +34,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src","declaration.d.ts"]
 }

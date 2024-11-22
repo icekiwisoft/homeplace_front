@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_2" data-name="Calque 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 247.44 264.52">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: MyriadPro-Bold, 'Myriad Pro';
+        font-size: 135.54px;
+        font-weight: 700;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #d58e00;
+      }
+
+      .cls-3, .cls-4, .cls-5, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-3, .cls-6 {
+        fill: #fedf21;
+      }
+
+      .cls-4 {
+        fill: #fff;
+        opacity: .41;
+      }
+
+      .cls-6 {
+        stroke: #d58e00;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+
+      .cls-5 {
+        fill: #ffbe0d;
+      }
+    </style>
+  </defs>
+  <g id="Calque_1-2" data-name="Calque 1">
+    <circle class="cls-5" cx="123.72" cy="140.81" r="123.72"/>
+    <circle class="cls-3" cx="123.72" cy="123.72" r="123.72"/>
+    <path class="cls-4" d="M123.72,2.87C72.09,2.87,27.86,34.5,9.32,79.43c18.54,44.93,62.78,76.55,114.4,76.55s95.86-31.62,114.4-76.55C219.57,34.5,175.34,2.87,123.72,2.87Z"/>
+    <circle class="cls-6" cx="123.72" cy="128.96" r="90.01" transform="translate(-49.32 84.3) rotate(-31.72)"/>
+    <path class="cls-2" d="M123.72,49.99c47.94,0,87.24,37.67,89.86,84.97.09-1.67.14-3.35.14-5.04,0-49.63-40.38-90.01-90.01-90.01s-90.01,40.38-90.01,90.01c0,1.69.05,3.37.14,5.04,2.63-47.29,41.93-84.96,89.86-84.96Z"/>
+    <text class="cls-1" transform="translate(82.71 178.91)"><tspan x="0" y="0">D</tspan></text>
+  </g>
+</svg>
