@@ -9,7 +9,7 @@ import { Ad } from '../../utils/types';
 export default function ProductCard(props: Ad): React.ReactElement {
   const { price, presentation, id }: Ad = props;
   const navigate = useNavigate();
-  const { user, toggleModal } = useContext(AuthContext);
+  const { user, toggleModal } = { user: 'user', toggleModal: () => {} };
   const [liked, setLike] = useState(false);
   const like = () => {
     if (user) toggleModal!();

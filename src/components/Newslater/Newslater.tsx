@@ -1,7 +1,6 @@
-import './news_later.scss';
 import React from 'react';
 
-export default function News_later() {
+export default function Newslater() {
   return (
     <div className='flex flex-col items-center  content-center py-10 md:py-36 '>
       <h2 className='content-center text-#001122 p-5 mb-5  text-[2.4rem] font-bold '>

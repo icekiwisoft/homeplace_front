@@ -4,15 +4,16 @@ import { jwtDecode } from 'jwt-decode';
 import { getStoreValue, setStoreValue } from 'pulsy';
 
 export const baseURL = 'http://localhost:8000';
+
+const token = getStoreValue<string | null>('token');
 const api = axios.create({
   baseURL: baseURL,
-  headers: { Authorization: `Bearer ${getStoreValue('token')}` },
+  headers: { Authorization: `Bearer ${token}` },
 });
 
-const tokenData = getStoreValue('authData');
-if (tokenData)
+if (token)
   api.interceptors.request.use(async req => {
-    const user = jwtDecode(tokenData.access_token);
+    const user = jwtDecode(token);
     const isExpired = dayjs.unix(user.exp!).diff(dayjs()) < 1;
 
     if (!isExpired) return req;

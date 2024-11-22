@@ -1,11 +1,14 @@
-import AuthContext from '@context/AuthContext';
+import usePulsy from 'pulsy';
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
+import { AuthData } from './types';
 
 export default function PrivateRoute({ children }: React.PropsWithChildren) {
-  const { user } = useContext(AuthContext);
+  const [authData] = usePulsy<AuthData>('authData');
   const location = useLocation();
-  if (!user) {
+
+  if (authData.status == 'unknow') return null;
+  if (authData.status == 'logged') {
     // not logged in so redirect to login page with the return url
     return <Navigate to='/login' state={{ from: location }} />;
   }

@@ -1,10 +1,9 @@
 import Footer from '@components/Footer/footer';
 import Header from '@components/Header/header';
-import News_later from '@components/News_later/news_later';
+import Newslater from '@components/Newslater/Newslater';
 import Services from '@components/services/Services';
 import Stats from '@components/Stats/Stats';
-import { Input } from '@material-tailwind/react';
-import React, { createContext } from 'react';
+import React from 'react';
 
 export default function Home(): React.ReactElement {
   return (
@@ -12,7 +11,7 @@ export default function Home(): React.ReactElement {
       <Header />
       <Services />
       <Stats />
-      <News_later />
+      <Newslater />
       <Footer />
     </>
   );
