@@ -1,6 +1,5 @@
 import MTN_money from '@assets/img/MTN-Money.png';
 import Orange_money from '@assets/img/orange-Money.png';
-import AuthContext from '@context/AuthContext';
 import React, { useContext, useState } from 'react';
 import { OfferDetailsProps } from 'utils/types';
 
@@ -8,6 +7,7 @@ import Alert from '../Alert/AlertNotifs';
 
 import 'react-international-phone/style.css';
 import { Phone } from '@components/Phone/Phone';
+import { startCreditPurchase } from '@services/SubscriptionApi';
 
 const ChoiseMode: React.FC<OfferDetailsProps> = ({
   title,
@@ -25,15 +25,15 @@ const ChoiseMode: React.FC<OfferDetailsProps> = ({
   const [isFetching, setIsFetching] = useState(false);
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [showErrorAlert, setShowErrorAlert] = useState(false); // Pour les erreurs générales
-  const { startCreditPurchase } = useContext(AuthContext);
   const [phone, setPhone] = useState('+237');
 
   // Démarre l'achat de crédits avec validation du numéro
   const handlePurchase = async () => {
+    console.log(title, phone, selectedPayment);
     setIsFetching(true);
     if (selectedPayment) {
       try {
-        await startCreditPurchase?.(phone, price);
+        await startCreditPurchase?.(title, phone, selectedPayment);
         setIsFetching(false);
         setShowSuccessAlert(true); // Affiche l'alerte de succès
         setTimeout(() => {

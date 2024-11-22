@@ -1,13 +1,13 @@
 import Logo from '@assets/domilix.png';
 import Piece from '@assets/piece.png';
-import AuthContext from '@context/AuthContext';
 import { HeartIcon } from '@heroicons/react/24/outline';
-import React, { useContext, useState } from 'react';
-import { BsFillHousesFill } from 'react-icons/bs';
-import { FaTimes } from 'react-icons/fa';
+import { AuthData } from '@utils/types';
+import usePulsy from 'pulsy';
+import React, { useState } from 'react';
 import { GoX } from 'react-icons/go';
 import { HiBars3 } from 'react-icons/hi2';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { signinDialogActions } from '@stores/defineStore';
 
 const links = [
   { name: 'Abonnements', url: '/subscriptions' },
@@ -16,10 +16,11 @@ const links = [
 ];
 
 export default function Nav2(): React.ReactElement {
-  const { user, toggleModal } = useContext(AuthContext);
   const [click, setClick] = useState(false);
+  const [authData] = usePulsy<AuthData>('authData');
+
   const handleClick = () => setClick(!click);
-  const domicoins = 2000;
+  const domicoins = 20;
 
   // Contenu du menu mobile
   const content = (
@@ -32,13 +33,7 @@ export default function Nav2(): React.ReactElement {
             </li>
           </NavLink>
         ))}
-        {/* Section Domicoin */}
-        {/* <li className="my-2 hover:bg-gray-200 hover:rounded">
-          <div className="inline-flex justify-center gap-1.5 items-center">
-            <img src={Piece} alt="coin" className="size-6" />
-            <strong className="text-yellow-800">{domicoins}</strong>
-          </div>
-        </li> */}
+
         {/* Section Favoris */}
         <NavLink to='/favorite'>
           <button className='my-2  hover:bg-gray-200 hover:rounded active:bg-violet-700 inline-flex justify-center gap-2 items-center'>
@@ -47,17 +42,17 @@ export default function Nav2(): React.ReactElement {
           </button>
         </NavLink>
         {/* Section Dashboard */}
-        {user && (
+        {!authData.user && (
           <NavLink to='/dashboard'>
             <li className='my-2 py-2 hover:bg-gray-200 hover:rounded'>
               Dashboard
             </li>
           </NavLink>
         )}
-        {!user && (
+        {!authData.user && (
           <li>
             <button
-              onClick={toggleModal}
+              onClick={() => signinDialogActions.toggle()}
               className='transition-all duration-700 cursor-pointer bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 my-2 mx-[10vw] rounded-lg'
             >
               Se connecter
@@ -69,24 +64,31 @@ export default function Nav2(): React.ReactElement {
   );
 
   return (
-    <>
-      <nav className='bg-white top-0 left-0 fixed w-[100%] px-2 lg:px-10 md:px-4 border-b border-gray-400 z-50'>
-        <div className='h-[64px] flex justify-between items-center text-black'>
-          <div className='flex items-center'>
-            <NavLink className='text-2xl font-bold flex' to='/'>
-              <img src={Logo} alt='logo' className='h-5' />
-            </NavLink>
-          </div>
-          {/* Menu Desktop */}
+    <nav className='bg-white top-0 left-0 fixed w-[100%] px-2 lg:px-10 md:px-4 border-b border-gray-400 z-50'>
+      <div className='h-[64px] flex justify-between items-center text-black'>
+        <div className='flex items-center'>
+          <NavLink className='text-2xl font-bold flex' to='/'>
+            <img src={Logo} alt='logo' className='h-5' />
+          </NavLink>
+        </div>
+
+        {/* Menu Desktop */}
+        <div>
           <div className='lg:flex md:flex hidden items-center justify-end font-normal'>
             <div className='flex items-center'>
-              <ul className='flex gap-8 text-[16px] font-medium items-center'>
+              <ul className='flex  gap-8 text-[16px] font-medium items-center'>
+                {links.map(link => (
+                  <NavLink to={link.url} key={link.name}>
+                    <li className='my-2 py-2'>{link.name}</li>
+                  </NavLink>
+                ))}
+
                 <li className='text-sm'>
                   <NavLink
                     to='/subscriptions'
                     className='inline-flex justify-center gap-1.5 items-center'
                   >
-                    <img src={Piece} alt='coin' className='size-6' />
+                    <img src='dom.png' alt='coin' className='size-6' />
                     <strong className='text-yellow-800'>{domicoins}</strong>
                   </NavLink>
                 </li>
@@ -96,15 +98,15 @@ export default function Nav2(): React.ReactElement {
                     Mes Favoris
                   </li>
                 </NavLink>
-                {user?.is_admin && (
+                {authData.user?.is_admin && (
                   <NavLink to='/dashboard'>
                     <li className='cursor-pointer'>Dashboard</li>
                   </NavLink>
                 )}
-                {!user && (
+                {!authData.status == 'guess' && (
                   <li>
                     <button
-                      onClick={toggleModal}
+                      onClick={signinDialogActions.toggle()}
                       className='transition-all duration-700 cursor-pointer bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg'
                     >
                       Se connecter
@@ -114,6 +116,15 @@ export default function Nav2(): React.ReactElement {
               </ul>
             </div>
           </div>
+        </div>
+        <div className='flex md:hidden lg:hidden  items-center gap-4 '>
+          <NavLink
+            to='/subscriptions'
+            className='inline-flex justify-center gap-1.5 items-center'
+          >
+            <img src={Piece} alt='coin' className='size-6' />
+            <strong className='text-yellow-800'>{domicoins}</strong>
+          </NavLink>
           {/* Hamburger Button */}
           <button className='block md:hidden' onClick={handleClick}>
             {click ? (
@@ -123,9 +134,9 @@ export default function Nav2(): React.ReactElement {
             )}
           </button>
         </div>
-        {/* Menu Mobile */}
-        {click && content}
-      </nav>
-    </>
+      </div>
+      {/* Menu Mobile */}
+      {click && content}
+    </nav>
   );
 }

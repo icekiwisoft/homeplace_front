@@ -5,7 +5,6 @@ import Nav2 from '@components/Nav2/Nav2';
 import ProductCard from '@components/ProductCard/ProductCard';
 import { Listbox, Transition } from '@headlessui/react';
 import React, { Fragment, useState } from 'react';
-import { render } from 'react-dom';
 import { BiLike } from 'react-icons/bi';
 import { FiEdit } from 'react-icons/fi';
 import { GrAnnounce } from 'react-icons/gr';
@@ -13,7 +12,6 @@ import {
   HiCheck,
   HiChevronUpDown,
   HiMagnifyingGlass,
-  HiOutlineSpeakerWave,
 } from 'react-icons/hi2';
 import { MdOutlineCampaign } from 'react-icons/md';
 import { useSearchParams } from 'react-router-dom';

@@ -1,5 +1,4 @@
 import Validity from '@assets/img/4336711 1.png';
-import Domicoint from '@assets/img/Domicoint.png';
 import ChoiseMode from '@components/Cards/Paiement/ChoiseMode';
 import Nav2 from '@components/Nav2/Nav2';
 import { useState } from 'react';
@@ -30,7 +29,7 @@ const PricingCard: React.FC<PricingProps> = ({
     )}
     <h2 className='text-xl font-bold mb-6'>{title}</h2>
     <p className='mb-4 flex flex-row gap-2'>
-      <img className='size-6' src={Domicoint} />
+      <img className='size-6' src='dom.png' />
       {credits}
     </p>
     <p className='mb-6 flex flex-row gap-2'>
@@ -79,7 +78,8 @@ export default function Subscriptions() {
         <h1 className='mb-2 mt-3 lg:text-5xl sm:text-4xl text-3xl text-black text-center font-semibold'>
           Le bon plan pour votre recherche
         </h1>
-        <p className='mb-28 sm:w-[85%] w-[125%] text-gray-800 lg:text-sm text-xs text-center px-[15%]'>
+
+        <p className='mb-28 sm:w-[85%] w-full text-gray-800 lg:text-sm text-xs text-center px-10 sm:px-20 md:px-56 '>
           Nous mettons à votre disposition plusieurs plans puissants pour vous
           aider à trouver un logement et un espace de bureau à un prix
           abordable. Tout ce dont vous avez besoin.

@@ -1,16 +1,15 @@
 import React, { FormEvent, useContext, useState } from 'react';
 
 import Home from '../../assets/img/home.jpg';
-import AuthContext from '../../context/AuthContext';
+import { login } from '@services/userApi';
 
 export default function Login(): React.ReactNode {
-  const { loginUser } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const loginSubmit = (e: FormEvent) => {
     e.preventDefault();
-    loginUser && loginUser(email, password);
+    login(email, password, true);
   };
   return (
     <div className='flex h-screen bg-gray-300'>

@@ -29,7 +29,7 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 
 import { Ad as AdType } from '../../utils/types';
-import useAxios from '../../utils/useAsios';
+import { getAd } from '@services/announceApi';
 
 export default function Ad(): React.ReactElement {
   const { id } = useParams();
@@ -40,25 +40,18 @@ export default function Ad(): React.ReactElement {
     setShowModal(!showModal);
   };
 
-  const axios = useAxios();
-
-  const getAdinfo = async () => {
-    const response = await axios.get(`/ads/${id}`);
-    setAdInfo(response.data);
-  };
-
   useEffect(() => {
-    getAdinfo();
+    getAd(id).then(ad => setAdInfo(ad));
   }, [id]);
 
   return (
     <>
       <Nav2 />
-      <div className='px-36 bg-gray-200 mt-16 py-5'>
-        <h1 className='text-2xl font-semibold  mb-5'>
+      <div className='px-2 sm:px-6 md:px-6 lg:px-10 bg-gray-200 mt-16 py-5'>
+        <h1 className='text-xl md:test-2xl lg:text-2xl font-semibold  mb-5'>
           Chambre étudiant: Yaoundé Odza
         </h1>
-        <div className='relative bg-white'>
+        <div className='relative  bg-none'>
           <div className='grid h-96 rounded-lg overflow-hidden grid-cols-2 md:grid-cols-4 gap-2'>
             {/* Large Left Image */}
             <div className='col-span-2 md:col-span-2 row-span-2'>
@@ -108,7 +101,7 @@ export default function Ad(): React.ReactElement {
           </button>
         </div>
         {/* Room Details */}
-        <div className='flex gap-10 mt-10 '>
+        <div className=' flex-col md:flex-row lg:flex-row xl:flex-row flex gap-10 mt-10 '>
           <div className='bg-white shadow-lg rounded-lg py-8 px-6 flex-1'>
             <div className='flex justify-between items-start mb-10'>
               <div>
@@ -152,7 +145,7 @@ export default function Ad(): React.ReactElement {
             </div>
 
             <div className='flex justify-between items-center mb-10 '>
-              <p className='text-2xl font-light '>15.000 FCFA/mois</p>
+              <p className=' text-lg font-light '>15.000 FCFA/mois</p>
               <button className='bg-orange-500  flex gap-2 items-center justify-center hover:bg-orange-700 text-white font-semibold py-2 px-5 w-40 text-sm rounded-lg'>
                 <img src={Piece} className='size-6 ' /> Débloquer
               </button>

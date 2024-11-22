@@ -44,8 +44,20 @@ export interface User {
   name: string;
   email: string;
   is_admin: boolean;
-  credits: number;
-  domicoin: number;
+  dom: number;
+  phone_verified: boolean;
+  email_verified: boolean;
+  phonr_number: string;
+}
+
+export interface AuthData {
+  status: 'guess' | 'logged' | 'unknow';
+  user: User | null;
+}
+
+export interface MessageDialog {
+  message: string;
+  type: 'warn' | 'error' | 'info';
 }
 
 export interface Category {
@@ -82,4 +94,30 @@ export interface PricingProps {
 export interface PhoneProps {
   value: string;
   onChange: (phone: string) => void;
+}
+
+export interface EncodedEmailProps {
+  email: string;
+}
+
+export interface AdCreationRequest {
+  category_id: string;
+  price: number;
+  type: string;
+  ad_type: string;
+  bedroom: number;
+  mainroom: number;
+  medias: File[];
+  gate: number;
+  pool: number;
+  garage: number;
+  toilet: number;
+  furnitured: number;
+  localization: string[];
+  period: string;
+}
+
+export interface Category {
+  id: string;
+  name: string;
 }

@@ -1,37 +1,33 @@
 import Nav2 from '@components/Nav2/Nav2';
 import ProductCard from '@components/ProductCard/ProductCard';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { HiAdjustmentsHorizontal, HiMagnifyingGlass } from 'react-icons/hi2';
 import { Link, useSearchParams } from 'react-router-dom';
 
 import { Ad } from '../../utils/types';
-import useAxios from '../../utils/useAsios';
+import { getAds } from '@services/announceApi';
 
 export default function Ads(): React.ReactElement {
   const [ads, setAds] = useState<Ad[]>([]);
-  const axios = useAxios();
   const [nextPage, setNextPage] = useState<string | null>('ads');
   const [isFilterSidebarOpen, setIsFilterSidebarOpen] = useState(false); // State for filter sidebar
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const [UrlSearchParam, setUrlSearchParam] = useSearchParams();
+  const [UrlSearchParam] = useSearchParams();
 
   const handleFilterButtonClick = () => {
     setIsFilterSidebarOpen(!isFilterSidebarOpen); // Toggle filter sidebar visibility
   };
 
-  const getAds = useCallback(() => {
+  const getMoreAds = useCallback(() => {
     setIsLoadingMore(true);
-    axios
-      .get(nextPage!, {
-        params: {
-          search: UrlSearchParam.get('search'),
-        },
-      })
-      .then(response => {
-        setAds([...ads, ...response.data.data]);
-        setNextPage(response.data.links.next);
-        setIsLoadingMore(false);
-      });
+    getAds({
+      page: 1,
+      search: UrlSearchParam.get('search'),
+    }).then(response => {
+      setAds([...ads, ...response.data.data]);
+      setNextPage(response.data.links.next);
+      setIsLoadingMore(false);
+    });
   }, [isLoadingMore, ads]);
 
   useEffect(() => {
@@ -51,11 +47,11 @@ export default function Ads(): React.ReactElement {
         canLoadMore
       ) {
         canLoadMore = false;
-        getAds();
+        getMoreAds();
       }
     }
 
-    if (!ads.length) getAds();
+    if (!ads.length) getMoreAds();
 
     window.addEventListener('scroll', handleScrollEvent);
 

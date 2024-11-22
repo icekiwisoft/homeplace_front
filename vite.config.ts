@@ -15,6 +15,9 @@ export default defineConfig({
       '@components': resolve(root, 'components'),
       '@pages': resolve(root, 'pages'),
       '@context': resolve(root, 'context'),
+      '@utils': resolve(root, 'utils'),
+      '@services': resolve(root, 'services'),
+      '@stores': resolve(root, 'stores'),
     },
   },
 });
