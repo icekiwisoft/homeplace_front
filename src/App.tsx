@@ -4,7 +4,6 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import  DashboardAnnouncer from "@pages/Dashboard/Announcer/Announcer.tsx";
 import Announcers from "@pages/Dashboard/Announcers/Announcers.tsx";
 import Login from "@pages/Login/Login.tsx";
-import Logout from "@pages/Logout/Logout.tsx";
 import "leaflet/dist/leaflet.css";
 import Error404 from "@pages/errors/404.tsx";
 import Error403 from "@pages/errors/403.tsx";

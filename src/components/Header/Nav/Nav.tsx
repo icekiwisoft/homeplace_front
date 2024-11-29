@@ -6,7 +6,6 @@ import { FaTimes } from "react-icons/fa";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "@assets/Whited.svg";
-// import Logo from "@assets/domilix.png";
 import AuthContext from "@context/AuthContext";
 
 export default function Nav(): React.ReactElement {
@@ -19,38 +18,38 @@ export default function Nav(): React.ReactElement {
       <div className="md:hidden  text-black bg-[#fff] h-screen absolute z-[3] block top-[80px] w-full left-0 right-0 transition">
         <ul className="text-center  text-xs mt-16 z-[50000] transition-all ">
           <Link to="/">
-            <li className="my-2 py-2 hover:bg-white hover:rounded">Accueil</li>
+            <li className="my-2 py-2 hover:bg-white">Accueil</li>
           </Link>
           <Link to="/houses">
-            <li className="my-2 py-2 hover:bg-white hover:rounded">
+            <li className="my-2 py-2 hover:bg-white">
               Imobilier
             </li>
           </Link>
           <Link to="/furnitures">
-            <li className="my-2 py-2 hover:bg-white hover:rounded">
+            <li className="my-2 py-2 hover:bg-white">
               mobilier
             </li>
           </Link>
           {user && (
             <Link to="Dashboard">
-              <li className="my-2 py-2 hover:bg-white hover:rounded">
+              <li className="my-2 py-2 hover:bg-white">
                 dashboard
               </li>
             </Link>
           )}
 
           <Link to="Services">
-            <li className="my-2 py-2 hover:bg-white hover:rounded">
+            <li className="my-2 py-2 hover:bg-white">
               Contact us
             </li>
           </Link>
 
           {!user && (
-            <li >
-              <button onClick={toggleModal} className="transition cursor-pointer bg-[#D88A3B] text-white font-bold px-6 py-2 my-2 mx-[10vw] rounded">
-                sign in
-              </button>
-            </li>
+           <li >
+           <button onClick={toggleModal} className="transition cursor-pointer bg-[#D88A3B] text-white font-bold px-6 py-2 my-2 mx-[10vw] rounded">
+           sign in
+           </button>
+         </li>
           )}
 
 
@@ -68,34 +67,29 @@ export default function Nav(): React.ReactElement {
             <img src={Logo} alt="logo" className="h-5" />
           </NavLink>
 
-          {/* <span className="text-2xl font-bold flex">
-            <HiHomeModern className="h-auto" />
-            Domilix
-          </span> */}
-
         </div>
         <div className="lg:flex md:flex lg: flex-1 items center justify-end font-normal hidden">
           <div className="flex-10 ">
             <ul className="flex gap-8 text-[16px] font-medium items-center">
               <Link to="/404">
-                <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
+                <li className="  hover:text-[#D88A3B] transition-colors cursor-pointer">
                   Contact us
                 </li>
               </Link>
               <Link to="/houses">
-                <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
+                <li className="  hover:text-[#D88A3B] transition-colors cursor-pointer">
                   Houses
                 </li>
               </Link>
               <Link to="/furnitures">
-                <li className=" hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
+                <li className="  hover:text-[#D88A3B] transition-colors cursor-pointer">
                   Furnitures
                 </li>
               </Link>
 
               {user && (
                 <Link to="/dashboard">
-                  <li className="hover:scale-110 transition-colors hover:font-semibold cursor-pointer">
+                  <li className=" hover:text-[#D88A3B] transition-colors cursor-pointer">
                     dashboard
                   </li>
                 </Link>
@@ -103,13 +97,11 @@ export default function Nav(): React.ReactElement {
 
               {!user && (
                 <li>
-                  <Link
-                    to="/login"
-                    className=" transition-border duration-300 cursor-pointer bg-white hover:rounded-full  text-black font-bold py-2 px-4 rounded "
-                  >
-                    Sign in
-                  </Link>
-                </li>
+                <button onClick={toggleModal}
+                  className=" transition-border duration-300 cursor-pointer bg-white hover:bg-[#D88A3B] hover:text-white  text-black font-bold py-2 px-4 rounded ">
+                  Sign in
+                </button>
+              </li>
               )}
             </ul>
           </div>
