@@ -93,7 +93,7 @@ export default function Nav(): React.ReactElement {
                 </li>
               </Link>
 
-              {!authData.status == 'logged' && (
+              {authData.status == 'logged' && (
                 <Link to='/dashboard'>
                   <li className='hover:scale-110 transition-colors hover:font-semibold cursor-pointer'>
                     dashboard
@@ -101,7 +101,7 @@ export default function Nav(): React.ReactElement {
                 </Link>
               )}
 
-              {!authData.status == 'guess' && (
+              {authData.status == 'guess' && (
                 <li>
                   <Link
                     to='/login'

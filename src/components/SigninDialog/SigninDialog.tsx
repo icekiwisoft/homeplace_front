@@ -6,6 +6,7 @@ import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa'; // Import des ic√
 import { EncodedEmailProps } from 'utils/types';
 
 import { login, register } from '@services/userApi';
+import { signinDialogActions } from '@stores/defineStore';
 
 export default function SigninDialog() {
   const [isRegistering, setIsRegistering] = useState(false);
@@ -73,7 +74,7 @@ export default function SigninDialog() {
   return (
     <div
       className='fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center'
-      onClick={toggleModal}
+      onClick={() => signinDialogActions.toggle()}
     >
       <div
         className='bg-white w-96 rounded-lg p-6 shadow-lg relative'
@@ -81,7 +82,7 @@ export default function SigninDialog() {
       >
         <button
           className='absolute top-2 right-2 text-lg text-gray-700'
-          onClick={toggleModal}
+          onClick={() => signinDialogActions.toggle()}
         >
           ‚úñ
         </button>
