@@ -20,6 +20,7 @@ export default function Nav2(): React.ReactElement {
   const [authData] = usePulsy<AuthData>('authData');
 
   const handleClick = () => setClick(!click);
+  console.log(authData)
   const domicoins = 20;
 
   // Contenu du menu mobile
@@ -103,10 +104,10 @@ export default function Nav2(): React.ReactElement {
                     <li className='cursor-pointer'>Dashboard</li>
                   </NavLink>
                 )}
-                {!authData.status == 'guess' && (
+                {authData.status == 'guess' && (
                   <li>
                     <button
-                      onClick={signinDialogActions.toggle()}
+                      onClick={()=>signinDialogActions.toggle()}
                       className='transition-all duration-700 cursor-pointer bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg'
                     >
                       Se connecter
