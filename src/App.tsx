@@ -1,5 +1,4 @@
 import './stores/defineStore.ts';
-
 import Error403 from '@pages/errors/403.tsx';
 import Error404 from '@pages/errors/404.tsx';
 import Error500 from '@pages/errors/500.tsx';
