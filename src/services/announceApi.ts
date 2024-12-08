@@ -11,7 +11,7 @@ export const getAds = async (params: unknown): Promise<Ad[]> => {
   return data;
 };
 
-export const getAd = async (id:string): Promise<Ad[]> => {
+export const getAd = async (id: string): Promise<Ad[]> => {
   const response = await api.get(`ads\${id}`);
   const data = await response.data;
   return data;

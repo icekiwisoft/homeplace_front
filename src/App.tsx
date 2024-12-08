@@ -1,28 +1,26 @@
-import './stores/defineStore.ts';
+import { authDataActions } from './stores/defineStore.ts';
 import Error403 from '@pages/errors/403.tsx';
-import Error404 from '@pages/errors/404.tsx';
-import Error500 from '@pages/errors/500.tsx';
-import Home from '@pages/Home/Home.tsx';
-import Login from '@pages/Login/Login.tsx';
 import React, { useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 
-import Ad from '@pages/Ad/Ad.tsx';
-import Ads from '@pages/Ads/Ads.tsx';
-import Signup from '@pages/Signup/Signup.tsx';
-
 import Subscriptions from '@pages/Subscriptions/Subscriptions.tsx';
-import Announcer from '@pages/Announcer/Announcer.tsx';
 import Furnitures from '@pages/Furnitures/Furnitures.tsx';
 import Favorite from '@pages/Favorites/Favorite.tsx';
 import Validation from '@pages/Validation/Validation.tsx';
 import Services from '@components/services/Services.tsx';
 import Forgot from '@pages/Forgot/Forgot.tsx';
 import SigninDialog from '@components/SigninDialog/SigninDialog.tsx';
-import usePulsy from 'pulsy';
+import Ad from '@pages/Ad/Ad.tsx';
+import Ads from '@pages/Ads/Ads.tsx';
+import Announcer from '@pages/Announcer/Announcer.tsx';
+import Error404 from '@pages/errors/404.tsx';
+import Error500 from '@pages/errors/500.tsx';
+import Home from '@pages/Home/Home.tsx';
+import Login from '@pages/Login/Login.tsx';
+import Signup from '@pages/Signup/Signup.tsx';
 import { AuthData } from '@utils/types.ts';
-import { authDataActions } from './stores/defineStore.ts';
+import usePulsy from 'pulsy';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App(): React.ReactElement | null {
   const [signinModal] = usePulsy<boolean>('signinModal');

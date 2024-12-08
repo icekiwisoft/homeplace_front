@@ -18,7 +18,7 @@ export type InputProps = {
   onFocus?: () => void;
 };
 
-const Input = ({
+function Input({
   inputClass,
   value = '',
   id,
@@ -33,9 +33,11 @@ const Input = ({
   onKeyDown,
   onBlur,
   onFocus,
-}: InputProps) => {
+}: InputProps) {
   const labelClassName = `absolute left-3 pointer-events-none transition-all ${
-    focus ? 'text-[10px] top-1' : 'text-sm translate-x-0 -translate-y-1/2 top-1/2'
+    focus
+      ? 'text-[10px] top-1'
+      : 'text-sm translate-x-0 -translate-y-1/2 top-1/2'
   } ${hasError ? 'text-red-500' : ''}`;
 
   const inputClassName = twMerge(
@@ -45,14 +47,14 @@ const Input = ({
   );
 
   return (
-    <div className="relative bg-slate w-full">
+    <div className='relative bg-slate w-full'>
       {label && (
         <label className={labelClassName} htmlFor={id}>
           {hasError ? errorMessage : label}
         </label>
       )}
       <input
-        autoComplete="off"
+        autoComplete='off'
         type={type}
         id={id}
         ref={inputRef}
@@ -67,12 +69,12 @@ const Input = ({
         aria-describedby={hasError ? `${id}-error` : undefined}
       />
       {hasError && errorMessage && (
-        <p id={`${id}-error`} className="text-[10px] text-red-500 mt-1">
+        <p id={`${id}-error`} className='text-[10px] text-red-500 mt-1'>
           {errorMessage}
         </p>
       )}
     </div>
   );
-};
+}
 
 export default Input;

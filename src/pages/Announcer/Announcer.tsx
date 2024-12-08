@@ -8,11 +8,7 @@ import React, { Fragment, useState } from 'react';
 import { BiLike } from 'react-icons/bi';
 import { FiEdit } from 'react-icons/fi';
 import { GrAnnounce } from 'react-icons/gr';
-import {
-  HiCheck,
-  HiChevronUpDown,
-  HiMagnifyingGlass,
-} from 'react-icons/hi2';
+import { HiCheck, HiChevronUpDown, HiMagnifyingGlass } from 'react-icons/hi2';
 import { MdOutlineCampaign } from 'react-icons/md';
 import { useSearchParams } from 'react-router-dom';
 
@@ -185,8 +181,8 @@ export default function Announcer() {
             <div className='grid 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2  grid-cols-1 gap-4'>
               {Array(20)
                 .fill(0)
-                .map(() => (
-                  <ProductCard />
+                .map(i => (
+                  <ProductCard key={i} />
                 ))}
             </div>
           </>

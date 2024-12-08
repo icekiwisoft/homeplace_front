@@ -116,8 +116,3 @@ export interface AdCreationRequest {
   localization: string[];
   period: string;
 }
-
-export interface Category {
-  id: string;
-  name: string;
-}

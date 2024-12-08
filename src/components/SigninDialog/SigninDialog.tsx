@@ -1,12 +1,10 @@
 import BlockInputs from '@components/OTP/BlockInputs';
 import { Phone } from '@components/Phone/Phone';
-
+import { login, register } from '@services/userApi';
+import { signinDialogActions } from '@stores/defineStore';
 import { useState, useContext } from 'react';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa'; // Import des icônes de validation
 import { EncodedEmailProps } from 'utils/types';
-
-import { login, register } from '@services/userApi';
-import { signinDialogActions } from '@stores/defineStore';
 
 export default function SigninDialog() {
   const [isRegistering, setIsRegistering] = useState(false);

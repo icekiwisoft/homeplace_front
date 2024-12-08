@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-
-import useAxios from '../../utils/useAsios';
 import { getStat } from '@services/statApi';
+import React, { useEffect, useState } from 'react';
 
 export default function Stats(): React.ReactElement {
   const [stats, setStats] = useState<any[]>([]);
 
   useEffect(() => {
-    setStats(getStat());
+    getStat().then((stats: any) => {
+      setStats(stats);
+    });
   }, []);
   return stats.length ? (
     <div className='md:px-10 px-5  grid sm:grid-cols-2 md:grid-cols-3 grid-cols-1 items-center justify-center place-items-center w-full  mt-20 gap-8  '>

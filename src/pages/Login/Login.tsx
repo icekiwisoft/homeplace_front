@@ -1,7 +1,7 @@
+import { login } from '@services/userApi';
 import React, { FormEvent, useContext, useState } from 'react';
 
 import Home from '../../assets/img/home.jpg';
-import { login } from '@services/userApi';
 
 export default function Login(): React.ReactNode {
   const [email, setEmail] = useState('');

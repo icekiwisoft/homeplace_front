@@ -1,24 +1,25 @@
+import Cookies from 'js-cookie';
 import { setStoreValue } from 'pulsy';
 
 import api from './api';
 
 //login user (jwt method) , and directly store token
 export const login = async (
-  emailOrPhone: string,
+  email: string,
   password: string,
   remember: boolean
 ) => {
-  const response = await api.post('login/', { emailOrPhone, password });
+  const response = await api.post('auth/login', { email, password });
   const data = await response.data;
-  setStoreValue('token', data.access_token);
+  setStoreValue('token', data.authorisation.token);
   return data;
 };
 
 //register user with phone number and   password  and directly store token
 export const register = async (phone: string, password: string) => {
-  const response = await api.post('register/', { phone, password });
+  const response = await api.post('auth/register/', { phone, password });
   const data = await response.data;
-  setStoreValue('token', data.access_token);
+  setStoreValue('token', data.authorisation.token);
   return data;
 };
 
@@ -40,12 +41,10 @@ export const validateEmailCode = async (code: string) => {
   try {
     const response = await api.post(`/verify-email/`, { code });
     if (response.status === 200)
-      setStoreValue('user', user => {
-        return {
-          ...user,
-          email_verified: true,
-        };
-      }); // Update email verification status on success
+      setStoreValue('user', user => ({
+        ...user,
+        email_verified: true,
+      })); // Update email verification status on success
   } catch (error) {
     console.error('Email validation error:', error);
   }
@@ -56,12 +55,11 @@ export const logoutUser = () => {
   setStoreValue('user', null);
   Cookies.remove('authorization'); // Remove token from cookies
   sessionStorage.removeItem('authorization'); // Remove token from session storage
-  navigate('/'); // Redirect to homepage after logout
 };
 
 const validatePhoneCode = async (phone_number: string, code: string) => {
   try {
-    const response = await axios.post(`/verify-phone/`, {
+    const response = await api.post(`/verify-phone/`, {
       phone_number,
       code,
     });

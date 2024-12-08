@@ -1,11 +1,10 @@
 import Nav2 from '@components/Nav2/Nav2';
 import ProductCard from '@components/ProductCard/ProductCard';
+import { getAds } from '@services/announceApi';
+import { Ad } from '@utils/types';
 import React, { useCallback, useEffect, useState } from 'react';
 import { HiAdjustmentsHorizontal, HiMagnifyingGlass } from 'react-icons/hi2';
 import { Link, useSearchParams } from 'react-router-dom';
-
-import { Ad } from '../../utils/types';
-import { getAds } from '@services/announceApi';
 
 export default function Ads(): React.ReactElement {
   const [ads, setAds] = useState<Ad[]>([]);
@@ -176,7 +175,7 @@ export default function Ads(): React.ReactElement {
         }
       >
         {ads.map(ad => (
-          <ProductCard {...ad} />
+          <ProductCard {...ad} key={ad.id} />
         ))}
       </section>
     </>
