@@ -1,5 +1,4 @@
 import { authDataActions } from './stores/defineStore.ts';
-
 import Error403 from '@pages/errors/403.tsx';
 import React, { useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';

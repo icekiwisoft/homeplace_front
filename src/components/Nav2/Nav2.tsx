@@ -20,10 +20,90 @@ export default function Nav2(): React.ReactElement {
   const [authData] = usePulsy<AuthData>('authData');
 
   const handleClick = () => setClick(!click);
-  console.log(authData);
+
   const domicoins = 20;
 
-  // Contenu du menu mobile
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        profileMenuRef.current &&
+        profileButtonRef.current &&
+        !profileMenuRef.current.contains(event.target as Node) &&
+        !profileButtonRef.current.contains(event.target as Node)
+      ) {
+        setShowProfileMenu(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const ProfilePopup = () => (
+    <div 
+      ref={profileMenuRef}
+      className="absolute right-0 mt-2 min-w-80 bg-white border rounded-lg shadow-lg p-4 z-[60]"
+      onMouseDown={(e) => e.stopPropagation()}
+    >
+      <div className="flex justify-between mb-4">
+        <div className="flex items-center space-x-3">
+          <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+            {user?.name ? user.name.charAt(0).toUpperCase() : 'U'}
+          </div>
+          <div>
+            <p className="text-sm font-semibold">
+              {user?.name || 'Utilisateur'}
+            </p>
+            <p className="text-sm text-gray-600">{user?.email}</p>
+          </div>
+        </div>
+        <button onClick={() => setShowProfileMenu(false)}>
+          <GoX className="text-2xl font-bold" />
+        </button>
+      </div>
+
+      <div className="space-y-2 border-t pt-2">
+        {user?.is_admin && (
+          <div 
+            onClick={() => {
+              navigate("/dashboard");
+            }} 
+            className="block py-2 hover:bg-gray-100 rounded cursor-pointer"
+          >
+            Dashboard
+          </div>
+        )}
+        <div 
+          onClick={() => {
+            navigate("/favorite");
+          }} 
+          className="block py-2 hover:bg-gray-100 rounded cursor-pointer"
+        >
+          Mes Favoris
+        </div>
+        <div 
+          onClick={() => {
+            navigate("/subscriptions");
+          }} 
+          className="block py-2 hover:bg-gray-100 rounded cursor-pointer"
+        >
+          Mes Abonnements
+        </div>
+        <button
+          onClick={() => {
+            logout();
+            setShowProfileMenu(false);
+          }}
+          className="w-full text-left py-2 text-red-500 hover:bg-red-50 rounded"
+        >
+          Se déconnecter
+        </button>
+      </div>
+    </div>
+  );
+
   const content = (
     <div className='md:hidden text-black bg-white h-screen absolute z-[3] top-[64px] w-full left-0 right-0 transition'>
       <ul className='text-center text-xs mt-10 z-[50000] transition-all'>
@@ -147,7 +227,6 @@ export default function Nav2(): React.ReactElement {
           </button>
         </div>
       </div>
-      {/* Menu Mobile */}
       {click && content}
     </nav>
   );
