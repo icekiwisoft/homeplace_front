@@ -1,12 +1,11 @@
-import { HiBars3 } from 'react-icons/hi2';
-import { GoX } from 'react-icons/go';
-import { useState } from 'react';
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
 import Logo from '@assets/Whited.svg';
-import usePulsy from 'pulsy';
-import { AuthData } from '@utils/types';
 import { signinDialogActions } from '@stores/defineStore';
+import { AuthData } from '@utils/types';
+import usePulsy from 'pulsy';
+import React, { useState } from 'react';
+import { GoX } from 'react-icons/go';
+import { HiBars3 } from 'react-icons/hi2';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Nav(): React.ReactElement {
   const [click, setClick] = useState(false);

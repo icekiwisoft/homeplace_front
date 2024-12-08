@@ -4,7 +4,7 @@ import api from './api';
 
 export const getStat = async () => {
   const response = await api.get('/');
-  [
+  return [
     {
       name: 'houses',
       value: response.data.houses,

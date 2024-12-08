@@ -1,13 +1,13 @@
 import Logo from '@assets/domilix.png';
 import Piece from '@assets/piece.png';
 import { HeartIcon } from '@heroicons/react/24/outline';
+import { signinDialogActions } from '@stores/defineStore';
 import { AuthData } from '@utils/types';
 import usePulsy from 'pulsy';
 import React, { useState } from 'react';
 import { GoX } from 'react-icons/go';
 import { HiBars3 } from 'react-icons/hi2';
 import { NavLink } from 'react-router-dom';
-import { signinDialogActions } from '@stores/defineStore';
 
 const links = [
   { name: 'Abonnements', url: '/subscriptions' },
@@ -20,7 +20,7 @@ export default function Nav2(): React.ReactElement {
   const [authData] = usePulsy<AuthData>('authData');
 
   const handleClick = () => setClick(!click);
-  console.log(authData)
+  console.log(authData);
   const domicoins = 20;
 
   // Contenu du menu mobile
@@ -50,7 +50,7 @@ export default function Nav2(): React.ReactElement {
             </li>
           </NavLink>
         )}
-        {!authData.user && (
+        {authData.status == 'guess' && (
           <li>
             <button
               onClick={() => signinDialogActions.toggle()}
@@ -107,10 +107,21 @@ export default function Nav2(): React.ReactElement {
                 {authData.status == 'guess' && (
                   <li>
                     <button
-                      onClick={()=>signinDialogActions.toggle()}
+                      onClick={() => signinDialogActions.toggle()}
                       className='transition-all duration-700 cursor-pointer bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg'
                     >
                       Se connecter
+                    </button>
+                  </li>
+                )}
+
+                {authData.status == 'logged' && (
+                  <li>
+                    <button
+                      onClick={() => signinDialogActions.toggle()}
+                      className='transition-all duration-700 cursor-pointer bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg'
+                    >
+                      Se deconnecter
                     </button>
                   </li>
                 )}

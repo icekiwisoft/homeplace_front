@@ -4,7 +4,7 @@ import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 export default function Furnitures(): React.ReactElement {
-const targetDate = new Date('2024-11-30T23:59:59');
+  const targetDate = new Date('2024-11-30T23:59:59');
   return (
     <>
       <Nav2 />

@@ -2,6 +2,7 @@ import Piece from '@assets/piece.png';
 import MediasDialog from '@components/MediasDialog/MediasDialog';
 import Nav2 from '@components/Nav2/Nav2';
 import ProductDetailCard from '@components/ProductDetailCard/ProductDetailCard';
+import { getAd } from '@services/announceApi';
 import React, { useEffect, useState } from 'react';
 import {
   FaBed,
@@ -29,7 +30,6 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 
 import { Ad as AdType } from '../../utils/types';
-import { getAd } from '@services/announceApi';
 
 export default function Ad(): React.ReactElement {
   const { id } = useParams();

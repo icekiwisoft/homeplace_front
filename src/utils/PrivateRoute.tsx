@@ -1,6 +1,7 @@
 import usePulsy from 'pulsy';
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
+
 import { AuthData } from './types';
 
 export default function PrivateRoute({ children }: React.PropsWithChildren) {
