@@ -45,6 +45,7 @@ export default function SigninDialog() {
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
     await login(email, password, rememberMe);
+    signinDialogActions.toggle();
   };
 
   // Vérifier si le code OTP entré est correct

@@ -1,4 +1,5 @@
 import { AuthData } from '@utils/types';
+import { jwtDecode } from 'jwt-decode';
 import { createActions, createStore, getStoreValue } from 'pulsy';
 
 createStore<AuthData>('authData', {
@@ -40,7 +41,7 @@ export const authDataActions = createActions<AuthData, undefined>('authData', {
 
     return {
       status: 'logged',
-      user: null,
+      user: jwtDecode(token),
     };
   },
 });
