@@ -4,7 +4,7 @@ import api from './api';
 
 //get all ads  by page  and size
 export const getAds = async (params: unknown): Promise<Ad[]> => {
-  const response = await api.get('ads', {
+  const response = await api.get('announces', {
     params,
   });
   const data = await response.data;
@@ -12,7 +12,7 @@ export const getAds = async (params: unknown): Promise<Ad[]> => {
 };
 
 export const getAd = async (id: string): Promise<Ad[]> => {
-  const response = await api.get(`ads\${id}`);
+  const response = await api.get(`announces/${id}`);
   const data = await response.data;
   return data;
 };
@@ -23,7 +23,7 @@ export const getAdsByAnnouncer = async (
   size: number
 ): Promise<Ad[]> => {
   const response = await api.get(
-    `announcers/${id}/ads?page=${page}&size=${size}`
+    `announcers/${id}/announces?page=${page}&size=${size}`
   );
   const data = await response.data;
   return data;

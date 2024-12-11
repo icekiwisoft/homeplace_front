@@ -1,4 +1,5 @@
 import { Listbox, Transition } from '@headlessui/react';
+import api from '@services/api';
 import { Category } from '@utils/types';
 import axios from 'axios';
 import { FormEvent, Fragment, useEffect, useState } from 'react';
@@ -111,7 +112,7 @@ export default function ArticlePostDialog({
   // Récupération des catégories à partir de l'API
   const fetchCategories = async (type: string) => {
     try {
-      const response = await axios.get(`${baseURL}/categories`, {
+      const response = await api.get('/categories', {
         params: { type },
       });
       console.log(response);
@@ -207,7 +208,7 @@ export default function ArticlePostDialog({
       //   console.log(key, value);
       // }
       // Envoyez la requête avec Axios
-      const response = await axios.post(`${baseURL}/ads`, data, {
+      const response = await api.post('/ads', data, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

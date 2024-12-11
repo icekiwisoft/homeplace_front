@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosError, AxiosInstance } from 'axios';
 import dayjs from 'dayjs';
 import { jwtDecode } from 'jwt-decode';
 import { getStoreValue, setStoreValue } from 'pulsy';
@@ -18,11 +18,25 @@ if (token)
 
     if (!isExpired) return req;
 
-    const response = await axios.post(`refresh/`);
+    try {
+      const response = await axios.post(
+        `https://api.domilix.com/auth/refresh`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setStoreValue('token', response.data.authorization.token);
 
-    setStoreValue('token', response.data);
-
-    req.headers.Authorization = `Bearer ${response.data.access_token}`;
+      req.headers.Authorization = `Bearer ${response.data.access_token}`;
+    } catch (error: AxiosError) {
+      if (error.response.status == 400) {
+        req.headers.Authorization = null;
+        setStoreValue('token', null);
+      }
+    }
     return req;
   });
 
