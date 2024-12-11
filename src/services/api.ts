@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import { jwtDecode } from 'jwt-decode';
 import { getStoreValue, setStoreValue } from 'pulsy';
 
-export const baseURL = 'http://localhost:8000';
+export const baseURL = 'https://api.domilix.com';
 
 const token = getStoreValue<string | null>('token');
 const api = axios.create({
