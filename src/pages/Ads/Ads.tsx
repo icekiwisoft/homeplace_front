@@ -23,8 +23,8 @@ export default function Ads(): React.ReactElement {
       page: 1,
       search: UrlSearchParam.get('search'),
     }).then(response => {
-      setAds([...ads, ...response.data.data]);
-      setNextPage(response.data.links.next);
+      setAds([...ads, ...response.data]);
+      setNextPage(response.links.next);
       setIsLoadingMore(false);
     });
   }, [isLoadingMore, ads]);
@@ -50,7 +50,10 @@ export default function Ads(): React.ReactElement {
       }
     }
 
-    if (!ads.length) getMoreAds();
+    if (!ads.length && !isLoadingMore) {
+      console.log('test');
+      getMoreAds();
+    }
 
     window.addEventListener('scroll', handleScrollEvent);
 
@@ -165,19 +168,21 @@ export default function Ads(): React.ReactElement {
         </button>
       </div>
 
-      <section
-        className={
-          ' ' +
-          (isFilterSidebarOpen
-            ? 'ml-80 w-[calc(100%-320px)] lg:!grid-cols-3 '
-            : '') +
-          'grid 2xl:gap-5 bg-gray-200 mt-32 py-4 min-h-screen   2xl:px-10 xl:px-6  gap-y-14   gap-x-10 2xl:grid-cols-5 lg:grid-cols-4    grid-cols-1  sm:grid-cols-3  '
-        }
-      >
-        {ads.map(ad => (
-          <ProductCard {...ad} key={ad.id} />
-        ))}
-      </section>
+      <div className='bg-gray-200 min-h-screen'>
+        <section
+          className={
+            ' ' +
+            (isFilterSidebarOpen
+              ? 'ml-80 w-[calc(100%-320px)] lg:!grid-cols-3 '
+              : '') +
+            'grid 2xl:gap-5  mt-32 py-4   2xl:px-10 xl:px-6  gap-y-14   gap-x-10 2xl:grid-cols-5 lg:grid-cols-4    grid-cols-1  sm:grid-cols-3  '
+          }
+        >
+          {ads.map(ad => (
+            <ProductCard {...ad} key={ad.id} />
+          ))}
+        </section>
+      </div>
     </>
   );
 }

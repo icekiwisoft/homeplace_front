@@ -12,7 +12,6 @@ export const login = async (
   const response = await api.post('auth/login', { email, password });
   const data = await response.data;
   setStoreValue('token', data.authorisation.token);
-  setStoreValue('authData', { status: 'logged', user: data.user });
   return data;
 };
 
@@ -21,7 +20,6 @@ export const register = async (phone: string, password: string) => {
   const response = await api.post('auth/register/', { phone, password });
   const data = await response.data;
   setStoreValue('token', data.authorisation.token);
-  setStoreValue('authData', { status: 'logged', user: data.user });
 
   return data;
 };
@@ -56,7 +54,6 @@ export const validateEmailCode = async (code: string) => {
 // Logs out the user, clears auth data, and removes cookies/session storage
 export const logoutUser = () => {
   setStoreValue('token', null);
-  setStoreValue('authData', { status: 'guess', user: null });
 };
 
 export const validatePhoneCode = async (phone_number: string, code: string) => {
