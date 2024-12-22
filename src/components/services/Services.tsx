@@ -1,12 +1,10 @@
-import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import image from '../../assets/img/IMG-20210906-WA0027-1-1200x1200.jpg';
-import image2 from '../../assets/img/photo_2023-10-18_19-37-38.jpg';
-import AuthContext from '../../context/AuthContext';
+import image2 from '../../assets/img/photo_2023-10-18_19-37-38.jpg'
 
 function Services(): React.ReactElement {
-  const navigate = useNavigate();
   return (
     <>
       <div className='relative max-w-full md:py-[100px] p-[20px] flex justify-center items-center lg:px-[75px] xl:px-[120px] '>

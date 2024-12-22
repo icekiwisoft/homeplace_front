@@ -16,8 +16,8 @@ export const login = async (
 };
 
 //register user with phone number and   password  and directly store token
-export const register = async (phone: string, password: string) => {
-  const response = await api.post('auth/register/', { phone, password });
+export const register = async (username: string, email: string, password: string, phone_number: string) => {
+  const response = await api.post('auth/register/', { username, email, password, phone_number });
   const data = await response.data;
   setStoreValue('token', data.authorisation.token);
 
