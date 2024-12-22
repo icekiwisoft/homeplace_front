@@ -65,7 +65,7 @@ export default function SigninDialog() {
       console.log('Email vérifié avec succès !');
       setLoading(false);
     } else {
-      console.error('Code de validation incorrect !'); 
+      console.error('Code de validation incorrect !');
     }
   };
 
@@ -178,16 +178,7 @@ export default function SigninDialog() {
               />
 
               {isRegistering && (
-
                 <Phone value={phone_number} onChange={setPhone} />
-                // <PhoneInput country={"cm"} value={phone_number} inputClass='w-full py-2 mb-5 border-b border-gray-800 focus:outline-none focus:border-black' />
-                // <input
-                //   type='text'
-                //   placeholder='Telephone'
-                //   value={phone_number}
-                //   onChange={e => setPhone(e.target.value)}
-                //   className='w-full py-2 mb-5 border-b border-gray-800 focus:outline-none focus:border-black'
-                // />
               )}
 
               <div className={`${isRegistering ? 'flex gap-4 ' : ''}`}>
@@ -199,9 +190,8 @@ export default function SigninDialog() {
                     placeholder='Mot de passe'
                     value={password}
                     onChange={e => setPassword(e.target.value)}
-                    className={`py-2 border-b border-gray-800 focus:outline-none focus:border-black ${
-                      isRegistering ? 'w-full' : 'w-full' // Prend toute la largeur lorsqu'on n'est pas en mode inscription
-                    }`}
+                    className={`py-2 border-b border-gray-800 focus:outline-none focus:border-black ${isRegistering ? 'w-full' : 'w-full' // Prend toute la largeur lorsqu'on n'est pas en mode inscription
+                      }`}
                   />
                   {/* Affiche l'icône de validation si les mots de passe correspondent en mode inscription */}
                   {isRegistering &&
@@ -260,11 +250,11 @@ export default function SigninDialog() {
                 type='submit'
                 className="w-full py-2 mt-5 bg-black text-white rounded-lg flex gap-1 items-center justify-center"
               >
-              {loading && (
-                <CgSpinner size={20} className="mt-1 animate-spin" />
-              )}
-              <span>{isRegistering ? 'Continuer' : 'Connexion'}</span>
-                
+                {loading && (
+                  <CgSpinner size={20} className="mt-1 animate-spin" />
+                )}
+                <span>{isRegistering ? 'Continuer' : 'Connexion'}</span>
+
               </button>
             </form>
           </>
