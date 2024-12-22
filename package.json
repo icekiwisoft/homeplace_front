@@ -22,6 +22,7 @@
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",
     "leaflet": "^1.9.4",
+    "libphonenumber-js": "^1.11.17",
     "otp-input-react": "^0.3.0",
     "pulsy": "^0.1.4",
     "react": "^18.2.0",
