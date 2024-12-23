@@ -21,12 +21,11 @@ export const login = async (
     // Vérifier si la réponse est valide
     if (response.status === 200 && response.data?.authorisation?.token) {
       const token = response.data.authorisation.token;
-
       // Stocker le token selon le choix de l'utilisateur
       if (rememberME) {
         localStorage.setItem('token', token); // Stockage persistant
       } else {
-        sessionStorage.setItem('token', token); // Stockage temporaire
+        setStoreValue('token', token); // Stockage temporaire
       }
 
       return response.data;

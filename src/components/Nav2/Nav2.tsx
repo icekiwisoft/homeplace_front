@@ -7,6 +7,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { GoX } from 'react-icons/go';
 import { HiBars3 } from 'react-icons/hi2';
 import { NavLink, useNavigate } from 'react-router-dom';
+import ProfileModal from '@components/Profil/ProfileModal';
+
 
 const links = [
   { name: 'Abonnements', url: '/subscriptions' },
@@ -18,6 +20,7 @@ export default function Nav2(): React.ReactElement {
   const [click, setClick] = useState(false);
   const [authData] = usePulsy<AuthData>('authData');
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
   const profileMenuRef = useRef<HTMLDivElement>(null);
   const profileButtonRef = useRef<HTMLButtonElement>(null);
   const navigate = useNavigate();
@@ -81,6 +84,15 @@ export default function Nav2(): React.ReactElement {
               Dashboard
             </div>
           )}
+          <div
+            onClick={() => {
+              setShowProfileMenu(false);
+              setIsProfileModalOpen(true);
+            }}
+            className='block py-2 hover:bg-gray-100 rounded cursor-pointer'
+          >
+            Mon Compte
+          </div>
           <div
             onClick={() => {
               navigate('/favorite');
@@ -243,6 +255,19 @@ export default function Nav2(): React.ReactElement {
           </button>
         </div>
       </div>
+      {isProfileModalOpen && (
+        <ProfileModal
+          onClose={() => setIsProfileModalOpen(false)}
+          onSave={(data) => {
+            console.log('User data saved:', data);
+            // Ajoutez ici la logique pour sauvegarder les données utilisateur.
+          }}
+          onDelete={() => {
+            console.log('User deleted');
+            // Ajoutez ici la logique pour supprimer l'utilisateur.
+          }}
+        />
+      )}
       {click && content}
     </nav>
   );
