@@ -26,7 +26,7 @@ export const login = async (
       if (rememberME) {
         localStorage.setItem('token', token); // Stockage persistant
       } else {
-        sessionStorage.setItem('token', token); // Stockage temporaire
+        setStoreValue('token', token); // Stockage temporaire
       }
 
       return response.data;
@@ -122,7 +122,6 @@ export const logoutUser = () => {
   try {
     // Supprimer le token des stockages persistants et temporaires
     localStorage.removeItem('token');
-    sessionStorage.removeItem('token');
 
     // Réinitialiser la valeur du token dans le store
     setStoreValue('token', null);
