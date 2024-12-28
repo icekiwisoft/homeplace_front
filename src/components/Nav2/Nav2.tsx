@@ -176,7 +176,7 @@ export default function Nav2(): React.ReactElement {
                 <li className='text-sm '>
                   <NavLink
                     to='/subscriptions'
-                    className='inline-flex justify-center gap-1.5 items-center'
+                    className='flex justify-center gap-1.5 items-center'
                   >
                     <img src='dom.png' alt='coin' className='size-6' />
                     <strong className='text-yellow-800'>{domicoins}</strong>
@@ -212,7 +212,7 @@ export default function Nav2(): React.ReactElement {
             </div>
           </div>
         </div>
-        <div className='flex lg:hidden items-center gap-4 relative'>
+        <div className='flex lg:hidden md:hidden items-center gap-4 relative'>
           <NavLink
             to='/subscriptions'
             className='inline-flex justify-center gap-1.5 items-center'
