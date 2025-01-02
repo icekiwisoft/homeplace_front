@@ -112,7 +112,7 @@ export default function Nav2(): React.ReactElement {
   }
 
   const content = (
-    <div className='md:hidden text-black bg-white h-screen absolute z-[3] top-[64px] w-full left-0 right-0 transition'>
+    <div className='md:hidden  text-black bg-white h-screen absolute z-[3] top-[64px] w-full left-0 right-0 transition'>
       <ul className='text-center text-xs mt-10 z-[50000] transition-all'>
         {links.map(link => (
           <NavLink to={link.url} key={link.name}>
@@ -162,7 +162,7 @@ export default function Nav2(): React.ReactElement {
 
         {/* Menu Desktop */}
         <div>
-          <div className='lg:flex md:flex hidden items-center justify-end font-normal'>
+          <div className='hidden 2xl:flex xl:flex lg:flex   items-center justify-end font-normal'>
             <div className='flex items-center'>
               <ul className='flex  gap-8 text-[16px] font-medium items-center'>
                 {links.map(link => (
