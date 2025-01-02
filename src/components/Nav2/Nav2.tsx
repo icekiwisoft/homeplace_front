@@ -48,7 +48,7 @@ export default function Nav2(): React.ReactElement {
     return (
       <div
         ref={profileMenuRef}
-        className='absolute right-0 mt-2 min-w-80 bg-white border rounded-lg shadow-lg p-4 z-[60]'
+        className='fixed right-2 mt-4 min-w-80 bg-white border rounded-lg shadow-lg p-4 z-[60]'
         onMouseDown={e => e.stopPropagation()}
       >
         <div className='flex justify-between mb-4'>
