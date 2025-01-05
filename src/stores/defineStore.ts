@@ -1,4 +1,4 @@
-import { AuthData } from '@utils/types';
+import { AuthData, MessageDialog } from '@utils/types';
 import { jwtDecode } from 'jwt-decode';
 import {
   createActions,

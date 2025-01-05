@@ -1,11 +1,9 @@
 import Logo from '@assets/domilix.png';
-import Piece from '@assets/piece.png';
-import { HeartIcon } from '@heroicons/react/24/outline';
 import { logoutUser } from '@services/userApi';
 import { signinDialogActions } from '@stores/defineStore';
 import { AuthData } from '@utils/types';
 import usePulsy from 'pulsy';
-import React, { useContext, useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { GoX } from 'react-icons/go';
 import { HiBars3 } from 'react-icons/hi2';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -50,7 +48,7 @@ export default function Nav2(): React.ReactElement {
     return (
       <div
         ref={profileMenuRef}
-        className='absolute right-0 mt-2 min-w-80 bg-white border rounded-lg shadow-lg p-4 z-[60]'
+        className='fixed right-2 mt-4 min-w-80 bg-white border rounded-lg shadow-lg p-4 z-[60]'
         onMouseDown={e => e.stopPropagation()}
       >
         <div className='flex justify-between mb-4'>
@@ -73,7 +71,7 @@ export default function Nav2(): React.ReactElement {
         </div>
 
         <div className='space-y-2 border-t pt-2'>
-          {authData.user.is_admin == 1 && (
+          {Number(authData.user?.is_admin) == 1 && (
             <div
               onClick={() => {
                 navigate('/dashboard');
@@ -114,7 +112,7 @@ export default function Nav2(): React.ReactElement {
   }
 
   const content = (
-    <div className='md:hidden text-black bg-white h-screen absolute z-[3] top-[64px] w-full left-0 right-0 transition'>
+    <div className='md:hidden  text-black bg-white h-screen absolute z-[3] top-[64px] w-full left-0 right-0 transition'>
       <ul className='text-center text-xs mt-10 z-[50000] transition-all'>
         {links.map(link => (
           <NavLink to={link.url} key={link.name}>
@@ -164,7 +162,7 @@ export default function Nav2(): React.ReactElement {
 
         {/* Menu Desktop */}
         <div>
-          <div className='lg:flex md:flex hidden items-center justify-end font-normal'>
+          <div className='hidden 2xl:flex xl:flex lg:flex md:flex items-center justify-end font-normal'>
             <div className='flex items-center'>
               <ul className='flex  gap-8 text-[16px] font-medium items-center'>
                 {links.map(link => (
@@ -178,7 +176,7 @@ export default function Nav2(): React.ReactElement {
                 <li className='text-sm '>
                   <NavLink
                     to='/subscriptions'
-                    className='inline-flex justify-center gap-1.5 items-center'
+                    className='flex justify-center gap-1.5 items-center'
                   >
                     <img src='dom.png' alt='coin' className='size-6' />
                     <strong className='text-yellow-800'>{domicoins}</strong>
@@ -203,8 +201,8 @@ export default function Nav2(): React.ReactElement {
                       onClick={() => setShowProfileMenu(prev => !prev)}
                       className='w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center'
                     >
-                      {authData.user.name
-                        ? authData.user.name.charAt(0).toUpperCase()
+                      {authData.user?.name
+                        ? authData.user?.name.charAt(0).toUpperCase()
                         : 'U'}
                     </button>
                     {showProfileMenu && <ProfilePopup />}
@@ -214,7 +212,7 @@ export default function Nav2(): React.ReactElement {
             </div>
           </div>
         </div>
-        <div className='flex lg:hidden items-center gap-4 relative'>
+        <div className='flex lg:hidden md:hidden items-center gap-4 relative'>
           <NavLink
             to='/subscriptions'
             className='inline-flex justify-center gap-1.5 items-center'

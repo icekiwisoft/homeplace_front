@@ -1,10 +1,9 @@
 import Nav2 from '@components/Nav2/Nav2';
 import Timer from '@components/Timer/Timer';
-import React, { useCallback, useContext, useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React from 'react';
 
 export default function Furnitures(): React.ReactElement {
-  const targetDate = new Date('2024-11-30T23:59:59');
+  const targetDate = new Date('2025-01-29T23:59:59');
   return (
     <>
       <Nav2 />
@@ -22,10 +21,6 @@ export default function Furnitures(): React.ReactElement {
             Nous travaillons d'arrache-pied pour vous proposer un nouveau
             service super cool. Reste connecté(e) pour en savoir plus.
           </p>
-          {/* <section
-        className={" " + " bg-gray-200  py-4 min-h-screen flex   2xl:px-10 xl:px-6  gap-y-14   "}>
-        <div className="text-center m-auto w-96 bg-orange-600/15 text-orange-800 rounded-xl py-4 px-4">
-          <span>vous decouvrirez bientot une large gamme de mobilier </span> */}
         </div>
         <Timer targetDate={targetDate} />
       </section>

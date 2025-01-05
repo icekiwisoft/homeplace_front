@@ -1,27 +1,104 @@
-import Cookies from 'js-cookie';
 import { setStoreValue } from 'pulsy';
-
 import api from './api';
 
-//login user (jwt method) , and directly store token
+/**
+ * Effectue une requête de login
+ * @param email - L'email de l'utilisateur
+ * @param password - Le mot de passe de l'utilisateur
+ * @param rememberME - Indique si le token doit être stocké de façon persistante
+ * @returns Les données de la réponse si le login est réussi
+ * @throws Une erreur si le login échoue
+ */
 export const login = async (
   email: string,
   password: string,
-  remember: boolean
+  rememberME: boolean
 ) => {
-  const response = await api.post('auth/login', { email, password });
-  const data = await response.data;
-  setStoreValue('token', data.authorisation.token);
-  return data;
+  try {
+    // Effectuer la requête de login
+    const response = await api.post('auth/login', { email, password });
+
+    // Vérifier si la réponse est valide
+    if (response.status === 200 && response.data?.authorisation?.token) {
+      const token = response.data.authorisation.token;
+
+      // Stocker le token selon le choix de l'utilisateur
+      if (rememberME) {
+        localStorage.setItem('token', token); // Stockage persistant
+      } else {
+        setStoreValue('token', token); // Stockage temporaire
+      }
+
+      return response.data;
+    } else {
+      throw new Error('Invalid login response');
+    }
+  } catch (error: any) {
+    console.error('Login failed:', error?.message || error);
+    throw new Error('Login failed, please try again');
+  }
 };
 
-//register user with phone number and   password  and directly store token
-export const register = async (phone: string, password: string) => {
-  const response = await api.post('auth/register/', { phone, password });
-  const data = await response.data;
-  setStoreValue('token', data.authorisation.token);
+/**
+ * Effectue une requête d'inscription
+ * @param username - Le nom de l'utilisateur
+ * @param email - L'email de l'utilisateur
+ * @param password - Le mot de passe de l'utilisateur
+ * @param phone_number - Le numéro de téléphone de l'utilisateur
+ * @returns Les données de la réponse si l'inscription est réussie
+ * @throws Une erreur si l'inscription échoue
+ */
+export const register = async (
+  username: string,
+  email: string,
+  password: string,
+  phone_number: string
+) => {
+  try {
+    // Effectuer la requête d'inscription
+    const response = await api.post('auth/register/', {
+      username,
+      email,
+      password,
+      phone_number,
+    });
 
-  return data;
+    // Vérifier si la réponse contient un token
+    if (response.status === 200 && response.data?.authorisation?.token) {
+      setStoreValue('token', response.data.authorisation.token);
+      return response.data;
+    } else {
+      throw new Error('Invalid registration response');
+    }
+  } catch (error: any) {
+    console.error('Registration failed:', error?.message || error);
+    throw new Error('Registration failed, please try again');
+  }
+};
+
+/**
+ * Valide un code de vérification d'email
+ * @param code - Le code de vérification
+ * @throws Une erreur si la validation échoue
+ */
+export const validateEmailCode = async (code: string) => {
+  try {
+    // Effectuer la requête de validation
+    const response = await api.post(`/verify-email/`, { code });
+
+    // Mettre à jour le store si la validation est réussie
+    if (response.status === 200) {
+      setStoreValue('user', (user:any) => ({
+        ...user,
+        email_verified: true,
+      }));
+    } else {
+      throw new Error('Invalid email verification response');
+    }
+  } catch (error: any) {
+    console.error('Email validation error:', error?.message || error);
+    throw new Error('Email verification failed, please try again');
+  }
 };
 
 //list paginated users
@@ -38,32 +115,55 @@ export const getUser = async (id: number) => {
   return data;
 };
 
-export const validateEmailCode = async (code: string) => {
+/**
+ * Déconnecte l'utilisateur en supprimant le token et réinitialisant l'état utilisateur
+ */
+export const logoutUser = () => {
   try {
-    const response = await api.post(`/verify-email/`, { code });
-    if (response.status === 200)
-      setStoreValue('user', user => ({
-        ...user,
-        email_verified: true,
-      })); // Update email verification status on success
-  } catch (error) {
-    console.error('Email validation error:', error);
+    // Supprimer le token des stockages persistants et temporaires
+    localStorage.removeItem('token');
+
+    // Réinitialiser la valeur du token dans le store
+    setStoreValue('token', null);
+
+    // Optionnel : Réinitialiser les autres parties du store utilisateur si nécessaire
+    setStoreValue('user', null);
+
+    console.log('User logged out successfully');
+  } catch (error: any) {
+    console.error('Logout failed:', error?.message || error);
   }
 };
 
-// Logs out the user, clears auth data, and removes cookies/session storage
-export const logoutUser = () => {
-  setStoreValue('token', null);
-};
-
-export const validatePhoneCode = async (phone_number: string, code: string) => {
+/**
+ * Valide un code de vérification pour un numéro de téléphone
+ * @param phone_number - Le numéro de téléphone à vérifier
+ * @param code - Le code de validation
+ * @returns Un booléen indiquant le succès de la validation
+ * @throws Une erreur si la validation échoue
+ */
+export const validatePhoneCode = async (
+  phone_number: string,
+  code: string
+): Promise<boolean> => {
   try {
-    const response = await api.post(`/verify-phone/`, {
-      phone_number,
-      code,
-    });
-    if (response.status === 200) setPhoneVerified(true); // Update phone verification status on success
-  } catch (error) {
-    console.error('Phone validation error:', error);
+    // Effectuer la requête de validation
+    const response = await api.post(`/verify-phone/`, { phone_number, code });
+
+    // Vérifier la réponse et mettre à jour le statut de vérification
+    if (response.status === 200) {
+      setStoreValue('user', (user:any) => ({
+        ...user,
+        phone_verified: true, // Mettre à jour l'état de vérification dans le store
+      }));
+      console.log('Phone number validated successfully');
+      return true;
+    } else {
+      console.warn('Phone validation failed: Invalid response');
+      return false;
+    }
+  } catch (error: any) {
+    console.error('Phone validation error:', error?.message || error);
+    throw new Error('Phone verification failed, please try again');
   }
 };

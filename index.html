@@ -7,6 +7,20 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.0/build/css/intlTelInput.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.0/build/js/intlTelInput.min.js"></script>
+    <script>
+      const input = document.querySelector('#phone');
+      window.intlTelInput(input, {
+        loadUtils: () =>
+          import(
+            'https://cdn.jsdelivr.net/npm/intl-tel-input@25.2.0/build/js/utils.js'
+          ),
+      });
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="icekiwi" />
     <meta

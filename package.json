@@ -11,7 +11,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.10.2",
     "@headlessui/react": "^2.1.1",
     "@heroicons/react": "^2.1.1",
     "@material-tailwind/react": "^2.1.8",
@@ -19,9 +18,12 @@
     "@types/node": "^20.11.17",
     "axios": "^1.6.6",
     "dayjs": "^1.11.10",
+    "intl-tel-input": "^25.2.0",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",
     "leaflet": "^1.9.4",
+    "libphonenumber-js": "^1.11.17",
+    "otp-input-react": "^0.3.0",
     "pulsy": "^0.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

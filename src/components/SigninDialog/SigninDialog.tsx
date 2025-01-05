@@ -1,12 +1,14 @@
 import BlockInputs from '@components/OTP/BlockInputs';
-import { Phone } from '@components/Phone/Phone';
 import { login, register } from '@services/userApi';
+import { CgSpinner } from "react-icons/cg";
 import { signinDialogActions } from '@stores/defineStore';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa'; // Import des icônes de validation
 import { EncodedEmailProps } from 'utils/types';
+import { Phone } from '@components/Phone/Phone';
 
 export default function SigninDialog() {
+  const [loading, setLoading] = useState(false);
   const [isRegistering, setIsRegistering] = useState(false);
   const [isVerifyingEmail, setIsVerifyingEmail] = useState(false);
   const [email, setEmail] = useState('');
@@ -24,6 +26,7 @@ export default function SigninDialog() {
   const handleSubmitOTP = (otp: string[]) => {
     console.log('OTP saisi :', otp.join(''));
     alert('Code OTP validé !');
+    setLoading(false);
   };
 
   // Basculer entre les modes d'inscription et de connexion
@@ -31,14 +34,19 @@ export default function SigninDialog() {
 
   // Envoyer un code de vérification par email
   const sendVerificationCode = (email: string) => {
+    setLoading(true);
     console.log(`Code de validation envoyé à ${email}`);
-    setIsVerifyingEmail(true);
+    setTimeout(() => {
+      setIsVerifyingEmail(true);
+      setLoading(false);
+    }, 500);
   };
 
   // Gérer l'inscription et envoyer le code de vérification
   const handleRegister = async (event: React.FormEvent) => {
     event.preventDefault();
-    await register(username, email, password, phone_number);
+    // await register(username, email, password, phone_number);
+    sendVerificationCode(email)
   };
 
   // Gérer la connexion
@@ -51,10 +59,11 @@ export default function SigninDialog() {
   // Vérifier si le code OTP entré est correct
   const handleVerifyCode = (event: React.FormEvent) => {
     event.preventDefault();
+    setLoading(true);
     const enteredCode = otpValues.join('');
     if (enteredCode === randomCode) {
       console.log('Email vérifié avec succès !');
-      setIsVerifyingEmail(false);
+      setLoading(false);
     } else {
       console.error('Code de validation incorrect !');
     }
@@ -93,16 +102,19 @@ export default function SigninDialog() {
               Un code de vérification a été envoyé à votre adresse{' '}
               <EncodedEmail email={email} />
             </p>
-            <form onSubmit={handleVerifyCode} className='text-center'>
+            <form className='text-center'>
               <BlockInputs
                 randomCode={randomCode}
                 handleSubmit={handleSubmitOTP}
               />
               <button
-                type='submit'
-                className='w-full py-2 mt-5 bg-black text-white rounded-lg'
+                onClick={handleVerifyCode}
+                className="w-full py-2 mt-5 bg-black text-white rounded-lg flex gap-1 items-center justify-center"
               >
-                Vérifier
+                {loading && (
+                  <CgSpinner size={20} className="mt-1 animate-spin" />
+                )}
+                <span>Vérifier</span>
               </button>
               <div className='text-sm text-slate-500 mt-4'>
                 Didn't receive code?{' '}
@@ -166,13 +178,7 @@ export default function SigninDialog() {
               />
 
               {isRegistering && (
-                <input
-                  type='text'
-                  placeholder='Telephone'
-                  value={phone_number}
-                  onChange={e => setPhone(e.target.value)}
-                  className='w-full py-2 mb-5 border-b border-gray-800 focus:outline-none focus:border-black'
-                />
+                <Phone value={phone_number} onChange={setPhone} />
               )}
 
               <div className={`${isRegistering ? 'flex gap-4 ' : ''}`}>
@@ -184,9 +190,8 @@ export default function SigninDialog() {
                     placeholder='Mot de passe'
                     value={password}
                     onChange={e => setPassword(e.target.value)}
-                    className={`py-2 border-b border-gray-800 focus:outline-none focus:border-black ${
-                      isRegistering ? 'w-full' : 'w-full' // Prend toute la largeur lorsqu'on n'est pas en mode inscription
-                    }`}
+                    className={`py-2 border-b border-gray-800 focus:outline-none focus:border-black ${isRegistering ? 'w-full' : 'w-full' // Prend toute la largeur lorsqu'on n'est pas en mode inscription
+                      }`}
                   />
                   {/* Affiche l'icône de validation si les mots de passe correspondent en mode inscription */}
                   {isRegistering &&
@@ -243,9 +248,13 @@ export default function SigninDialog() {
               )}
               <button
                 type='submit'
-                className='w-full py-2 bg-black text-white rounded-lg'
+                className="w-full py-2 mt-5 bg-black text-white rounded-lg flex gap-1 items-center justify-center"
               >
-                {isRegistering ? 'Continuer' : 'Connexion'}
+                {loading && (
+                  <CgSpinner size={20} className="mt-1 animate-spin" />
+                )}
+                <span>{isRegistering ? 'Continuer' : 'Connexion'}</span>
+
               </button>
             </form>
           </>
