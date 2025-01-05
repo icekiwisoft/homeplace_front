@@ -162,7 +162,7 @@ export default function Nav2(): React.ReactElement {
 
         {/* Menu Desktop */}
         <div>
-          <div className='hidden 2xl:flex xl:flex lg:flex   items-center justify-end font-normal'>
+          <div className='hidden 2xl:flex xl:flex lg:flex md:flex items-center justify-end font-normal'>
             <div className='flex items-center'>
               <ul className='flex  gap-8 text-[16px] font-medium items-center'>
                 {links.map(link => (
