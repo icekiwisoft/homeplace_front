@@ -24,7 +24,7 @@ export default function MediasDialog({ toggleModal }) {
       onClick={toggleModal}
     >
       <div
-        className='bg-white w-[1080px] max-w-screen-xl h-[580px] rounded-lg p-6 bottom-0   shadow-lg absolute'
+        className='bg-white w-[1080px] max-w-screen-xl h-[580px] rounded-lg p-6 bottom-0 relative  shadow-lg absolute'
         onClick={e => e.stopPropagation()}
       >
         <button
