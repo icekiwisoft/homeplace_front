@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TimerProps } from 'utils/types';
 
-const Timer: React.FC<TimerProps> = ({ targetDate }) => {
-  const calculateTimeLeft = () => {
+const calculateTimeLeft = (targetDate:any) => {
     const difference = targetDate.getTime() - new Date().getTime();
     let timeLeft = {
       days: '00',
@@ -30,12 +29,12 @@ const Timer: React.FC<TimerProps> = ({ targetDate }) => {
 
     return timeLeft;
   };
-
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+const Timer: React.FC<TimerProps> = ({ targetDate }) => {
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(targetDate));
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+      setTimeLeft(calculateTimeLeft(targetDate));
     }, 1000);
 
     return () => clearInterval(timer);

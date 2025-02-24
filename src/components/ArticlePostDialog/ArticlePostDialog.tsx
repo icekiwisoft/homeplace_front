@@ -5,6 +5,7 @@ import axios from 'axios';
 import { FormEvent, Fragment, useEffect, useState } from 'react';
 import { HiChevronUpDown } from 'react-icons/hi2';
 import { MdMyLocation } from 'react-icons/md';
+import { postAnnonce} from '@services/announceurApi'
 
 interface SelectData {
   key: string;
@@ -202,23 +203,8 @@ export default function ArticlePostDialog({
       data.append('medias[]', file);
     });
 
-    try {
-      // console.log(formData);
-      // for (let [key, value] of data.entries()) {
-      //   console.log(key, value);
-      // }
-      // Envoyez la requête avec Axios
-      const response = await api.post('/ads', data, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-
-      console.log("Réponse de l'API :", response.data);
-      toggleDialog(); // Ferme la boîte de dialogue après validation
-    } catch (error) {
-      console.error('Erreur lors de la soumission :', error);
-    }
+    const response = postAnnonce(data);
+    console.log(response);
   };
 
   // Rendu des étapes sous forme de bulles numérotées

@@ -1,5 +1,5 @@
 import usePulsy from 'pulsy';
-import React, { useContext } from 'react';
+import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 
 import { AuthData } from './types';

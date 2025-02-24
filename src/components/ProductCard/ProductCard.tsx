@@ -1,14 +1,10 @@
-import AuthContext from '@context/AuthContext';
 import { HeartIcon, ShareIcon } from '@heroicons/react/24/outline';
-import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-
-import Domilix from '../../assets/domilix_icon.png';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Ad } from '../../utils/types';
 
 export default function ProductCard(props: Ad): React.ReactElement {
   const { price, presentation, id }: Ad = props;
-  const navigate = useNavigate();
   const { user, toggleModal } = { user: 'user', toggleModal: () => {} };
   const [liked, setLike] = useState(false);
   const like = () => {
@@ -20,7 +16,7 @@ export default function ProductCard(props: Ad): React.ReactElement {
     <Link
       to={'/houses/' + id}
       target='_blank'
-      className=' shadow-lg overflow-hidden cursor-pointer rounded-2xl px-4 py-3 bg-white '
+      className=' shadow-lg overflow-hidden cursor-pointer rounded-2xl px-4 py-3 bg-white'
     >
       <div className='h-44 bg-gray-300 rounded-lg overflow-hidden'>
         {
