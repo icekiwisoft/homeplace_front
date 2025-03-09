@@ -22,6 +22,7 @@ import Validation from '@pages/Validation/Validation.tsx';
 import { AuthData } from '@utils/types.ts';
 import usePulsy from 'pulsy';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Contact from '@pages/Contact/Contact';
 
 function App(): React.ReactElement | null {
   const [signinModal] = usePulsy<boolean>('signinModal');
@@ -54,6 +55,7 @@ function App(): React.ReactElement | null {
         <Route path='/403' Component={Error403} />
         <Route path='/500' Component={Error500} />
         <Route path='/404' Component={Error403} />
+        <Route path='/contact' Component={Contact} />
       </Routes>
 
       {signinModal && <SigninDialog />}

@@ -88,8 +88,8 @@ export default function Nav(): React.ReactElement {
             : 'opacity-0 invisible scale-95'
         }`}
       >
-        <div className="flex flex-col items-center space-y-8">
-          {['Home', 'About', 'Properties', 'Contact'].map((item, index) => (
+        <div className="flex flex-col items-center space-y-8 capitalize">
+          {['Home', 'About', 'houses', 'Contact'].map((item, index) => (
             <NavLink 
               key={index}
               to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
