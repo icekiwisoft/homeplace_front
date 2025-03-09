@@ -6,122 +6,106 @@ import React, { useState } from 'react';
 import { GoX } from 'react-icons/go';
 import { HiBars3 } from 'react-icons/hi2';
 import { Link, NavLink } from 'react-router-dom';
+import Burger from '@assets/img/SVG/Burger.svg';
+// import Logo from '@assets/domilix.png';
+// import logo from '../../../assets/img/logo.png';
 
 export default function Nav(): React.ReactElement {
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
-  const [authData] = usePulsy<AuthData>('authData');
-  const content = (
-    <>
-      <div className='md:hidden  text-black bg-[#fff] h-screen absolute z-[3] block top-[80px] w-full left-0 right-0 transition'>
-        <ul className='text-center  text-xs mt-16 z-[50000] transition-all '>
-          <Link to='/'>
-            <li className='my-2 py-2 hover:bg-white hover:rounded'>Accueil</li>
-          </Link>
-          <Link to='/houses'>
-            <li className='my-2 py-2 hover:bg-white hover:rounded'>
-              Imobilier
-            </li>
-          </Link>
-          <Link to='/furnitures'>
-            <li className='my-2 py-2 hover:bg-white hover:rounded'>mobilier</li>
-          </Link>
-          {authData.status == 'logged' && (
-            <Link to='Dashboard'>
-              <li className='my-2 py-2 hover:bg-white hover:rounded'>
-                dashboard
-              </li>
-            </Link>
-          )}
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-          <Link to='Services'>
-            <li className='my-2 py-2 hover:bg-white hover:rounded'>
-              Contact us
-            </li>
-          </Link>
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    // Prevent scrolling when menu is open
+    document.body.style.overflow = isMenuOpen ? 'auto' : 'hidden';
+  };
 
-          {!authData.user && (
-            <li>
-              <button
-                onClick={() => signinDialogActions.toggle()}
-                className='transition cursor-pointer bg-[#D88A3B] text-white font-bold px-6 py-2 my-2 mx-[10vw] rounded'
-              >
-                sign in
-              </button>
-            </li>
-          )}
-        </ul>
-      </div>
-    </>
-  );
+  // Close menu when a link is clicked
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+    document.body.style.overflow = 'auto';
+  };
 
   return (
-    <nav
-      className={`relative w-[100%] *:!border-none z-4  ${click ? 'active' : ''}`}
-    >
-      <div className='bg-gray-900 border-0 z-20 absolute w-full h-[80px] colorer'></div>
-      <div
-        className={`border-0 h-[80px] flex justify-between first-letter:  items-center text-white lg:py-3 px-6 py-2 border-b relative z-50`}
-      >
-        <div className='flex items-center flex-1 '>
-          <NavLink className='text-2xl text-white flex' to='/'>
-            <img src={Logo} alt='logo' className='h-5' />
-          </NavLink>
+    <>
+      <div className='absolute top-0 left-0 w-full z-30'>
+        <div className='w-full px-4 sm:px-6 md:px-9'>
+          <nav className='flex capitalize items-center justify-between h-20'>
+            <div className='flex items-center'>
+              <NavLink className='text-2xl font-bold flex' to='/'>
+                <img src={Logo} alt='logo' className='h-5' />
+              </NavLink>
+            </div>
 
-          {/* <span className="text-2xl font-bold flex">
-            <HiHomeModern className="h-auto" />
-            Domilix
-          </span> */}
-        </div>
-        <div className='lg:flex md:flex lg: flex-1 items center justify-end font-normal hidden'>
-          <div className='flex-10 '>
-            <ul className='flex gap-8 text-[16px] font-medium items-center'>
-              <Link to='/404'>
-                <li className=' hover:scale-110 transition-colors hover:font-semibold cursor-pointer'>
-                  Contact us
-                </li>
-              </Link>
-              <Link to='/houses'>
-                <li className=' hover:scale-110 transition-colors hover:font-semibold cursor-pointer'>
-                  Houses
-                </li>
-              </Link>
-              <Link to='/furnitures'>
-                <li className=' hover:scale-110 transition-colors hover:font-semibold cursor-pointer'>
-                  Furnitures
-                </li>
-              </Link>
-
-              {authData.status == 'logged' && (
-                <Link to='/dashboard'>
-                  <li className='hover:scale-110 transition-colors hover:font-semibold cursor-pointer'>
-                    dashboard
+            {/* Desktop Navigation */}
+            <div className='flex gap-6 md:gap-28 '>
+              <ul className='flex gap-4 md:gap-9 '>
+                <NavLink to={'/#'}>
+                  <li className='capitalize font-bold text-white font-lg'>
+                    Login
                   </li>
-                </Link>
-              )}
-
-              {authData.status == 'guess' && (
-                <li>
-                  <Link
-                    to='/login'
-                    className=' transition-border duration-300 cursor-pointer bg-white hover:rounded-full  text-black font-bold py-2 px-4 rounded '
-                  >
-                    Sign in
-                  </Link>
-                </li>
-              )}
-            </ul>
-          </div>
+                </NavLink>
+                <NavLink to={'/#'}>
+                  <li className='capitalize font-bold text-white font-lg'>
+                    Sign Up
+                  </li>
+                </NavLink>
+              </ul>
+              
+              {/* Custom Hamburger Menu Button - Must be above overlay */}
+              <button 
+                onClick={toggleMenu}
+                aria-label="Toggle menu"
+                className="relative z-[1000] w-8 h-8 flex flex-col justify-center items-center"
+              >
+                <div className="w-8 h-8 flex flex-col justify-center items-center">
+                  <span 
+                    className={`block w-6 h-0.5 bg-white rounded-full transition-all duration-300 ease-in-out ${
+                      isMenuOpen ? 'transform rotate-45 translate-y-1.5' : ''
+                    }`}
+                  ></span>
+                  <span 
+                    className={`block w-6 h-0.5 bg-white rounded-full my-1.5 transition-all duration-300 ease-in-out ${
+                      isMenuOpen ? 'opacity-0 transform scale-x-0' : ''
+                    }`}
+                  ></span>
+                  <span 
+                    className={`block w-6 h-0.5 bg-white rounded-full transition-all duration-300 ease-in-out ${
+                      isMenuOpen ? 'transform -rotate-45 -translate-y-1.5' : ''
+                    }`}
+                  ></span>
+                </div>
+              </button>
+            </div>
+          </nav>
         </div>
-        <button className='block md:hidden ' onClick={handleClick}>
-          {click ? (
-            <GoX className='text-4xl' />
-          ) : (
-            <HiBars3 className='text-4xl' />
-          )}
-        </button>
       </div>
-      {click && content}
-    </nav>
+
+      {/* Full-screen Menu Overlay with Animation - z-index below the button */}
+      <div 
+        className={`fixed inset-0 bg-[#EA7D00]/90 z-[10] flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${
+          isMenuOpen 
+            ? 'opacity-100 visible scale-100' 
+            : 'opacity-0 invisible scale-95'
+        }`}
+      >
+        <div className="flex flex-col items-center space-y-8">
+          {['Home', 'About', 'Properties', 'Contact'].map((item, index) => (
+            <NavLink 
+              key={index}
+              to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+              className={({ isActive }) => `
+                text-white text-3xl font-medium 
+                hover:text-[#0D2E4F] transition-all duration-300
+                transform ${isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}
+                transition-all duration-300 delay-${index * 100}
+              `}
+              onClick={handleLinkClick}
+            >
+              {item}
+            </NavLink>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
