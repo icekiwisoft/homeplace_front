@@ -145,11 +145,11 @@ export default function Ads(): React.ReactElement {
           </span>
         </div>
         &nbsp;
-        <div className='flex w-96  rounded-full px-3 py-1.5 bg-gray-200 border-solid items-center  '>
-          <HiMagnifyingGlass size={28} className='text-gray-800' />
+        <div className='flex w-96  rounded-[10px] px-3 py-2.5 bg-gray-200 border-solid items-center  '>
+          <HiMagnifyingGlass size={24} className='text-gray-800' />
           <input
             type='text'
-            placeholder='search ....'
+            placeholder='Ville, quartier...'
             defaultValue={UrlSearchParam.get('search')!}
             className='  outline-none flex-1 bg-transparent px-2  text-[1rem]  text-gray-600  font-normal'
           />
@@ -168,19 +168,25 @@ export default function Ads(): React.ReactElement {
         </button>
       </div>
 
-      <div className='bg-gray-200 min-h-screen'>
+      <div className="bg-gray-200 min-h-screen">
         <section
           className={
             ' ' +
             (isFilterSidebarOpen
-              ? 'ml-80 w-[calc(100%-320px)] lg:!grid-cols-3 '
+              ? 'ml-80'
               : '') +
-            'grid 2xl:gap-5  mt-32 py-4   2xl:px-10 xl:px-6  gap-y-14   gap-x-10 2xl:grid-cols-5 lg:grid-cols-4    grid-cols-1  sm:grid-cols-3  '
+            'grid gap-y-[35px] gap-x-[20px] mt-32 py-4 px-4 justify-center'
           }
+          style={{
+            width: isFilterSidebarOpen ? 'calc(100% - 320px)' : '100%',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 350px))',
+          }}
         >
-          {ads.map(ad => (
-            <ProductCard {...ad} key={ad.id} />
-          ))}
+          {ads.length === 0 ? (
+            <p className="text-center text-gray-500">No products found.</p>
+          ) : (
+            ads.map(ad => <ProductCard {...ad} key={ad.id} />)
+          )}
         </section>
       </div>
     </>

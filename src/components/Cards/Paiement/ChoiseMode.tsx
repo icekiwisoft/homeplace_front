@@ -1,6 +1,6 @@
 import MTN_money from '@assets/img/MTN-Money.png';
 import Orange_money from '@assets/img/orange-Money.png';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { OfferDetailsProps } from 'utils/types';
 
 import Alert from '../Alert/AlertNotifs';

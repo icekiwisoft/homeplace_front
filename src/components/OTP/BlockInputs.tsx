@@ -39,7 +39,7 @@ export default function BlockInputs({
     if (updatedOTP.join('').length === length) {
       setTimeout(() => {
         if (updatedOTP.join('') === randomCode) handleSubmit(updatedOTP);
-      }, 500);
+      }, 2000);
     }
   };
 
