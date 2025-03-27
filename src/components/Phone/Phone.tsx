@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CountrySelector, usePhoneInput } from 'react-international-phone';
-import { parsePhoneNumber } from 'libphonenumber-js';
+// import { parsePhoneNumber } from 'libphonenumber-js';
 import { PhoneProps } from 'utils/types';
 import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
 

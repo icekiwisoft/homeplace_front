@@ -66,3 +66,7 @@ createStore('theme', 'ligth', {
 export const signinDialogActions = createActions('signinModal', {
   toggle: (state, action) => !state,
 });
+
+export const signupDialogActions = createActions('signupModal', {
+  toggle: (state, action) => !state,
+});

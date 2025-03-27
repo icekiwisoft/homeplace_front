@@ -7,7 +7,18 @@
     {
       "path": "./tsconfig.node.json"
     }
-  ]
+  ],
+  // "compilerOptions": {
+  //   "types": ["node", "vite/client"],
+  //   "moduleResolution": "node",
+  //   "esModuleInterop": true,
+  //   "skipLibCheck": true,
+  //   "strict": true,
+  //   "baseUrl": ".",
+  //   "paths": {
+  //     "@/*": ["src/*"]
+  //   }
+  // }
 
   
 }

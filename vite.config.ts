@@ -20,4 +20,15 @@ export default defineConfig({
       '@stores': resolve(root, 'stores'),
     },
   },
+  server: {
+    // headers: {
+    //   'Content-Security-Policy': `
+    //     default-src 'self';
+    //     connect-src 'self' https://*.mapbox.com;
+    //     img-src 'self' data: blob: https://*.mapbox.com;
+    //     script-src 'self' 'unsafe-eval' https://*.mapbox.com;
+    //     style-src 'self' 'unsafe-inline' https://*.mapbox.com;
+    //   `
+    // }
+  }
 });

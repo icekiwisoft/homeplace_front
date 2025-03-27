@@ -16,7 +16,6 @@ import Forgot from '@pages/Forgot/Forgot.tsx';
 import Furnitures from '@pages/Furnitures/Furnitures.tsx';
 import Home from '@pages/Home/Home.tsx';
 import Login from '@pages/Login/Login.tsx';
-import Signup from '@pages/Signup/Signup.tsx';
 import Subscriptions from '@pages/Subscriptions/Subscriptions.tsx';
 import Validation from '@pages/Validation/Validation.tsx';
 import { AuthData } from '@utils/types.ts';
@@ -39,7 +38,6 @@ function App(): React.ReactElement | null {
       <Routes>
         <Route path='/' index Component={Home} />
         <Route path='/login' Component={Login} />
-        <Route path='/signup' Component={Signup} />
         <Route path='/Forgot' Component={Forgot} />
         <Route path='houses' Component={Ads} />
         <Route path='houses/:id' Component={Ad} />

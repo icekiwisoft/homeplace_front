@@ -2,28 +2,121 @@ import Logo from '@assets/Whited.svg';
 import { signinDialogActions } from '@stores/defineStore';
 import { AuthData } from '@utils/types';
 import usePulsy from 'pulsy';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { GoX } from 'react-icons/go';
-import { HiBars3 } from 'react-icons/hi2';
-import { Link, NavLink } from 'react-router-dom';
-import Burger from '@assets/img/SVG/Burger.svg';
-// import Logo from '@assets/domilix.png';
-// import logo from '../../../assets/img/logo.png';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { logoutUser } from '@services/userApi';
 
 export default function Nav(): React.ReactElement {
+  const [authData] = usePulsy<AuthData>('authData');
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const profileMenuRef = useRef<HTMLDivElement>(null);
+  const profileButtonRef = useRef<HTMLButtonElement>(null);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    // Prevent scrolling when menu is open
     document.body.style.overflow = isMenuOpen ? 'auto' : 'hidden';
   };
 
-  // Close menu when a link is clicked
   const handleLinkClick = () => {
     setIsMenuOpen(false);
     document.body.style.overflow = 'auto';
   };
+
+  // Handle clicks outside of profile menu
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        profileMenuRef.current &&
+        profileButtonRef.current &&
+        !profileMenuRef.current.contains(event.target as Node) &&
+        !profileButtonRef.current.contains(event.target as Node)
+      ) {
+        setShowProfileMenu(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Profile Menu Component
+  function ProfilePopup() {
+    return (
+      <div
+        ref={profileMenuRef}
+        className='fixed right-2 mt-4 min-w-80 bg-white border rounded-lg shadow-lg p-4 z-[60]'
+        onMouseDown={e => e.stopPropagation()}
+      >
+        <div className='flex justify-between mb-4'>
+          <div className='flex items-center space-x-3'>
+            <div className='w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center'>
+              {authData.user?.name
+                ? authData.user.name.charAt(0).toUpperCase()
+                : 'U'}
+            </div>
+            <div>
+              <p className='text-sm font-semibold'>
+                {authData.user?.name || 'Utilisateur'}
+              </p>
+              <p className='text-sm text-gray-600'>{authData.user?.email}</p>
+            </div>
+          </div>
+          <button 
+            onClick={() => setShowProfileMenu(false)}
+            aria-label="Close menu"
+          >
+            <GoX className='text-2xl font-bold' />
+          </button>
+        </div>
+
+        <div className='space-y-2 border-t pt-2'>
+          {Number(authData.user?.is_admin) === 1 && (
+            <div
+              onClick={() => {
+                navigate('/dashboard');
+                setShowProfileMenu(false);
+              }}
+              className='block py-2 hover:bg-gray-100 rounded cursor-pointer'
+            >
+              Dashboard
+            </div>
+          )}
+          <div
+            onClick={() => {
+              navigate('/favorite');
+              setShowProfileMenu(false);
+            }}
+            className='block py-2 hover:bg-gray-100 rounded cursor-pointer'
+          >
+            Mes Favoris
+          </div>
+          <div
+            onClick={() => {
+              navigate('/subscriptions');
+              setShowProfileMenu(false);
+            }}
+            className='block py-2 hover:bg-gray-100 rounded cursor-pointer'
+          >
+            Mes Abonnements
+          </div>
+          <button
+            onClick={() => {
+              logoutUser();
+              setShowProfileMenu(false);
+            }}
+            className='w-full text-left py-2 text-red-500 hover:bg-red-50 rounded'
+          >
+            Se déconnecter
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -37,38 +130,53 @@ export default function Nav(): React.ReactElement {
             </div>
 
             {/* Desktop Navigation */}
-            <div className='flex gap-6 md:gap-28 '>
-              <ul className='flex gap-4 md:gap-9 '>
-                <NavLink to={'/#'}>
-                  <li className='capitalize font-bold text-white font-lg'>
-                    Login
-                  </li>
-                </NavLink>
-                <NavLink to={'/#'}>
-                  <li className='capitalize font-bold text-white font-lg'>
-                    Sign Up
-                  </li>
-                </NavLink>
-              </ul>
+            <div className='flex gap-6 md:gap-28'>
+              {authData?.status === 'logged' ? (
+                <div className='flex items-center gap-4'>
+                  <button
+                    ref={profileButtonRef}
+                    onClick={() => setShowProfileMenu(!showProfileMenu)}
+                    className='w-10 h-10 rounded-full bg-gray-200 hover:bg-gray-300 flex items-center justify-center text-gray-700'
+                  >
+                    {authData.user?.name
+                      ? authData.user.name.split(' ').map(word => word[0]).join('').toUpperCase()
+                      : 'U'}
+                  </button>
+                  {showProfileMenu && <ProfilePopup />}
+                </div>
+              ) : (
+                <ul className='flex gap-4 md:gap-9'>
+                  <button onClick={() => signinDialogActions.toggle()}>
+                    <li className='capitalize font-bold text-white font-lg'>
+                      Login
+                    </li>
+                  </button>
+                  <button onClick={() => signinDialogActions.toggle()}>
+                    <li className='capitalize font-bold text-white font-lg'>
+                      Sign Up
+                    </li>
+                  </button>
+                </ul>
+              )}
               
-              {/* Custom Hamburger Menu Button - Must be above overlay */}
-              <button 
+              {/* Hamburger Menu Button */}
+              <button
                 onClick={toggleMenu}
                 aria-label="Toggle menu"
                 className="relative z-[1000] w-8 h-8 flex flex-col justify-center items-center"
               >
                 <div className="w-8 h-8 flex flex-col justify-center items-center">
-                  <span 
+                  <span
                     className={`block w-6 h-0.5 bg-white rounded-full transition-all duration-300 ease-in-out ${
                       isMenuOpen ? 'transform rotate-45 translate-y-1.5' : ''
                     }`}
                   ></span>
-                  <span 
+                  <span
                     className={`block w-6 h-0.5 bg-white rounded-full my-1.5 transition-all duration-300 ease-in-out ${
                       isMenuOpen ? 'opacity-0 transform scale-x-0' : ''
                     }`}
                   ></span>
-                  <span 
+                  <span
                     className={`block w-6 h-0.5 bg-white rounded-full transition-all duration-300 ease-in-out ${
                       isMenuOpen ? 'transform -rotate-45 -translate-y-1.5' : ''
                     }`}
@@ -80,8 +188,8 @@ export default function Nav(): React.ReactElement {
         </div>
       </div>
 
-      {/* Full-screen Menu Overlay with Animation - z-index below the button */}
-      <div 
+      {/* Menu Overlay */}
+      <div
         className={`fixed inset-0 bg-[#EA7D00]/90 z-[10] flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${
           isMenuOpen 
             ? 'opacity-100 visible scale-100' 
@@ -90,7 +198,7 @@ export default function Nav(): React.ReactElement {
       >
         <div className="flex flex-col items-center space-y-8 capitalize">
           {['Home', 'About', 'houses', 'Contact'].map((item, index) => (
-            <NavLink 
+            <NavLink
               key={index}
               to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
               className={({ isActive }) => `

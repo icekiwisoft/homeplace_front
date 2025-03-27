@@ -3,7 +3,10 @@ import MediasDialog from '@components/MediasDialog/MediasDialog';
 import Nav2 from '@components/Nav2/Nav2';
 import ProductDetailCard from '@components/ProductDetailCard/ProductDetailCard';
 import { getAd } from '@services/announceApi';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
+
+
 import {
   FaBed,
   FaDraftingCompass,
@@ -26,15 +29,27 @@ import {
   MdRule,
   MdSick,
 } from 'react-icons/md';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import Map from '@components/Map/Map';
 
 import { Ad as AdType } from '../../utils/types';
+import Footer from '@components/Footer/footer';
+
+// Configurez votre token Mapbox
+mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
 export default function Ad(): React.ReactElement {
   const { id } = useParams();
   const [adInfo, setAdInfo] = useState<AdType | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const mapContainer = useRef<HTMLDivElement>(null);
+  const map = useRef<mapboxgl.Map | null>(null);
+  const [lng] = useState(11.5021); // Coordonnées de Yaoundé
+  const [lat] = useState(3.8480);
+  const [zoom] = useState(12);
+  const [isMapLocked, setIsMapLocked] = useState(true);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -43,6 +58,30 @@ export default function Ad(): React.ReactElement {
   useEffect(() => {
     getAd(id).then(ad => setAdInfo(ad));
   }, [id]);
+
+  useEffect(() => {
+    if (map.current) return; // initialize map only once
+    if (mapContainer.current) {
+      map.current = new mapboxgl.Map({
+        container: mapContainer.current,
+        style: 'mapbox://styles/mapbox/streets-v12',
+        center: [lng, lat],
+        zoom: zoom,
+      });
+
+      // Ajout des contrôles de navigation
+      map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
+      // Ajout d'un marqueur
+      new mapboxgl.Marker()
+        .setLngLat([lng, lat])
+        .addTo(map.current);
+    }
+  }, [lng, lat, zoom]);
+
+  const handleUnlockMap = () => {
+    setIsMapLocked(false);
+  };
 
   return (
     <>
@@ -175,32 +214,15 @@ export default function Ad(): React.ReactElement {
           <div className=' w-80 bg-white  rounded-lg  shadow-lg'></div>
         </div>
 
-        {/* Map */}
-        <div className='h-[500px] mb-4 bg-gray-200 rounded-lg overflow-hidden  z-10 relative  mt-10'>
-          <div className='absolute z-50 top-0 left-0 h-full w-full flex items-center justify-center bg-gray-600/50 backdrop-blur-md'>
-            <div className='text-center flex flex-col items-center '>
-              <HiLockClosed size={100} fill='white' className='text-white' />
-              <button className='bg-orange-500 mt-3 hover:bg-orange-700 text-white font-semibold py-2.5 px-5 w-52 text-sm rounded-lg'>
-                Débloquer
-              </button>
-            </div>
-          </div>
-          <MapContainer
-            className='absolute z-0'
-            center={[51.505, -0.09]}
-            zoom={13}
-            scrollWheelZoom={true}
-            style={{ width: '100%', height: '100%' }}
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-            />
-          </MapContainer>
-        </div>
+        <Map 
+          isLocked={isMapLocked}
+          onUnlock={handleUnlockMap}
+        />
 
-        {/* Additional Details (Not shown in the image, but can be added here) */}
+        {/* Additio
+      <Footer />shown in the image, but can be added here) */}
       </div>
+      <Footer />
     </>
   );
 }
